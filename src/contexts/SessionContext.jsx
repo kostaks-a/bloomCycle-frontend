@@ -13,27 +13,39 @@ const SessionContextProvider = ({ children }) => {
         try {
             await axios.post("http://localhost:5005/auth/verify", undefined, {
                 headers: {
-                    Authorization: `Hopper ${jwt}`
+                    Authorization: `Bearer ${jwt}`
                 },
             })
             setToken(jwt);
             setIsAuthenticated(true);
             setIsLoading(false);
         } catch (error) {
-            console.log("Error authenticating Hopper: ", error);
-            window.localStorage.removeItem("hopper");
+            console.log("Error authenticating Bearer: ", error);
+            window.localStorage.removeItem("bearer");
         }
     }
 
+    const removeToken = () => {                  
+        // Upon logout, remove the token from the localStorage
+        localStorage.removeItem("authToken");
+    }
+
+    const logOutUser = () => {                     
+        // To log out the user, remove the token
+        removeToken();
+        // and update the state variables    
+        setIsAuthenticated(false);
+    }  
+
     useEffect(() => {
-        const localToken = window.localStorage.getItem("hopper");
+        const localToken = window.localStorage.getItem("bearer");
         console.log("LOCAL TOKEN: ", localToken)
         verifyToken(localToken);
     }, [])
 
     useEffect(() => {
         if (token) {
-            window.localStorage.setItem("hopper", token);
+            window.localStorage.setItem("bearer", token);
             if (!isAuthenticated) {
                 setIsAuthenticated(true);
             }
@@ -41,7 +53,7 @@ const SessionContextProvider = ({ children }) => {
     }, [token])
 
     return (
-        <SessionContext.Provider value={{ setToken, isAuthenticated, isLoading }} >{children}</SessionContext.Provider>
+        <SessionContext.Provider value={{ setToken, isAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
     )
 }
 

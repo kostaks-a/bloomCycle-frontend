@@ -1,18 +1,21 @@
 import { Box, Button, PasswordInput, Text, TextInput } from '@mantine/core'
 import axios from 'axios';
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const SignupPage = () => {
+    const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errorMessage, setErrorMessage] = useState(undefined);
 
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            await axios.post("http://localhost:5005/auth/signup", { username: username, password: password });
+            console.log(email)
+            await axios.post("http://localhost:5005/auth/signup", { username: username, email: email, password: password });
             navigate("/login")
         } catch (error) {
             console.log(error);
@@ -39,7 +42,9 @@ const SignupPage = () => {
                 onSubmit={handleSubmit}
             >
                 <TextInput label='Username' variant='filled' withAsterisk value={username} onChange={(e) => setUsername(e.target.value)} />
+                <TextInput label='Email' variant='filled' withAsterisk value={email} onChange={(e) => setEmail(e.target.value)} />
                 <PasswordInput label='Password' variant='filled' withAsterisk value={password} onChange={(e) => setPassword(e.target.value)} />
+                {errorMessage && <p className="error-message">{errorMessage}</p>}
                 <Button
                     type='submit'
                     variant='filled'
@@ -48,6 +53,8 @@ const SignupPage = () => {
                 >
                     Register
                 </Button>
+                <p>Already have an account?</p>
+                <Link to={"/login"}> Login</Link>
             </Box>
         </Box>
     )
