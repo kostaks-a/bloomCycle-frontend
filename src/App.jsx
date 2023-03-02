@@ -5,6 +5,7 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import Profile from "./pages/Profile";
 import PrivateRoute from './components/Privateroute'
+import Plant from "./pages/Plant";
 
 function App() {
   return (
@@ -36,6 +37,12 @@ function App() {
         <Route path="/profile" element={
           <PrivateRoute>
             <Profile />
+          </PrivateRoute>
+        }
+        />
+        <Route path="/plant" element={
+          <PrivateRoute>
+            <Plant />
           </PrivateRoute>
         }
         />
