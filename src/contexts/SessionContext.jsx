@@ -41,7 +41,7 @@ const SessionContextProvider = ({ children }) => {
     }, [token])
 
     return (
-        <SessionContext.Provider value={{ setToken, isAuthenticated, isLoading }} >{children}</SessionContext.Provider>
+        <SessionContext.Provider value={{ token , setToken, isAuthenticated, isLoading }} >{children}</SessionContext.Provider>
     )
 }
 

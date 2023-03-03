@@ -1,11 +1,14 @@
 import React from 'react'
 
-function Bicycle() {
+function PlantsDisplay() {
+
+
+    
   return (
     <div>
-        
+
     </div>
   )
 }
 
-export default Bicycle
+export default PlantsDisplay

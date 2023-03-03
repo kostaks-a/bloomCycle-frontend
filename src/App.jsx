@@ -5,7 +5,8 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import Profile from "./pages/Profile";
 import PrivateRoute from './components/Privateroute'
-import Plant from "./pages/Plant";
+import PlantCU from './pages/PlantsPages/PlantCU'
+import BikeCU from './pages/BicyclesPages/BicycleCU'
 
 function App() {
   return (
@@ -42,7 +43,13 @@ function App() {
         />
         <Route path="/plant" element={
           <PrivateRoute>
-            <Plant />
+            <PlantCU />
+          </PrivateRoute>
+        }
+        />
+        <Route path="/bicycle" element={
+          <PrivateRoute>
+            <BikeCU />
           </PrivateRoute>
         }
         />
