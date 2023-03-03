@@ -21,15 +21,21 @@ function App() {
             Home
           </Button>
           <Box>
+            {!isAuthenticated && (
             <Button component={Link} to='/signup' variant='subtle' color='cyan'>
               Signup
             </Button>
+            )}
+            {!isAuthenticated && (
             <Button component={Link} to='/login' variant='subtle' color='cyan'>
               Login
             </Button>
+            )}
+            {isAuthenticated && (
             <Button component={Link} to='/profile' variant='subtle' color='cyan'>
               Profile
             </Button>
+            )}
             {isAuthenticated && (
               <Button component={Link} to='/login' onClick={logOutUser} variant='subtle' color='cyan'>
               Logout
