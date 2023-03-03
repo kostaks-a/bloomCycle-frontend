@@ -50,8 +50,12 @@ const LoginPage = () => {
                 >
                     Connect
                 </Button>
-                <p>Don't have an account yet?</p>
-                <Link to={"/signup"}> Sign Up</Link>
+                <Text color="dimmed" size="sm" align="center" mt={5}>
+                    Don't have an account yet? {" "}
+                    <Button component={Link} to='/signup' variant='subtle' color='cyan'>
+                        Sign Up
+                    </Button>
+                </Text>
             </Box>
         </Box>
     )

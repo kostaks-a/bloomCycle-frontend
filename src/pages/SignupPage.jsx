@@ -1,4 +1,4 @@
-import { Box, Button, PasswordInput, Text, TextInput } from '@mantine/core'
+import { Box, Button, PasswordInput, Text, TextInput, Anchor } from '@mantine/core'
 import axios from 'axios';
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
@@ -54,8 +54,12 @@ const SignupPage = () => {
                 >
                     Register
                 </Button>
-                <p>Already have an account?</p>
-                <Link to={"/login"}> Login</Link>
+                <Text color="dimmed" size="sm" align="center" mt={5}>
+                    Already have an account? {" "}
+                    <Button component={Link} to='/login' variant='subtle' color='cyan'>
+                        Login
+                    </Button>
+            </Text>
             </Box>
         </Box>
     )

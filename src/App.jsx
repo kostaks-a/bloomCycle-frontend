@@ -31,9 +31,9 @@ function App() {
               Profile
             </Button>
             {isAuthenticated && (
-              <>
-                <button onClick={logOutUser}>Logout</button>
-              </>
+              <Button component={Link} to='/login' onClick={logOutUser} variant='subtle' color='cyan'>
+              Logout
+            </Button>
             )}
           </Box>
         </Header>
