@@ -18,6 +18,7 @@ const SignupPage = () => {
             await axios.post("http://localhost:5005/auth/signup", { username: username, email: email, password: password });
             navigate("/login")
         } catch (error) {
+            setErrorMessage
             console.log(error);
         }
     }
@@ -41,9 +42,9 @@ const SignupPage = () => {
                 sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
                 onSubmit={handleSubmit}
             >
-                <TextInput label='Username' variant='filled' withAsterisk value={username} onChange={(e) => setUsername(e.target.value)} />
-                <TextInput label='Email' variant='filled' withAsterisk value={email} onChange={(e) => setEmail(e.target.value)} />
-                <PasswordInput label='Password' variant='filled' withAsterisk value={password} onChange={(e) => setPassword(e.target.value)} />
+                <TextInput label='Username' variant='filled' withAsterisk value={username} required onChange={(e) => setUsername(e.target.value)} />
+                <TextInput label='Email' variant='filled' withAsterisk value={email} required onChange={(e) => setEmail(e.target.value)} />
+                <PasswordInput label='Password' variant='filled' withAsterisk value={password} required onChange={(e) => setPassword(e.target.value)} />
                 {errorMessage && <p className="error-message">{errorMessage}</p>}
                 <Button
                     type='submit'
