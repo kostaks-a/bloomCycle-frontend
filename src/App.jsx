@@ -5,9 +5,11 @@ import LoginPage from './pages/LoginPage'
 import SignupPage from './pages/SignupPage'
 import Profile from "./pages/Profile";
 import PrivateRoute from './components/Privateroute'
-import Plant from "./pages/Plant";
+import { useContext } from 'react'
+import { SessionContext } from './contexts/SessionContext'
 
 function App() {
+  const { isAuthenticated, logOutUser } = useContext(SessionContext);
   return (
     <AppShell
       padding='md'
@@ -26,6 +28,11 @@ function App() {
             <Button component={Link} to='/profile' variant='subtle' color='cyan'>
               Profile
             </Button>
+            {isAuthenticated && (
+              <>
+                <button onClick={logOutUser}>Logout</button>
+              </>
+            )}
           </Box>
         </Header>
       }

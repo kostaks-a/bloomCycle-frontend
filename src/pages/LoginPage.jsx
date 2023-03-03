@@ -1,7 +1,7 @@
 import { Box, Button, PasswordInput, Text, TextInput } from '@mantine/core'
 import axios from 'axios';
 import { useContext, useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { SessionContext } from '../contexts/SessionContext';
 
 const LoginPage = () => {
@@ -50,6 +50,8 @@ const LoginPage = () => {
                 >
                     Connect
                 </Button>
+                <p>Don't have an account yet?</p>
+                <Link to={"/signup"}> Sign Up</Link>
             </Box>
         </Box>
     )
