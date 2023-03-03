@@ -7,6 +7,8 @@ import Profile from "./pages/Profile";
 import PrivateRoute from './components/Privateroute'
 import { useContext } from 'react'
 import { SessionContext } from './contexts/SessionContext'
+import PlantCU from './pages/PlantsPages/PlantCU'
+import BikeCU from './pages/BicyclesPages/BicycleCU'
 
 function App() {
   const { isAuthenticated, logOutUser } = useContext(SessionContext);
@@ -49,7 +51,13 @@ function App() {
         />
         <Route path="/plant" element={
           <PrivateRoute>
-            <Plant />
+            <PlantCU />
+          </PrivateRoute>
+        }
+        />
+        <Route path="/bicycle" element={
+          <PrivateRoute>
+            <BikeCU />
           </PrivateRoute>
         }
         />
