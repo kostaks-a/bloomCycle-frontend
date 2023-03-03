@@ -1,5 +1,5 @@
 import { Box, Button, PasswordInput, Text, TextInput } from '@mantine/core'
-import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
+//import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
 import axios from 'axios';
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
