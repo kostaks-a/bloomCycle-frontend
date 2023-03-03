@@ -10,20 +10,20 @@ import {
   useMantineTheme,
 } from "@mantine/core";
 
-function Profile() {
+function DashBoard() {
   const theme = useMantineTheme();
 
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 
   return (
-    <div style={{ width: 300 }}>
-      <Card shadow="sm" padding="lg">
+    <div style={{ display: "flex", justifyContent: "space-evenly" }}>
+      <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
           <Image
-            src=""
+            src="https://media.istockphoto.com/id/845292864/pt/vetorial/wrench-icon.jpg?s=170667a&w=0&k=20&c=jharj_irCKUV04A0T7X2kG0wFNNhXdsR9HwoUkoS90Y="
             height={160}
-            alt="Norway"
+            alt="Wrench"
           />
         </Card.Section>
 
@@ -36,7 +36,7 @@ function Profile() {
             marginTop: theme.spacing.sm,
           }}
         >
-          <Text weight={500}>Change Username</Text>
+          <Text weight={500}>You personal Information</Text>
         </Group>
         <Link to='/profile' style={{ textDecoration: 'none' }}>
         <Button
@@ -51,7 +51,7 @@ function Profile() {
         
       </Card>
 
-      <Card shadow="sm" padding="lg">
+      <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
           <Image src="./image.png" height={160} alt="Norway" />
         </Card.Section>
@@ -65,7 +65,7 @@ function Profile() {
             marginTop: theme.spacing.sm,
           }}
         >
-          <Text weight={500}>Change Password</Text>
+          <Text weight={500}>My Advertisements</Text>
         </Group>
 
         <Button
@@ -77,7 +77,7 @@ function Profile() {
           Check now
         </Button>
       </Card>
-      <Card shadow="sm" padding="lg">
+      <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
           <Image src="./image.png" height={160} alt="Norway" />
         </Card.Section>
@@ -91,33 +91,7 @@ function Profile() {
             marginTop: theme.spacing.sm,
           }}
         >
-          <Text weight={500}>Change e-mail</Text>
-        </Group>
-
-        <Button
-          variant="light"
-          color="blue"
-          fullWidth
-          style={{ marginTop: 14 }}
-        >
-          Read
-        </Button>
-      </Card>
-      <Card shadow="sm" padding="lg">
-        <Card.Section>
-          <Image src="./image.png" height={160} alt="Norway" />
-        </Card.Section>
-
-        <Group
-          position="apart"
-          style={{
-            display: "flex",
-            justifyContent: "center",
-            marginBottom: 5,
-            marginTop: theme.spacing.sm,
-          }}
-        >
-          <Text weight={500}>Change Location</Text>
+          <Text weight={500}>Messages</Text>
         </Group>
 
         <Button
@@ -133,4 +107,4 @@ function Profile() {
   );
 }
 
-export default Profile;
+export default DashBoard;
