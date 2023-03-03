@@ -4,7 +4,6 @@ import {
   Card,
   Image,
   Text,
-  Badge,
   Button,
   Group,
   useMantineTheme,
