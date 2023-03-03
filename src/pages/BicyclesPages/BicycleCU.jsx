@@ -9,7 +9,7 @@ const Bicycle = () => {
     const [type, setType] = useState("");
     const [size, setSize] = useState("");
     const [condition, setCondition] = useState("");
-    const [price, setPrice] = useState(0);
+    const [price, setPrice] = useState();
     const [description, setDescription] = useState("");
     const [image, setImage] = useState("");
 

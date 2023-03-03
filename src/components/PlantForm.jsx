@@ -1,4 +1,6 @@
-import { Box, Button, Text, TextInput } from '@mantine/core'
+import { Box, Button, Text, TextInput , NumberInput } from '@mantine/core'
+
+
 
 const PlantForm = ({
     variety,
@@ -38,14 +40,14 @@ const PlantForm = ({
         <Box
             component='form'
             sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
-            onSubmit={submitCallback}
+            onSubmit={handleSubmit}
         >
-            <TextInput label='Variety' variant='filled' withAsterisk value={variety} onChange={(e) => setVariety(e.target.value)} />
-            <TextInput label='Size' variant='filled' withAsterisk value={size} onChange={(e) => setSize(e.target.value)} />
-            <TextInput label='Age' variant='filled' withAsterisk value={age} onChange={(e) => setAge(e.target.value)} />
-            <TextInput label='Description' variant='filled' withAsterisk value={description} onChange={(e) => setDescription(e.target.value)} />
-            <TextInput label='Price' variant='filled' withAsterisk value={price} onChange={(e) => setPrice(e.target.value)} />
-            <TextInput label='Image' variant='filled' withAsterisk value={image} onChange={(e) => setImage(e.target.value)} />
+            <TextInput label='Variety' variant='filled' withAsterisk value={variety} onChange={(e) => setVariety(e.currentTarget.value)} />
+            <TextInput label='Size' variant='filled' withAsterisk value={size} onChange={(e) => setSize(e.currentTarget.value)} />
+            <TextInput label='Age' variant='filled' withAsterisk value={age} onChange={(e) => setAge(e.currentTarget.value)} />
+            <TextInput label='Description' variant='filled' withAsterisk value={description} onChange={(e) => setDescription(e.currentTarget.value)} />
+            <NumberInput label='Price' variant='filled' withAsterisk value={price} onChange={setPrice} />
+            <TextInput label='Image' variant='filled' withAsterisk value={image} onChange={(e) => setImage(e.currentTarget.value)} />
 
             <Button
                 type='submit'

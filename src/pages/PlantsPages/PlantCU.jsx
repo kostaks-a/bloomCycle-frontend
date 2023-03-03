@@ -18,7 +18,7 @@ const Plant = () => {
         event.preventDefault()
         const body = { variety: variety, size: size, age: age, price: price, description: description, image: image }
         try {
-            await axios.post("http://localhost:5005/plants", body);
+            await axios.post("http://localhost:5005/plants/myplants/newplant", body);
             navigate("/profile")
         } catch (error) {
             console.log(error);

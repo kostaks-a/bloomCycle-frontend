@@ -20,6 +20,12 @@ function App() {
           <Button component={Link} to='/' variant='subtle' color='cyan'>
             Home
           </Button>
+          <Button component={Link} to='/bicycle' variant='subtle' color='cyan'>
+            Create bike ad
+          </Button>
+          <Button component={Link} to='/plant' variant='subtle' color='cyan'>
+            Create plant ad
+          </Button>
           <Box>
             <Button component={Link} to='/signup' variant='subtle' color='cyan'>
               Signup
