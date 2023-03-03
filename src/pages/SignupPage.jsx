@@ -52,7 +52,6 @@ const SignupPage = () => {
                 <Text color="dimmed" size="sm" display='flex' alignItems="flex-start" marginTop="0px" mt={5}>
                 {errorMessage && <p className="error-message">{errorMessage}</p>} 
                 </Text>
-                
                 <Button
                     type='submit'
                     variant='filled'
