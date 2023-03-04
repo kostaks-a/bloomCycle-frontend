@@ -15,14 +15,30 @@ const BikeForm = ({
     setDescription,
     setPrice,
     setImage,
-    handleSubmit,
-    isUpdate = false,
   }) => {
     const submitCallback = event => {
       event.preventDefault()
       handleSubmit()
     }
   
+
+const handleSubmit = async (event) => {
+        event.preventDefault()
+        const body = { type: type, size: size, condition: condition, price: price, description: description, image: image }
+        try {
+            await axios.post("http://localhost:5005/bicycles/newbicycle", body , {
+                headers : {
+                    Authorization: `Bearer ${token}`
+                },
+            });
+            navigate("/allbicycles");
+        } catch (error) {
+            console.log(error);
+        }
+    }
+
+
+
     return (
         <Box
         sx={{

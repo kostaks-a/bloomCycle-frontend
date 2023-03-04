@@ -17,25 +17,17 @@ const Bicycle = () => {
 
     const {token} = useContext(SessionContext)
 
-    const handleSubmit = async (event) => {
-        event.preventDefault()
-        const body = { type: type, size: size, condition: condition, price: price, description: description, image: image }
-        try {
-            await axios.post("http://localhost:5005/bicycles/newbicycle", body , {
-                headers : {
-                    Authorization: `Bearer ${token}`
-                },
-            });
-            navigate("/allbicycles");
-        } catch (error) {
-            console.log(error);
-        }
-    }
 
-    
+
+
     return (
         <>
         <h1>Bike ad</h1>
+        { 
+             ? value1
+        : condition2 ? value2
+        }
+
         <BikeForm
             type={type}
             setType={setType}
@@ -49,7 +41,7 @@ const Bicycle = () => {
             setDescription={setDescription}
             image={image}
             setImage={setImage}
-            handleSubmit={handleSubmit}
+         //   handleSubmit={handleSubmit}
         />
     </>
 
