@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 import PlantForm from '../../components/PlantForm';
 
 
@@ -18,8 +18,12 @@ const Plant = () => {
         event.preventDefault()
         const body = { variety: variety, size: size, age: age, price: price, description: description, image: image }
         try {
-            await axios.post("http://localhost:5005/plants/myplants/newplant", body);
-            navigate("/profile")
+            await axios.post("http://localhost:5005/bicycles/newplant", body , {
+                headers : {
+                    Authorization: `Bearer ${token}`
+                },
+            });
+            <Navigate to="/allplants"/>
         } catch (error) {
             console.log(error);
         }

@@ -9,6 +9,13 @@ import { useContext } from 'react'
 import { SessionContext } from './contexts/SessionContext'
 import PlantCU from './pages/PlantsPages/PlantCU'
 import BikeCU from './pages/BicyclesPages/BicycleCU'
+import BicyclesDisplay from './pages/BicyclesPages/BicyclesDisplay'
+import PlantsDisplay from './pages/PlantsPages/PlantsDisplay'
+import "./App.css";
+import BikeUpdate from './components/BikeUpdate'
+
+
+
 
 function App() {
   const { isAuthenticated, logOutUser } = useContext(SessionContext);
@@ -22,6 +29,12 @@ function App() {
           </Button>
           <Button component={Link} to='/bicycle' variant='subtle' color='cyan'>
             Create bike ad
+          </Button>
+          <Button component={Link} to='/allbicycles' variant='subtle' color='cyan'>
+            All bikes
+          </Button>
+          <Button component={Link} to='/allplants' variant='subtle' color='cyan'>
+            All plants
           </Button>
           <Button component={Link} to='/plant' variant='subtle' color='cyan'>
             Create plant ad
@@ -49,6 +62,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/allbicycles' element={<BicyclesDisplay />} />
+        <Route path='/allplants' element={<PlantsDisplay />} />
         <Route path="/profile" element={
           <PrivateRoute>
             <Profile />
@@ -61,10 +76,17 @@ function App() {
           </PrivateRoute>
         }
         />
+         <Route path="/bicycle/:bikeid" element={
+          <PrivateRoute>
+            <BikeUpdate />
+          </PrivateRoute>
+        }
+        />
         <Route path="/bicycle" element={
           <PrivateRoute>
             <BikeCU />
           </PrivateRoute>
+          
         }
         />
         {/* Add some new route(s) on what you want to work, don't forget to make a PrivateRoute component */}

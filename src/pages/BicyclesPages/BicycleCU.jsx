@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { useState } from 'react'
-import { useNavigate } from "react-router-dom";
+import { Navigate, redirect, useNavigate } from "react-router-dom";
 import BikeForm from '../../components/BikeForm';
 import { useContext } from 'react';
 import { SessionContext } from '../../contexts/SessionContext';
@@ -21,17 +21,18 @@ const Bicycle = () => {
         event.preventDefault()
         const body = { type: type, size: size, condition: condition, price: price, description: description, image: image }
         try {
-            await axios.post("http://localhost:5005/bicycles/mybicycles/new", body , {
+            await axios.post("http://localhost:5005/bicycles/newbicycle", body , {
                 headers : {
-                    Authorization: `Hopper ${token}`
+                    Authorization: `Bearer ${token}`
                 },
             });
-            navigate("/profile")
+            navigate("/allbicycles");
         } catch (error) {
             console.log(error);
         }
     }
 
+    
     return (
         <>
         <h1>Bike ad</h1>
