@@ -9,6 +9,7 @@ import { useContext } from 'react'
 import { SessionContext } from './contexts/SessionContext'
 import PlantCU from './pages/PlantsPages/PlantCU'
 import BikeCU from './pages/BicyclesPages/BicycleCU'
+import DashBoard from './pages/DashBoard'
 
 function App() {
   const { isAuthenticated, logOutUser } = useContext(SessionContext);
@@ -32,8 +33,8 @@ function App() {
             </Button>
             )}
             {isAuthenticated && (
-            <Button component={Link} to='/profile' variant='subtle' color='cyan'>
-              Profile
+            <Button component={Link} to='/dashboard' variant='subtle' color='cyan'>
+              Dashboard
             </Button>
             )}
             {isAuthenticated && (
@@ -52,6 +53,12 @@ function App() {
         <Route path="/profile" element={
           <PrivateRoute>
             <Profile />
+          </PrivateRoute>
+        }
+        />
+        <Route path="/dashboard" element={
+          <PrivateRoute>
+            <DashBoard />
           </PrivateRoute>
         }
         />
