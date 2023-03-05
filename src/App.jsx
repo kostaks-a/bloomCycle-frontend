@@ -1,8 +1,8 @@
-import { AppShell, Box, Button, Header } from '@mantine/core'
-import { Link, Route, Routes } from 'react-router-dom'
-import HomePage from './pages/HomePage'
-import LoginPage from './pages/LoginPage'
-import SignupPage from './pages/SignupPage'
+import { AppShell, Box, Button, Header } from "@mantine/core";
+import { Link, Route, Routes } from "react-router-dom";
+import HomePage from "./pages/HomePage";
+import LoginPage from "./pages/LoginPage";
+import SignupPage from "./pages/SignupPage";
 import Profile from "./pages/Profile";
 import PrivateRoute from './components/Privateroute'
 import { useContext } from 'react'
@@ -22,10 +22,14 @@ function App() {
   const { isAuthenticated, logOutUser } = useContext(SessionContext);
   return (
     <AppShell
-      padding='md'
+      padding="md"
       header={
-        <Header height={60} p='xs' sx={{ display: 'flex', justifyContent: 'space-between' }}>
-          <Button component={Link} to='/' variant='subtle' color='cyan'>
+        <Header
+          height={60}
+          p="xs"
+          sx={{ display: "flex", justifyContent: "space-between" }}
+        >
+          <Button component={Link} to="/" variant="subtle" color="cyan">
             Home
           </Button>
           <Button component={Link} to='/allbicycles' variant='subtle' color='cyan'>
@@ -36,24 +40,46 @@ function App() {
           </Button>
           <Box>
             {!isAuthenticated && (
-            <Button component={Link} to='/signup' variant='subtle' color='cyan'>
-              Signup
-            </Button>
+              <Button
+                component={Link}
+                to="/signup"
+                variant="subtle"
+                color="cyan"
+              >
+                Signup
+              </Button>
             )}
             {!isAuthenticated && (
-            <Button component={Link} to='/login' variant='subtle' color='cyan'>
-              Login
-            </Button>
+              <Button
+                component={Link}
+                to="/login"
+                variant="subtle"
+                color="cyan"
+              >
+                Login
+              </Button>
             )}
             {isAuthenticated && (
-            <Button component={Link} to='/dashboard' variant='subtle' color='cyan'>
-              Dashboard
-            </Button>
+              <Button
+                component={Link}
+                to="/dashboard"
+                variant="subtle"
+                color="cyan"
+              >
+                Dashboard
+              </Button>
             )}
+
             {isAuthenticated && (
-              <Button component={Link} to='/login' onClick={logOutUser} variant='subtle' color='cyan'>
-              Logout
-            </Button>
+              <Button
+                component={Link}
+                to="/login"
+                onClick={logOutUser}
+                variant="subtle"
+                color="cyan"
+              >
+                Logout
+              </Button>
             )}
           </Box>
         </Header>
@@ -71,11 +97,13 @@ function App() {
           </PrivateRoute>
         }
         />
-        <Route path="/dashboard" element={
-          <PrivateRoute>
-            <DashBoard />
-          </PrivateRoute>
-        }
+        <Route
+          path="/dashboard"
+          element={
+            <PrivateRoute>
+              <DashBoard />
+            </PrivateRoute>
+          }
         />
         <Route path="/plant/:plant" element={
           <PrivateRoute>
@@ -98,7 +126,7 @@ function App() {
         {/* Add some new route(s) on what you want to work, don't forget to make a PrivateRoute component */}
       </Routes>
     </AppShell>
-  )
+  );
 }
 
-export default App
+export default App;
