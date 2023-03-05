@@ -19,7 +19,8 @@ const BikeUpdate = ({
     setPrice,
     setImage,
     params,
-    token
+    token,
+    currentUser
   }) => {
 
 const navigate = useNavigate();
@@ -56,7 +57,7 @@ const fetchBikeData = async () => {
             },
         });
         console.log("updated bike");
-        navigate("/allbicycles");
+        navigate(`/ads/${currentUser._id}`);
     } catch (error) {
         console.log(error);
     }

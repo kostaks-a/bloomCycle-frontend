@@ -14,6 +14,7 @@ import BicyclesDisplay from './pages/BicyclesPages/BicyclesDisplay'
 import PlantsDisplay from './pages/PlantsPages/PlantsDisplay'
 import "./App.css";
 import PersonalAds from './pages/PersonalAds'
+import SavedAds from "./pages/SavedAds";
 
 
 
@@ -120,6 +121,12 @@ function App() {
         <Route path="/ads/:id" element={
           <PrivateRoute>
             <PersonalAds />
+          </PrivateRoute>
+        }
+        />
+        <Route path="/ads/:id/saved" element={
+          <PrivateRoute>
+            <SavedAds />
           </PrivateRoute>
         }
         />

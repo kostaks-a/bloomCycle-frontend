@@ -1,19 +1,23 @@
 import React from 'react'
 import axios from 'axios';
 import { Link } from 'react-router-dom';
-import { useEffect , useState} from 'react';
+import { useEffect , useState , useContext} from 'react';
 import { useParams } from 'react-router-dom';
 import { AppShell, Box, Button, Header } from '@mantine/core'
-
+import PersonalPlantCard from '../components/PersonalPlantCard';
+import PersonalBikeCard from '../components/PersonalBikeCard';
+import { SessionContext } from '../contexts/SessionContext';
 
 
 function PersonalAds() {
 const [personalPlants, setPersonalPlants] = useState([]);
 const [personalBikes, setPersonalBikes] = useState([]);
 
-
-    const user = useParams().id;
-    console.log(user)
+const  {currentUser} = useContext(SessionContext);
+console.log("user from context: " + currentUser._id);
+    
+const user = useParams().id;
+console.log("user from params " + user)
 
 
     const fetchPersonalPlants = async () => {
@@ -41,86 +45,20 @@ const [personalBikes, setPersonalBikes] = useState([]);
           fetchPersonalPlants();
           fetchPersonalBikes()
           console.log("fetching personal ads");
-        }, []);
+        }, [setPersonalBikes, setPersonalBikes]);
       
  
-        const deleteBike = async () => {
-            console.log('delete done')
-            try{
-              await axios.get(`http://localhost:5005/bicycles/save/${bike._id}`)
-              let filteredBicycles = bicycles.filter(bicycle => bicycle._id !== bike._id)
-              setBicycles(filteredBicycles)
-            } catch (error) {
-              console.log(error)
-            }
-          }
-
-          const deletePlant = async () => {
-    
-            try{
-              await axios.get(`http://localhost:5005/plants/delete/${plant._id}`)
-              let filteredPlants = plants.filter(plant => plant._id !== plant._id)
-              setPlants(filteredPlants)
-            } catch (error) {
-              console.log(error)
-            } 
-          }
 
 
 
   return (
     <> <div style={{display : 'flex'}}>
         <div><h1>Plant ads</h1>
-        {personalPlants.map((plant) => 
-         ( <div className="singleCard">
-                    <div>
-                      <img
-                        src='/./monstera.jpg'
-                        alt={plant.name}
-                        style={{ height: "150px" }}
-                      />
-                    </div>
-                    <div className="singleCardText">
-                      <h2>{plant.variety}</h2>
-                      <h3>{plant.age}</h3>
-                      <h4>{plant.description}</h4>
-                      <h4>{plant.price}</h4>
-                      {/* <h4>{plant.owner}</h4> */}
-                    </div>
-                    <div>
-                    <Button component={Link} to={`/plant/${plant._id}`} variant='subtle' color='cyan'>Update</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={deletePlant}>Delete</Button>
-                    </div>
-                  </div>           
-        )
-    )}
+        {personalPlants.map((plant) => <PersonalPlantCard key={plant._id} plant={plant} setPersonalPlants={setPersonalPlants} personalPlants={personalPlants} user={user} />)}
     </div>
 
     <div><h1>Bike ads</h1>
-    {personalBikes.map((bike) => 
-         ( 
-            <div className="singleCard">
-                    <div>
-                      <img
-                        src='/./bicycle.jpg'
-                        alt={bike.name}
-                        style={{ height: "150px" }}
-                      />
-                    </div>
-                    <div className="singleCardText">
-                      <h2>{bike.type}</h2>
-                      <h3>{bike.description}</h3>
-                      <h4>{bike.condition}</h4>
-                      <h4>{bike.price}</h4>
-                    </div>
-                    <div>
-                    <Button type='submit' variant='subtle' color='cyan' >Save</Button>
-                    <Button component={Link} to={`/bicycle/${bike._id}`} variant='subtle' color='cyan'>Update</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={deleteBike}>Delete</Button>
-                    </div>
-                  </div>
-         )
-    )}
+    {personalBikes.map((bike) => <PersonalBikeCard key={bike._id} bike={bike} setPersonalBikes={setPersonalBikes} personalBikes={personalBikes} user={user} />)}
     </div>
     </div>    
     </>

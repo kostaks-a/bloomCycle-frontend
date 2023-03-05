@@ -17,6 +17,7 @@ const Plant = () => {
     
     const params = useParams().plant;
     const {token} = useContext(SessionContext)
+    const {currentUser} = useContext(SessionContext)
 
     console.log(params)
 
@@ -39,6 +40,7 @@ const Plant = () => {
             setImage={setImage}
             token={token}
             params={params}
+            currentUser={currentUser}
         />
         :
         <PlantUpdateForm
@@ -56,6 +58,7 @@ const Plant = () => {
             setImage={setImage}
             params={params}
             token={token}
+            currentUser={currentUser}
         />
         }
     </>

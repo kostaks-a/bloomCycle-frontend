@@ -10,17 +10,18 @@ function DisplayBike({bike, bicycles , setBicycles , token , currentUser}) {
 
 
 
-
+/*
 const deleteBike = async () => {
   console.log('delete done')
   try{
-    await axios.get(`http://localhost:5005/bicycles/save/${bike._id}`)
+    await axios.get(`http://localhost:5005/bicycles/delete/${bike._id}`)
     let filteredBicycles = bicycles.filter(bicycle => bicycle._id !== bike._id)
     setBicycles(filteredBicycles)
   } catch (error) {
     console.log(error)
   }
 }
+*/
 
 const saveBikeAd = async () => {
   try{
@@ -50,12 +51,11 @@ const saveBikeAd = async () => {
                       <h3>{bike.description}</h3>
                       <h4>{bike.condition}</h4>
                       <h4>{bike.price}</h4>
-                      <h4>{bike.owner}</h4>
                     </div>
                     <div>
                     <Button type='submit' variant='subtle' color='cyan' onClick={saveBikeAd}>Save</Button>
-                    <Button component={Link} to={`/bicycle/${bike._id}`} variant='subtle' color='cyan'>Update</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={deleteBike}>Delete</Button>
+                    {/* <Button component={Link} to={`/bicycle/${bike._id}`} variant='subtle' color='cyan'>Update</Button>
+                    <Button type='submit' variant='subtle' color='cyan' onClick={deleteBike}>Delete</Button> */}
                     </div>
                   </div>
         </>

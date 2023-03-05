@@ -18,7 +18,8 @@ const BikeCreateForm = ({
     setDescription,
     setPrice,
     setImage,
-    token
+    token,
+    currentUser
   }) => {
 
 const navigate = useNavigate();
@@ -33,7 +34,7 @@ const handleSubmit = async (event) => {
                     Authorization: `Bearer ${token}`
                 },
             });
-            navigate("/allbicycles");
+            navigate(`/ads/${currentUser._id}`);
         } catch (error) {
             console.log(error);
         }
