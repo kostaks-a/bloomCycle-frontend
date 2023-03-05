@@ -1,4 +1,5 @@
 import { Box, Button, PasswordInput, Text, TextInput } from '@mantine/core'
+import { LockClosedIcon } from '@modulz/radix-icons';
 import axios from 'axios';
 import { useContext, useState } from 'react'
 import { Link, useNavigate } from 'react-router-dom';
@@ -40,8 +41,8 @@ const LoginPage = () => {
                 sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
                 onSubmit={handleSubmit}
             >
-                <TextInput label='Username' variant='filled' withAsterisk value={username} onChange={(e) => setUsername(e.target.value)} />
-                <PasswordInput label='Password' variant='filled' withAsterisk value={password} onChange={(e) => setPassword(e.target.value)} />
+                <TextInput label='Username' variant='filled' placeholder='Your username' withAsterisk value={username} onChange={(e) => setUsername(e.target.value)} />
+                <PasswordInput label='Password' variant='filled' placeholder='Your password' icon={<LockClosedIcon />} withAsterisk value={password} onChange={(e) => setPassword(e.target.value)} />
                 <Button
                     type='submit'
                     variant='filled'

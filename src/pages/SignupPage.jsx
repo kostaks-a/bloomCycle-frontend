@@ -46,9 +46,9 @@ const SignupPage = () => {
                 sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
                 onSubmit={handleSubmit}
             >
-                <TextInput label='Username' variant='filled' withAsterisk value={username} required onChange={(e) => setUsername(e.target.value)} />
+                <TextInput label='Username' variant='filled' placeholder='Your username' withAsterisk value={username} required onChange={(e) => setUsername(e.target.value)} />
                 <TextInput label='Email' variant='filled' placeholder='Your email' icon={<EnvelopeClosedIcon />} withAsterisk value={email} required onChange={(e) => setEmail(e.target.value)} />
-                <PasswordInput label='Password' variant='filled' withAsterisk value={password} required onChange={(e) => setPassword(e.target.value)} />
+                <PasswordInput label='Password' variant='filled' placeholder='Your password' icon={<LockClosedIcon />} withAsterisk value={password} required onChange={(e) => setPassword(e.target.value)} />
                 <Text color="dimmed" size="sm" display='flex' alignItems="flex-start" marginTop="0px" mt={5}>
                 {errorMessage && <p className="error-message">{errorMessage}</p>} 
                 </Text>
