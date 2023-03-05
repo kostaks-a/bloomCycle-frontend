@@ -10,6 +10,13 @@ import { SessionContext } from './contexts/SessionContext'
 import PlantCU from './pages/PlantsPages/PlantCU'
 import BikeCU from './pages/BicyclesPages/BicycleCU'
 import DashBoard from './pages/DashBoard'
+import BicyclesDisplay from './pages/BicyclesPages/BicyclesDisplay'
+import PlantsDisplay from './pages/PlantsPages/PlantsDisplay'
+import "./App.css";
+import PersonalAds from './pages/PersonalAds'
+
+
+
 
 function App() {
   const { isAuthenticated, logOutUser } = useContext(SessionContext);
@@ -20,6 +27,12 @@ function App() {
         <Header height={60} p='xs' sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Button component={Link} to='/' variant='subtle' color='cyan'>
             Home
+          </Button>
+          <Button component={Link} to='/allbicycles' variant='subtle' color='cyan'>
+            Search for bicycles
+          </Button>
+          <Button component={Link} to='/allplants' variant='subtle' color='cyan'>
+            Search for plants
           </Button>
           <Box>
             {!isAuthenticated && (
@@ -50,6 +63,8 @@ function App() {
         <Route path='/' element={<HomePage />} />
         <Route path='/signup' element={<SignupPage />} />
         <Route path='/login' element={<LoginPage />} />
+        <Route path='/allbicycles' element={<BicyclesDisplay />} />
+        <Route path='/allplants' element={<PlantsDisplay />} />
         <Route path="/profile" element={
           <PrivateRoute>
             <Profile />
@@ -62,15 +77,21 @@ function App() {
           </PrivateRoute>
         }
         />
-        <Route path="/plant" element={
+        <Route path="/plant/:plant" element={
           <PrivateRoute>
             <PlantCU />
           </PrivateRoute>
         }
         />
-        <Route path="/bicycle" element={
+         <Route path="/bicycle/:bike" element={
           <PrivateRoute>
             <BikeCU />
+          </PrivateRoute>
+        }
+        />
+        <Route path="/ads/:id" element={
+          <PrivateRoute>
+            <PersonalAds />
           </PrivateRoute>
         }
         />
