@@ -12,7 +12,6 @@ import BikeCU from './pages/BicyclesPages/BicycleCU'
 import BicyclesDisplay from './pages/BicyclesPages/BicyclesDisplay'
 import PlantsDisplay from './pages/PlantsPages/PlantsDisplay'
 import "./App.css";
-import BikeUpdate from './components/BikeUpdate'
 
 
 
@@ -27,7 +26,7 @@ function App() {
           <Button component={Link} to='/' variant='subtle' color='cyan'>
             Home
           </Button>
-          <Button component={Link} to='/bicycle' variant='subtle' color='cyan'>
+          <Button component={Link} to='/bicycle/create' variant='subtle' color='cyan'>
             Create bike ad
           </Button>
           <Button component={Link} to='/allbicycles' variant='subtle' color='cyan'>
@@ -36,7 +35,7 @@ function App() {
           <Button component={Link} to='/allplants' variant='subtle' color='cyan'>
             All plants
           </Button>
-          <Button component={Link} to='/plant' variant='subtle' color='cyan'>
+          <Button component={Link} to='/plant/create' variant='subtle' color='cyan'>
             Create plant ad
           </Button>
           <Box>
@@ -70,23 +69,16 @@ function App() {
           </PrivateRoute>
         }
         />
-        <Route path="/plant" element={
+        <Route path="/plant/:plant" element={
           <PrivateRoute>
             <PlantCU />
           </PrivateRoute>
         }
         />
-         <Route path="/bicycle/:bikeid" element={
-          <PrivateRoute>
-            <BikeUpdate />
-          </PrivateRoute>
-        }
-        />
-        <Route path="/bicycle" element={
+         <Route path="/bicycle/:bike" element={
           <PrivateRoute>
             <BikeCU />
           </PrivateRoute>
-          
         }
         />
         {/* Add some new route(s) on what you want to work, don't forget to make a PrivateRoute component */}

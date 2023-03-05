@@ -1,8 +1,10 @@
 import { Box, Button, Text, TextInput , NumberInput } from '@mantine/core'
+import { useEffect } from 'react'
+import axios from 'axios'
+import { Navigate, redirect, useNavigate } from "react-router-dom";
 
 
-
-const PlantForm = ({
+const PlantUpdateForm = ({
     variety,
     size,
     age,
@@ -15,16 +17,52 @@ const PlantForm = ({
     setDescription,
     setPrice,
     setImage,
-    handleSubmit,
-    isUpdate = false,
+    params,
+    token
   }) => {
-    const submitCallback = event => {
-      event.preventDefault()
-      handleSubmit()
+
+    console.log(params)
+    const navigate = useNavigate();
+
+    const fetchPlantData = async () => {
+        try{
+         const response = await axios.get(`http://localhost:5005/plants/${params}`)
+         const plant = response.data
+         console.log(plant)
+        setVariety(plant.variety)
+        setSize(plant.size)
+        setAge(plant.age)
+        setDescription(plant.description)
+        setPrice(plant.price)
+        setImage(plant.image)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+    
+      useEffect(() => {
+        fetchPlantData();
+        console.log("fetching plant data");
+      }, []);
+
+      const handleSubmit = async (event) => {
+        event.preventDefault()
+        const body = { variety: variety, size: size, age: age, price: price, description: description, image: image }
+        try {
+            await axios.put(`http://localhost:5005/plants/update/${params}`, body , {
+                headers : {
+                    Authorization: `Bearer ${token}`
+                },
+            });
+            navigate("/allplants");
+        } catch (error) {
+            console.log(error);
+        }
     }
-  
-    return (
-        <Box
+
+
+  return (
+    <Box
         sx={{
             margin: '0 auto',
             maxWidth: '400px',
@@ -55,11 +93,12 @@ const PlantForm = ({
                 color='cyan'
                 sx={{ marginTop: '1rem', alignSelf: 'center' }}
             >
-                {isUpdate ? 'Update the ad' : 'Create an ad'}
+                Update the ad
             </Button>
         </Box>
     </Box>
     )
-  }
   
-  export default PlantForm
+}
+
+export default PlantUpdateForm

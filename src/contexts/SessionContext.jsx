@@ -7,11 +7,12 @@ const SessionContextProvider = ({ children }) => {
     const [isAuthenticated, setIsAuthenticated] = useState(false);
     const [token, setToken] = useState("");
     const [isLoading, setIsLoading] = useState(true);
+    const [currentUser, setCurrentUser] = useState("");
 
     const verifyToken = async (jwt) => {
-        console.log("JWT: ", jwt);
+        //console.log("JWT: ", jwt);
         try {
-            await axios.post("http://localhost:5005/auth/verify", undefined, {
+           const response = await axios.post("http://localhost:5005/auth/verify", undefined, {
                 headers: {
                     Authorization: `Bearer ${jwt}`
                 },
@@ -19,6 +20,7 @@ const SessionContextProvider = ({ children }) => {
             setToken(jwt);
             setIsAuthenticated(true);
             setIsLoading(false);
+            setCurrentUser({...response.data , passwordHash: ''})
         } catch (error) {
             console.log("Error authenticating Bearer: ", error);
             window.localStorage.removeItem("bearer");
@@ -39,7 +41,7 @@ const SessionContextProvider = ({ children }) => {
 
     useEffect(() => {
         const localToken = window.localStorage.getItem("bearer");
-        console.log("LOCAL TOKEN: ", localToken)
+        //console.log("LOCAL TOKEN: ", localToken)
         verifyToken(localToken);
     }, [])
 
@@ -53,7 +55,7 @@ const SessionContextProvider = ({ children }) => {
     }, [token])
 
     return (
-        <SessionContext.Provider value={{ token ,setToken, isAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
+        <SessionContext.Provider value={{ currentUser , token ,setToken, isAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
     )
 }
 
