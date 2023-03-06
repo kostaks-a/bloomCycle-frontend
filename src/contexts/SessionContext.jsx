@@ -29,7 +29,7 @@ const SessionContextProvider = ({ children }) => {
 
     const removeToken = () => {                  
         // Upon logout, remove the token from the localStorage
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("bearer");
     }
 
     const logOutUser = () => {                     
