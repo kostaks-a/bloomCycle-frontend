@@ -55,7 +55,7 @@ function DashBoard() {
 
       <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
-          <Image src="/public/ads.jpg" height={160} alt="Norway" />
+          <Image src="/ads.jpg" height={160} alt="Norway" />
         </Card.Section>
 
         <Group
@@ -82,7 +82,7 @@ function DashBoard() {
       </Card>
       <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
-          <Image src="/public/messages_img.jpg" height={160} alt="Norway" />
+          <Image src="/messages_img.jpg" height={160} alt="Norway" />
         </Card.Section>
 
         <Group

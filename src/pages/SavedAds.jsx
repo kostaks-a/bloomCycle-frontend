@@ -24,6 +24,7 @@ console.log("user from context: " + currentUser._id);
 const user = useParams().id;
 console.log("user from params: " + user)
 
+
 const fetchSavedBikes = async () => {
     try {    
       const response = await axios.post(`http://localhost:5005/bicycles/savedAds/${user}`);
