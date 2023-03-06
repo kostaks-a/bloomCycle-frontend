@@ -1,7 +1,9 @@
 import { Box, Button, PasswordInput, Text, TextInput } from '@mantine/core'
+import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
 import axios from 'axios';
 import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
+
 
 const SignupPage = () => {
     const [email, setEmail] = useState("");
@@ -15,10 +17,12 @@ const SignupPage = () => {
         event.preventDefault()
         try {
             console.log(email)
-            await axios.post("http://localhost:5005/auth/signup", { username: username, email: email, password: password });
+            let response = await axios.post("http://localhost:5005/auth/signup", { username: username, email: email, password: password });
+            console.log(response.data)
+
             navigate("/login")
         } catch (error) {
-            setErrorMessage
+            setErrorMessage(error.response.data.errorMessage)
             console.log(error);
         }
     }
@@ -43,9 +47,11 @@ const SignupPage = () => {
                 onSubmit={handleSubmit}
             >
                 <TextInput label='Username' variant='filled' withAsterisk value={username} required onChange={(e) => setUsername(e.target.value)} />
-                <TextInput label='Email' variant='filled' withAsterisk value={email} required onChange={(e) => setEmail(e.target.value)} />
+                <TextInput label='Email' variant='filled' placeholder='Your email' icon={<EnvelopeClosedIcon />} withAsterisk value={email} required onChange={(e) => setEmail(e.target.value)} />
                 <PasswordInput label='Password' variant='filled' withAsterisk value={password} required onChange={(e) => setPassword(e.target.value)} />
-                {errorMessage && <p className="error-message">{errorMessage}</p>}
+                <Text color="dimmed" size="sm" display='flex' alignItems="flex-start" marginTop="0px" mt={5}>
+                {errorMessage && <p className="error-message">{errorMessage}</p>} 
+                </Text>
                 <Button
                     type='submit'
                     variant='filled'
@@ -54,8 +60,12 @@ const SignupPage = () => {
                 >
                     Register
                 </Button>
-                <p>Already have an account?</p>
-                <Link to={"/login"}> Login</Link>
+                <Text color="dimmed" size="sm" align="center" mt={5}>
+                    Already have an account? {" "}
+                    <Button component={Link} to='/login' variant='subtle' color='cyan'>
+                        Login
+                    </Button>
+            </Text>
             </Box>
         </Box>
     )

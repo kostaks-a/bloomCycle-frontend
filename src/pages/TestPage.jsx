@@ -1,30 +1,37 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { image } from "cloudinary-react";
 
 function TestPage() {
-  const [imageSelected, setImageSelected] = useState("");
-  const uploadImage = (files) => {
-    const formData = new FormData();
-    formData.append("file", imageSelected);
-    formData.append("upload_preset", "cimzqsjx");
-    axios
-      .post("https://api.cloudinary.com/v1_1/drklfh8uq/image/upload", formData)
-      .then((Response) => console.log(Response));
-  };
+  const [images, setImages] = useState([]);
+  const [ImageRemove, setImageRemove] = useState(null);
+
+  function handleRemoveImage(imgObj) {}
+  function handleOpenWidget() {
+    let myWidget = window.cloudinary.createUploadWidget(
+      {
+        cloudName: "drklfh8uq",
+        uploadPreset: "cimzqsjx",
+      },
+      (error, result) => {
+        if (!error && result && result.event === "success") {
+          console.log("Done! Here is the image info: ", result.info);
+        }
+      }
+    );
+    // open widget
+    myWidget.open();
+  }
+
   return (
-    <div>
-      <input
-        type={"file"}
-        onChange={(event) => {
-          setImageSelected(event.target.files[0]);
-        }}
-      ></input>
-      <button onClick={uploadImage}>Upload Image</button>
-      <Image
-        Cloudname="cimzqsjx"
-        publicId="https://res.cloudinary.com/drklfh8uq/image/upload/v1678095019/vdumvpm7swyhwj1apqxt.jpg"
-      />
+    <div className="App">
+      <button
+        id="upload-widget"
+        className="cloudinary-button"
+        onClick={() => handleOpenWidget}
+      >
+        Upload Picture
+      </button>
+      <div className="images-preview-container">show pictures</div>
     </div>
   );
 }
