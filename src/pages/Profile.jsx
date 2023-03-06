@@ -1,24 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
+import { SessionContext } from "../contexts/SessionContext";
+//import { Link } from "react-router-dom";
 import { Avatar } from '@mantine/core';
-import { Accordion, Select, Button } from '@mantine/core';
+import { Accordion, Select, Button, PasswordInput } from '@mantine/core';
 import { Input } from '@mantine/core';
 import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
 
-//import { Link } from "react-router-dom";
-
 
 function Profile() {
+ // const { user, isAuthenticated } = useContext(SessionContext);
   const [user, setUser] = useState({});
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
- // const [delete, setDelete] = useState(false);
+  const [currentUser, setCurrentUser] = useState();
+  //const [delete, setDelete] = useState(false);
+
+  useEffect(() => {
+    setCurrentUser(user);
+  }, []);
 
   const handleUpdate = async (event) => {
     event.preventDefault();
-  //  console.log("updated username:", username)
+    console.log("updated username:", username)
 
     try {
       const response = await axios.post("http://localhost:5005/auth/update", {
@@ -37,7 +43,6 @@ function Profile() {
     setDelete(true);
     try {
       await axios.delete("http://localhost:5005/auth/delete")
-
     } catch (error) {
       console.log("Error: ", error);
       setDelete(false);
@@ -45,8 +50,11 @@ function Profile() {
   }
 
   return (
-    <>
-      <Avatar src="avatar.png" size="lg" radius="xl" alt = "it's me" />
+    //Miguel: on the line below we need to change the avatar.png to 
+    //the user image with cloudinary
+       <>
+       <h1>Welcome, {user.username} !</h1>
+      {/* <Avatar src="avatar.png" size="lg" radius="xl" alt = "it's me" /> */}
       <Avatar src={null} alt="no image here" size="lg" radius="xl" />
 
       <Accordion defaultValue="changePersonalInfo">
@@ -65,7 +73,7 @@ function Profile() {
         <Accordion.Control>Change email</Accordion.Control>
         <Accordion.Panel>
             <Input
-              icon={<EnvelopeClosedIcon />}
+              icon={< EnvelopeClosedIcon />}
               placeholder="Update your email"
               type="email"
               value={user.email}
@@ -76,6 +84,22 @@ function Profile() {
 
       <Accordion.Item value="change-password">
         <Accordion.Control>Change password</Accordion.Control>
+          <Accordion.Panel>
+            <PasswordInput
+              icon={< LockClosedIcon />}
+              placeholder="Current password"
+              type="password"
+              value={user.password}
+            />
+            <PasswordInput
+              description="Password must have at least 5 digits"
+              icon={< LockClosedIcon />}
+              placeholder="New password"
+              type="password"
+              value={user.password}
+              onChange={(e) => setPassword({ password: e.target.value })}
+            />
+          </Accordion.Panel>
         <Accordion.Panel>
 
         </Accordion.Panel>
