@@ -1,4 +1,11 @@
-import { Box, Button, Text, TextInput, NumberInput } from "@mantine/core";
+import {
+  Box,
+  Button,
+  Text,
+  TextInput,
+  NumberInput,
+  FileInput,
+} from "@mantine/core";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
@@ -21,16 +28,16 @@ const PlantCreateForm = ({
 
   const handleSubmit = async (event) => {
     event.preventDefault();
-    const body = {
-      variety: variety,
-      size: size,
-      age: age,
-      price: price,
-      description: description,
-      image: image,
-    };
+    const image = event.target.image.files[0];
+    let formData = new FormData();
+    formData.append("variety", variety);
+    formData.append("size", size);
+    formData.append("age", age);
+    formData.append("price", price);
+    formData.append("description", description);
+    formData.append("imageUrl", image);
     try {
-      await axios.post("http://localhost:5005/plants/newplant", body, {
+      await axios.post("http://localhost:5005/plants/newplant", formData, {
         headers: {
           Authorization: `Bearer ${token}`,
         },
@@ -100,9 +107,7 @@ const PlantCreateForm = ({
           value={price}
           onChange={setPrice}
         />
-        <label>
-          <input type="image" />
-        </label>
+        <FileInput label="Image" name="image" variant="filled" withAsterisk />
 
         <Button
           type="submit"
