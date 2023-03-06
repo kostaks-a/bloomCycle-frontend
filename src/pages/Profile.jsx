@@ -86,7 +86,12 @@ function Profile() {
           <Accordion.Panel> <Select
             mt="md"
             withinPortal
-            data={['Berlin', 'Hamburg', 'Svelte', 'Vue']}
+            data={['Berlin', 'Hamburg', 'Munich', 'Cologne', 'Frankfurt', 'Stuttgart', 'Düsseldorf', 'Leipzig', 'Dortmund', 'Essen', 'Bremen', 'Dresden', 'Hanover', 'Nuremberg', 'Duisburg',
+              'Bochum', 'Wuppertal', 'Bielefeld', 'Bonn', 'Münster', 'Mannheim', 'Karlsruhe', 'Augsburg', 'Wiesbaden', 'Mönchengladbach', 'Gelsenkirchen', 'Aachen', ' Braunschweig',
+              'Kiel', 'Chemnitz', 'Halle (Saale)', 'Magdeburg', 'Freiburg im Breisgau', 'Krefeld', 'Mainz', 'Lübeck', 'Erfurt', 'Oberhausen', 'Rostock', 'Kassel', 'Hagen', 'Potsdam', 'Saarbrücken',
+              'Hamm', 'Ludwigshafen am Rhein', 'Mülheim an der Ruhr', 'Oldenburg', 'Osnabrück', 'Leverkusen', 'Darmstadt', 'Heidelberg', 'Solingen', 'Herne', 'Regensburg', 'Neuss', 'Paderborn', 'Ingolstadt', 'Offenbach am Main',
+              'Fürth', 'Ulm', 'Würzburg', 'Heilbronn', 'Pforzheim', 'Wolfsburg', 'Bottrop', 'Göttingen', 'Reutlingen', 'Koblenz', 'Erlangen', 'Bremerhaven', 'Remscheid', 'Bergisch Gladbach', 'Recklinghausen',
+              'Trier', 'Jena', ' Moers', 'Salzgitter', 'Siegen', 'Gütersloh', 'Hildesheim']}
             placeholder="Pick one"
             label="Select a city"
           
