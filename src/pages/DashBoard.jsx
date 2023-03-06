@@ -55,7 +55,7 @@ function DashBoard() {
 
       <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
-          <Image src="./image.png" height={160} alt="Norway" />
+          <Image src="/ads.jpg" height={160} alt="Norway" />
         </Card.Section>
 
         <Group
@@ -82,7 +82,7 @@ function DashBoard() {
       </Card>
       <Card style={{ width: 300}} shadow="sm" padding="lg">
         <Card.Section>
-          <Image src="./image.png" height={160} alt="Norway" />
+          <Image src="/messages_img.jpg" height={160} alt="Norway" />
         </Card.Section>
 
         <Group
@@ -161,6 +161,39 @@ function DashBoard() {
           <Text weight={500}>Create an ad for your plant</Text>
         </Group>
         <Link to='/plant/create' style={{ textDecoration: 'none' }}>
+        <Button
+          variant="light"
+          color="blue"
+          fullWidth
+          style={{ marginTop: 14 }}
+        >
+          Fill up the form
+        </Button>
+        </Link>
+        
+      </Card>
+
+      <Card style={{ width: 300}} shadow="sm" padding="lg">
+        <Card.Section>
+          <Image
+            src="https://media.istockphoto.com/id/845292864/pt/vetorial/wrench-icon.jpg?s=170667a&w=0&k=20&c=jharj_irCKUV04A0T7X2kG0wFNNhXdsR9HwoUkoS90Y="
+            height={160}
+            alt="Wrench"
+          />
+        </Card.Section>
+
+        <Group
+          position="apart"
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            marginBottom: 5,
+            marginTop: theme.spacing.sm,
+          }}
+        >
+          <Text weight={500}>Saved ads</Text>
+        </Group>
+        <Link to={`/ads/${currentUser._id}/saved`} style={{ textDecoration: 'none' }}>
         <Button
           variant="light"
           color="blue"

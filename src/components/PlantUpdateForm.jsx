@@ -18,7 +18,8 @@ const PlantUpdateForm = ({
     setPrice,
     setImage,
     params,
-    token
+    token,
+    currentUser
   }) => {
 
     console.log(params)
@@ -54,7 +55,7 @@ const PlantUpdateForm = ({
                     Authorization: `Bearer ${token}`
                 },
             });
-            navigate("/allplants");
+            navigate(`/ads/${currentUser._id}`);
         } catch (error) {
             console.log(error);
         }

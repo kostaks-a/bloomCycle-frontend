@@ -16,7 +16,7 @@ const LoginPage = () => {
         try {
             const response = await axios.post("http://localhost:5005/auth/login", { username: username, password: password })
             setToken(response.data.token);
-            navigate("/profile");
+            navigate("/dashboard");
         } catch (error) {
             console.log("Error: ", error);
         }

@@ -8,16 +8,6 @@ import axios from "axios";
 function DisplayPlant({plant , plants , setPlants , token }) {
 
 
-  const deletePlant = async () => {
-    
-    try{
-      await axios.get(`http://localhost:5005/plants/delete/${plant._id}`)
-      let filteredPlants = plants.filter(plant => plant._id !== plant._id)
-      setPlants(filteredPlants)
-    } catch (error) {
-      console.log(error)
-    } 
-  }
 
   const savePlantAd = async () => {
     try{
@@ -64,8 +54,6 @@ function DisplayPlant({plant , plants , setPlants , token }) {
                     <div>
                     <Button type='submit' variant='subtle' color='cyan' onClick={savePlantAd} >Save</Button>
                     <Button type='submit' variant='subtle' color='cyan' onClick={unsavePlantAd} >unSave</Button>
-                    <Button component={Link} to={`/plant/${plant._id}`} variant='subtle' color='cyan'>Update</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={deletePlant}>Delete</Button>
                     </div>
                   </div>
         </>

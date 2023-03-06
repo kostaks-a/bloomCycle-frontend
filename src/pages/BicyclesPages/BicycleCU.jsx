@@ -16,6 +16,7 @@ const Bicycle = () => {
 
     const params = useParams().bike;
     const {token} = useContext(SessionContext)
+    const {currentUser} = useContext(SessionContext)
 
 
 
@@ -37,6 +38,7 @@ const Bicycle = () => {
             image={image}
             setImage={setImage}
             token={token}
+            currentUser={currentUser}
         />
         :
         <BikeUpdateForm
@@ -54,6 +56,7 @@ const Bicycle = () => {
             setImage={setImage}
             params = {params}
             token={token}
+            currentUser={currentUser}
         />
 
 

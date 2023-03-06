@@ -2,25 +2,27 @@ import { AppShell, Box, Button, Header } from '@mantine/core'
 
 import { Link , NavLink , useNavigate } from "react-router-dom";
 import axios from 'axios';
-import { useContext } from 'react';
+import { useContext , useState} from 'react';
 
 
 
 function DisplayBike({bike, bicycles , setBicycles , token , currentUser}) {
+  // const [saveButton, setSaveButton] = useState('');
 
+  let saveButton = false
 
-
-
-const deleteBike = async () => {
-  console.log('delete done')
-  try{
-    await axios.get(`http://localhost:5005/bicycles/save/${bike._id}`)
-    let filteredBicycles = bicycles.filter(bicycle => bicycle._id !== bike._id)
-    setBicycles(filteredBicycles)
-  } catch (error) {
-    console.log(error)
+  if (bike.owner !== currentUser._id) {
+    saveButton = true;
   }
-}
+
+  console.log(saveButton)
+
+  const handleSaveButton = () => {
+    preventDefault()
+    saveBikeAd()
+  };
+
+  
 
 const saveBikeAd = async () => {
   try{
@@ -33,6 +35,18 @@ const saveBikeAd = async () => {
     console.log(error)
   }
 }
+
+const unsaveBikeAd = async () => {
+  try{
+    await axios.get(`http://localhost:5005/bicycles/${bike._id}/remove` , {
+      headers : {
+        Authorization: `Bearer ${token}`
+    },
+    })
+  } catch (error) {
+    console.log(error)
+  }
+ }
 
 
   return (
@@ -50,12 +64,9 @@ const saveBikeAd = async () => {
                       <h3>{bike.description}</h3>
                       <h4>{bike.condition}</h4>
                       <h4>{bike.price}</h4>
-                      <h4>{bike.owner}</h4>
                     </div>
                     <div>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={saveBikeAd}>Save</Button>
-                    <Button component={Link} to={`/bicycle/${bike._id}`} variant='subtle' color='cyan'>Update</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={deleteBike}>Delete</Button>
+                    <Button type='submit' variant='subtle' color='cyan' onClick={saveButton ? saveBikeAd : unsaveBikeAd} >{saveButton ? 'Save' : 'Remove from saved'}</Button>
                     </div>
                   </div>
         </>

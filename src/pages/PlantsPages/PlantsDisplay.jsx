@@ -14,6 +14,8 @@ const [loading, setLoading] = useState(true);
 const {token} = useContext(SessionContext)
 const {currentUser} = useContext(SessionContext)
 
+console.log(currentUser._id)
+
 const [searchQuery, setSearchQuery] = useState("");
 
 const handleSearchInputChange = (event) => {
@@ -44,6 +46,8 @@ useEffect(() => {
 const fetchPlants = async () => {
   try {    
     const response = await axios.get('http://localhost:5005/plants/allplants');
+    //const results = response.data.filter((plant) => {plant.owner !==currentUser._id});
+    console.log(response.data.owner)
     setPlants(response.data);
     //console.log(response.data);
   } catch (error) {

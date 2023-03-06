@@ -17,6 +17,7 @@ const PlantCreateForm = ({
     setPrice,
     setImage,
     token,
+    currentUser
   }) => {
   
    
@@ -31,7 +32,7 @@ const navigate = useNavigate();
                     Authorization: `Bearer ${token}`
                 },
             });
-            navigate("/allplants");
+            navigate(`/ads/${currentUser._id}`);
         } catch (error) {
             console.log(error);
         }
