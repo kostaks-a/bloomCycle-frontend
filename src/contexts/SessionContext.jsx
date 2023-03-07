@@ -1,6 +1,5 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
-
 export const SessionContext = createContext();
 
 const SessionContextProvider = ({ children }) => {
@@ -14,7 +13,7 @@ const SessionContextProvider = ({ children }) => {
         try {
            const response = await axios.post("http://localhost:5005/auth/verify", undefined, {
                 headers: {
-                    Authorization: `Bearer ${jwt}`
+                    authorization: `Bearer ${jwt}`
                 },
             })
             setToken(jwt);
@@ -29,7 +28,7 @@ const SessionContextProvider = ({ children }) => {
 
     const removeToken = () => {                  
         // Upon logout, remove the token from the localStorage
-        localStorage.removeItem("authToken");
+        localStorage.removeItem("bearer");
     }
 
     const logOutUser = () => {                     
@@ -43,6 +42,7 @@ const SessionContextProvider = ({ children }) => {
         const localToken = window.localStorage.getItem("bearer");
         //console.log("LOCAL TOKEN: ", localToken)
         verifyToken(localToken);
+        setToken(localToken)
     }, [])
 
     useEffect(() => {

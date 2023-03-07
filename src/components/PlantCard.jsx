@@ -1,33 +1,39 @@
 import { AppShell, Box, Button, Header } from '@mantine/core'
-import { useEffect } from 'react'
+import { useEffect ,useState} from 'react'
 import { Link } from "react-router-dom";
 import axios from "axios";
 
 
 
-function DisplayPlant({plant , plants , setPlants , token }) {
+function DisplayPlant({plant , plants , setPlants , token , user}) {
 
 
 
   const savePlantAd = async () => {
+    const grabToken = window.localStorage.getItem("bearer");
     try{
-      await axios.get(`http://localhost:5005/plants/${plant._id}/save` , {
+      const response = await axios.get(`http://localhost:5005/plants/${plant._id}/save` , {
         headers : {
-          Authorization: `Bearer ${token}`
+          'Authorization': `Bearer ${grabToken}`
       },
       })
+      console.log(response.data)
+      //setPlants(plants.filter(plants => plants._id !== plant._id))  
     } catch (error) {
       console.log(error)
     }
   }
 
  const unsavePlantAd = async () => {
+  const grabToken = window.localStorage.getItem("bearer");
   try{
-    await axios.get(`http://localhost:5005/plants/${plant._id}/remove` , {
+    const response = await axios.get(`http://localhost:5005/plants/${plant._id}/remove` , {
       headers : {
-        Authorization: `Bearer ${token}`
+        'Authorization': `Bearer ${grabToken}`
     },
     })
+    console.log(response.data)
+    //setPlants(plants.filter(plants => plants._id !== plant._id))  
   } catch (error) {
     console.log(error)
   }
@@ -45,11 +51,11 @@ function DisplayPlant({plant , plants , setPlants , token }) {
                       />
                     </div>
                     <div className="singleCardText">
-                      <h2>{plant.variety}</h2>
-                      <h3>{plant.age}</h3>
-                      <h4>{plant.description}</h4>
-                      <h4>{plant.price}</h4>
-                      {/* <h4>{plant.owner}</h4> */}
+                      <h2>variety: {plant.variety}</h2>
+                      <h3>age: {plant.age}</h3>
+                      <h4>description: {plant.description}</h4>
+                      <h4>Price: {plant.price}</h4>
+                      <h4>Owner: {plant.owner.username}</h4>
                     </div>
                     <div>
                     <Button type='submit' variant='subtle' color='cyan' onClick={savePlantAd} >Save</Button>

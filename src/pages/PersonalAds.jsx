@@ -13,28 +13,43 @@ function PersonalAds() {
 const [personalPlants, setPersonalPlants] = useState([]);
 const [personalBikes, setPersonalBikes] = useState([]);
 
-const  {currentUser} = useContext(SessionContext);
-console.log("user from context: " + currentUser._id);
+const {currentUser} = useContext(SessionContext);
+const {token} = useContext(SessionContext);
+
+//console.log (currentUser)
+//console.log (token)
+//console.log("user from context: " + currentUser._id);
     
 const user = useParams().id;
-console.log("user from params " + user)
+//console.log("user from params " + user)
 
 
     const fetchPersonalPlants = async () => {
-        try {    
-          const response = await axios.post(`http://localhost:5005/plants/personalAds/${user}`);
+      const grabToken = window.localStorage.getItem("bearer");
+        try {
+          //console.log ("token:" + token )    
+          const response = await axios.get(`http://localhost:5005/plants/personalAds/${user}` , {
+            headers : {
+              authorization: `Bearer ${grabToken}`
+          },
+          })
           setPersonalPlants(response.data);
-        console.log(response.data);    
+        //console.log(response.data);    
         } catch (error) {
           console.log(error);
         }
       };
 
       const fetchPersonalBikes = async () => {
+        const grabToken = window.localStorage.getItem("bearer");
         try {    
-          const response = await axios.post(`http://localhost:5005/bicycles/personalAds/${user}`);
+          const response = await axios.get(`http://localhost:5005/bicycles/personalAds/${user}` , {
+            headers : {
+              authorization: `Bearer ${grabToken}`
+          },
+          })
           setPersonalBikes(response.data);
-        console.log(response.data);    
+        //console.log(response.data);    
         } catch (error) {
           console.log(error);
         }
@@ -45,7 +60,7 @@ console.log("user from params " + user)
           fetchPersonalPlants();
           fetchPersonalBikes()
           console.log("fetching personal ads");
-        }, [setPersonalBikes, setPersonalBikes]);
+        }, []);
       
  
 

@@ -44,19 +44,20 @@ const fetchBikeData = async () => {
 
   useEffect(() => {
     fetchBikeData();
-    console.log("fetching bike");
+    //console.log("fetching bike");
   }, []);
 
   const handleSubmit = async (event) => {
     event.preventDefault()
+    const grabToken = window.localStorage.getItem("bearer");
     const body = { type: type, size: size, condition: condition, price: price, description: description, image: image }
     try {
         await axios.put(`http://localhost:5005/bicycles/update/${params}`, body , {
             headers : {
-                Authorization: `Bearer ${token}`
+                'Authorization': `Bearer ${grabToken}`,
             },
         });
-        console.log("updated bike");
+        //console.log("updated bike");
         navigate(`/ads/${currentUser._id}`);
     } catch (error) {
         console.log(error);

@@ -7,12 +7,17 @@ import { Link ,useNavigate} from 'react-router-dom';
 function PersonalBikeCard({bike , setPersonalBikes , personalBikes , user}) {
 
   const navigate = useNavigate();
-  console.log(user)
+  //console.log(user)
 
     const deleteBike = async () => {
-        console.log('delete done')
+      const grabToken = window.localStorage.getItem("bearer");
+       
         try{
-          await axios.get(`http://localhost:5005/bicycles/delete/${bike._id}`)
+          await axios.get(`http://localhost:5005/bicycles/delete/${bike._id}`, {
+            headers : {
+              authorization: `Bearer ${grabToken}`
+          },
+          });
           setPersonalBikes(personalBikes.filter(bicycle => bicycle._id !== bike._id))
           //let filteredBicycles = personalBikes.filter(bicycle => bicycle.owner === user)
           //setPersonalBikes(filteredBicycles)

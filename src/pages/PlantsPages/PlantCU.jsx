@@ -19,7 +19,7 @@ const Plant = () => {
     const {token} = useContext(SessionContext)
     const {currentUser} = useContext(SessionContext)
 
-    console.log(params)
+
 
     return (
         <>

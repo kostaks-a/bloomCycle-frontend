@@ -25,11 +25,12 @@ const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault()
+        const grabToken = window.localStorage.getItem("bearer")
         const body = { variety: variety, size: size, age: age, price: price, description: description, image: image }
         try {
             await axios.post("http://localhost:5005/plants/newplant", body , {
                 headers : {
-                    Authorization: `Bearer ${token}`
+                    'Authorization': `Bearer ${grabToken}`
                 },
             });
             navigate(`/ads/${currentUser._id}`);

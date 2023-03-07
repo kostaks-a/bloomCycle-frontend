@@ -10,9 +10,14 @@ function PersonalPlantCard({plant , setPersonalPlants, personalPlants }) {
   const navigate = useNavigate();
 
 
-    const deletePlant = async () => {    
+    const deletePlant = async () => {   
+      const grabToken = window.localStorage.getItem("bearer"); 
         try{
-          await axios.get(`http://localhost:5005/plants/delete/${plant._id}`)
+          await axios.get(`http://localhost:5005/plants/delete/${plant._id}`, {
+            headers : {
+              authorization: `Bearer ${grabToken}`
+          },
+          });
           setPersonalPlants(personalPlants.filter(plants => plants._id !== plant._id))
         } catch (error) {
           console.log(error)
