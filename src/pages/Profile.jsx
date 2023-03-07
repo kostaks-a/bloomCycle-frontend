@@ -40,14 +40,14 @@ function Profile() {
     //Miguel: on the line below we need to change the avatar.png to 
     //the user image with cloudinary
     <div>
-            <h2>Username</h2>
-            <p>{user.username} </p>
-            <h2>Email adress</h2>
-            <p>{user.email}</p>
-    <Button onClick={handleDelete} component={Link} to='/' color="cyan" radius="md">
-      Delete account
-    </Button>
-          </div>
+      <h2>Username</h2>
+      <p>{user.username} </p>
+      <h2>Email adress</h2>
+      <p>{user.email}</p>
+      <Button onClick={handleDelete} component={Link} to='/' color="cyan" radius="md">
+        Delete account
+      </Button>
+    </div>
   );
 }
 
