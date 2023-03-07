@@ -10,8 +10,8 @@ import { SessionContext } from '../contexts/SessionContext';
 
 
 function PersonalAds() {
-const [personalPlants, setPersonalPlants] = useState([]);
-const [personalBikes, setPersonalBikes] = useState([]);
+  const [personalPlants, setPersonalPlants] = useState([]);
+  const [personalBikes, setPersonalBikes] = useState([]);
 
 const {currentUser} = useContext(SessionContext);
 const {token} = useContext(SessionContext);
@@ -22,6 +22,7 @@ const {token} = useContext(SessionContext);
     
 const user = useParams().id;
 //console.log("user from params " + user)
+
 
 
     const fetchPersonalPlants = async () => {
@@ -59,25 +60,22 @@ const user = useParams().id;
         useEffect(() => {
           fetchPersonalPlants();
           fetchPersonalBikes()
-          console.log("fetching personal ads");
+          //console.log("fetching personal ads");
         }, []);
       
- 
-
-
 
   return (
-    <> <div style={{display : 'flex'}}>
-        <div><h1>Plant ads</h1>
-        {personalPlants.map((plant) => <PersonalPlantCard key={plant._id} plant={plant} setPersonalPlants={setPersonalPlants} personalPlants={personalPlants} user={user} />)}
-    </div>
-
-    <div><h1>Bike ads</h1>
-    {personalBikes.map((bike) => <PersonalBikeCard key={bike._id} bike={bike} setPersonalBikes={setPersonalBikes} personalBikes={personalBikes} user={user} />)}
-    </div>
+    <div style={{display : 'flex'}}>
+        <div>
+           <h1>Plant ads</h1>
+           {personalPlants.map((plant) => <PersonalPlantCard key={plant._id} plant={plant} setPersonalPlants={setPersonalPlants} personalPlants={personalPlants} user={user} />)}
+        </div>
+        <div>
+          <h1>Bike ads</h1>
+          {personalBikes.map((bike) => <PersonalBikeCard key={bike._id} bike={bike} setPersonalBikes={setPersonalBikes} personalBikes={personalBikes} user={user} />)}
+        </div>
     </div>    
-    </>
-  )
+  );
 }
 
-export default PersonalAds
+export default PersonalAds;

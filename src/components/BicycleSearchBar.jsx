@@ -1,13 +1,14 @@
 import React from "react";
 import { Input, Button, Container, Flex } from "@mantine/core";
 
-function PlantSearchBar({ search, setSearch }) {
+function bicycleSearchBar() {
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
-
   return (
     <>
+      <label>Search</label>
+
       <Container mt={120}>
         <Flex direction={{ base: "column", sm: "row" }} gap="sm" align="center">
           <Input
@@ -26,4 +27,4 @@ function PlantSearchBar({ search, setSearch }) {
   );
 }
 
-export default PlantSearchBar;
+export default bicycleSearchBar;

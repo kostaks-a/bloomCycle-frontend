@@ -1,7 +1,5 @@
-import React from 'react'
-import { Link } from "react-router-dom";
-import { Input, Button, Container, Flex } from "@mantine/core";
-import { useEffect , useState , useContext} from "react";
+import React from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import PlantCard from "../../components/PlantCard";
 import { SessionContext } from '../../contexts/SessionContext';
@@ -12,8 +10,8 @@ const [plants, setPlants] = useState([]);
 const [loading, setLoading] = useState(true);
 const [search, setSearch] = useState("");
 
-const {token} = useContext(SessionContext)
-const {currentUser} = useContext(SessionContext)
+  const { token } = useContext(SessionContext);
+  const { currentUser } = useContext(SessionContext);
 
 
 
@@ -36,12 +34,8 @@ useEffect(() => {
     fetchPlants();
   }, []);
 
-
-
-
   return (
     <>   
-  
           <h1>Plants</h1>
           <PlantSearchBar search={search} setSearch={setSearch} />
 
@@ -57,8 +51,7 @@ useEffect(() => {
           })}
     
     </>
-
-      )
+  );
 }
 
-export default PlantsDisplay
+export default PlantsDisplay;

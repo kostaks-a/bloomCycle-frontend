@@ -20,7 +20,7 @@ function DashBoard() {
 
   return (
     <div style={{ display: "flex", justifyContent: "space-evenly" }}>
-      <Card style={{ width: 300}} shadow="sm" padding="lg">
+      <Card style={{ width: 300 }} shadow="sm" padding="lg">
         <Card.Section>
           <Image
             src="https://media.istockphoto.com/id/845292864/pt/vetorial/wrench-icon.jpg?s=170667a&w=0&k=20&c=jharj_irCKUV04A0T7X2kG0wFNNhXdsR9HwoUkoS90Y="
@@ -40,20 +40,19 @@ function DashBoard() {
         >
           <Text weight={500}>You personal Information</Text>
         </Group>
-        <Link to='/profile' style={{ textDecoration: 'none' }}>
-        <Button
-          variant="light"
-          color="blue"
-          fullWidth
-          style={{ marginTop: 14 }}
-        >
-          Change
-        </Button>
+        <Link to="/profile" style={{ textDecoration: "none" }}>
+          <Button
+            variant="light"
+            color="blue"
+            fullWidth
+            style={{ marginTop: 14 }}
+          >
+            Change
+          </Button>
         </Link>
-        
       </Card>
 
-      <Card style={{ width: 300}} shadow="sm" padding="lg">
+      <Card style={{ width: 300 }} shadow="sm" padding="lg">
         <Card.Section>
           <Image src="/ads.jpg" height={160} alt="Norway" />
         </Card.Section>
@@ -80,7 +79,7 @@ function DashBoard() {
         </Button>
         </Link>
       </Card>
-      <Card style={{ width: 300}} shadow="sm" padding="lg">
+      <Card style={{ width: 300 }} shadow="sm" padding="lg">
         <Card.Section>
           <Image src="/messages_img.jpg" height={160} alt="Norway" />
         </Card.Section>
