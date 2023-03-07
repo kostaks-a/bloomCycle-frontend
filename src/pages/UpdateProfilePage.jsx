@@ -16,7 +16,8 @@ function UpdateProfilePage() {
     const [password, setPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [location, setLocation] = useState("");
-    const { token } = useContext(SessionContext)
+    const { token } = useContext(SessionContext);
+     // const [currentUser, setCurrentUser] = useState();
     const navigate = useNavigate();
 
     const handleUpdate = async (event) => {
@@ -24,20 +25,21 @@ function UpdateProfilePage() {
         console.log("updated username:", username)
 
         try {
-            const response = await axios.put("http://localhost:5005/auth/update", {
+            const response = await axios.put(`http://localhost:5005/auth/update/${user._id}`, {
                 username: username,
                 email: email,
                 password: password,
                 phoneNumber: phoneNumber,
-                location: location
+                location: location,
+                image: image
             },
                 {
                     headers: {
                         authorization: `Bearer ${token}`
                     }
                 })
-            console.log(response.data);
             setUser(response.data);
+            navigate('/profile');
         } catch (error) {
             console.log("Error: ", error);
         }
@@ -50,7 +52,7 @@ function UpdateProfilePage() {
         <>
             <Avatar src={user.image ? user.image : null} alt="no image here" size="lg" radius="xl" />
 
-            <Accordion defaultValue="changePersonalInfo" onSubmit={handleUpdate}>
+            <Accordion defaultValue="changePersonalInfo">
                 <Accordion.Item value="change-username">
                     <Accordion.Control>Change username</Accordion.Control>
                     <Accordion.Panel>

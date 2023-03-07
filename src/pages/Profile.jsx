@@ -3,6 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { SessionContext } from "../contexts/SessionContext";
 //import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Avatar } from '@mantine/core';
 import { Accordion, Select, Button, PasswordInput } from '@mantine/core';
 import { Input } from '@mantine/core';
@@ -10,15 +11,9 @@ import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
 
 
 function Profile() {
-  const { user, isAuthenticated } = useContext(SessionContext);
-  // const [user, setUser] = useState({});
-  // const [username, setUsername] = useState("");
-  // const [email, setEmail] = useState("");
-  // const [password, setPassword] = useState("");
-  // const [phoneNumber, setPhoneNumber] = useState("");
-  // const [location, setLocation] = useState("");
-  // const [currentUser, setCurrentUser] = useState();
+  const { user, setUser, isAuthenticated } = useContext(SessionContext);
   const [deleting, setDeleting] = useState(false);
+  const navigate = useNavigate();
 
   // useEffect(() => {
   //   setCurrentUser(user);
@@ -44,6 +39,15 @@ function Profile() {
       <p>{user.username} </p>
       <h2>Email adress</h2>
       <p>{user.email}</p>
+      <h2>Phone number</h2>
+      <p>{user.phoneNumber}</p>
+      <h2>Location</h2>
+      <p>{user.location}</p>
+
+      <Link type="button" component={Link} to={`/update/${user._id}`}>
+        Update
+      </Link>
+
       <Button onClick={handleDelete} component={Link} to='/' color="cyan" radius="md">
         Delete account
       </Button>
