@@ -1,51 +1,57 @@
-import React from 'react'
+import React from "react";
 import { Link } from "react-router-dom";
-import { useEffect , useState , useContext} from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import DisplayBike from "../../components/DisplayBike";
-import { SessionContext } from '../../contexts/SessionContext';
-
-
+import { SessionContext } from "../../contexts/SessionContext";
 
 function BicyclesDisplay() {
-const [bicycles, setBicycles] = useState([]);
-const [loading, setLoading] = useState(true);
+  const [bicycles, setBicycles] = useState([]);
+  const [loading, setLoading] = useState(true);
 
-const {token} = useContext(SessionContext)
-const {currentUser} = useContext(SessionContext)
+  const { token } = useContext(SessionContext);
+  const { currentUser } = useContext(SessionContext);
 
-const fetchBikes = async () => {
-  try {    
-    const response = await axios.get('http://localhost:5005/bicycles/allbicycles');
-    setBicycles(response.data);
-    //console.log(response.data);    
-  } catch (error) {
-    console.log(error);
-  }
-};
-
+  const fetchBikes = async () => {
+    try {
+      const response = await axios.get(
+        "http://localhost:5005/bicycles/allbicycles"
+      );
+      setBicycles(response.data);
+      //console.log(response.data);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   useEffect(() => {
     fetchBikes();
     console.log("refreshed");
   }, []);
 
-
-
-
   return (
     <>
-   
-          <h1>Bicycles</h1>
-          {bicycles.map((bike) => {
-            return (
-               <DisplayBike currentUser={currentUser} token={token} key={bike._id} bicycles={bicycles} setBicycles={setBicycles} bike={bike}/>  
-            )  
-          })}
-    
+      <h1>Bicycles</h1>
+      {bicycles
+        .filter((bike) => {
+          if (bike.type.toLowerCase().match(search.toLowerCase())) {
+            return bike;
+          }
+        })
+        .map((bike) => {
+          return (
+            <DisplayBike
+              currentUser={currentUser}
+              token={token}
+              key={bike._id}
+              bicycles={bicycles}
+              setBicycles={setBicycles}
+              bike={bike}
+            />
+          );
+        })}
     </>
-
-      )
+  );
 }
 
-export default BicyclesDisplay
+export default BicyclesDisplay;

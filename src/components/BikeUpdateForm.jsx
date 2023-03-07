@@ -77,26 +77,6 @@ const BikeUpdate = ({
       console.log(error);
     }
   };
-  //     const body = {
-  //       type: type,
-  //       size: size,
-  //       condition: condition,
-  //       price: price,
-  //       description: description,
-  //       image: image,
-  //     };
-  //     try {
-  //       await axios.put(`http://localhost:5005/bicycles/update/${params}`, body, {
-  //         headers: {
-  //           Authorization: `Bearer ${token}`,
-  //         },
-  //       });
-  //       console.log("updated bike");
-  //       navigate("/allbicycles");
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
 
   return (
     <>

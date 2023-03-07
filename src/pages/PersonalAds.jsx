@@ -43,11 +43,10 @@ function PersonalAds() {
   }, []);
 
   const deleteBike = async () => {
-    console.log("delete done");
     try {
-      await axios.get(`http://localhost:5005/bicycles/save/${bike._id}`);
+      await axios.get(`http://localhost:5005/bicycles/delete/${bicycle._id}`);
       let filteredBicycles = bicycles.filter(
-        (bicycle) => bicycle._id !== bike._id
+        (bicycle) => bicycle._id !== bicycle._id
       );
       setBicycles(filteredBicycles);
     } catch (error) {
@@ -115,7 +114,7 @@ function PersonalAds() {
             <div className="singleCard">
               <div>
                 <img
-                  src="/./bicycle.jpg"
+                  src={bike.image}
                   alt={bike.name}
                   style={{ height: "150px" }}
                 />
