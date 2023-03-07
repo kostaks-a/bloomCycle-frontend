@@ -1,4 +1,3 @@
-
 import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -17,11 +16,8 @@ import PersonalAds from './pages/PersonalAds'
 import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
-import Navbar from "./components/Navbar";
 import { AppShell, Box, Button, Header } from "@mantine/core";
-import TestPage from "./pages/TestPage";
 
-//import OutletComponent from "./components/OutletComponent";
 
 
 function App() {
@@ -102,13 +98,13 @@ function App() {
       }
     >
       <Routes>
+        <Route path='*' element={<h1>404 Not Found</h1>} />
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/allbicycles" element={<BicyclesDisplay />} />
         <Route path="/allplants" element={<PlantsDisplay />} />
-        <Route path="/test" element={<TestPage />} />
         <Route
           path="/update/:userId" element={<UpdateProfilePage />} />
         <Route path='/profile'
