@@ -23,6 +23,7 @@ const PlantCreateForm = ({
   setPrice,
   setImage,
   token,
+  currentUser
 }) => {
   const navigate = useNavigate();
 

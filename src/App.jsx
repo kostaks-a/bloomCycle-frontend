@@ -18,11 +18,14 @@ import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import Navbar from "./components/Navbar";
+import { AppShell, Box, Button, Header } from "@mantine/core";
+import TestPage from "./pages/TestPage";
+
 //import OutletComponent from "./components/OutletComponent";
 
 
 function App() {
-
+  const { isAuthenticated, logOutUser } = useContext(SessionContext);
   return (
     <AppShell
       padding="md"

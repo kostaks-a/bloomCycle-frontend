@@ -25,6 +25,7 @@ const PlantUpdateForm = ({
   setImage,
   params,
   token,
+  currentUser
 }) => {
   console.log(params);
   const navigate = useNavigate();

@@ -26,10 +26,12 @@ const BikeCreateForm = ({
   setPrice,
   setImage,
   token,
+  currentUser
 }) => {
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
+    console.log('button working')
     event.preventDefault();
     const grabToken = window.localStorage.getItem("bearer");
     const image = event.target.image.files[0];
@@ -41,12 +43,13 @@ const BikeCreateForm = ({
     formData.append("description", description);
     formData.append("imageUrl", image);
     try {
-      await axios.post("http://localhost:5005/bicycles/newbicycle", formData, {
+     const response = await axios.post("http://localhost:5005/bicycles/newbicycle", formData, {
         headers: {
           Authorization: `Bearer ${grabToken}`,
         },
       });
-      navigate(`/ads/${currentUser._id}`);
+      console.log(response.data);
+      navigate(`/ads/${currentUser._id}`)
     } catch (error) {
       console.log(error);
     }

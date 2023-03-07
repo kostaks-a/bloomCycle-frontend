@@ -1,7 +1,7 @@
 import React from "react";
 import { Input, Button, Container, Flex } from "@mantine/core";
 
-function bicycleSearchBar() {
+function bicycleSearchBar({search , setSearch}) {
   const handleChange = (event) => {
     setSearch(event.target.value);
   };

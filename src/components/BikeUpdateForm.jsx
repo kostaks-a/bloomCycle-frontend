@@ -26,6 +26,7 @@ const BikeUpdate = ({
   setImage,
   params,
   token,
+  currentUser
 }) => {
   const navigate = useNavigate();
 
