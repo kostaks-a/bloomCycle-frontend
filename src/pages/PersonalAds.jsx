@@ -13,12 +13,12 @@ function PersonalAds() {
   const [personalPlants, setPersonalPlants] = useState([]);
   const [personalBikes, setPersonalBikes] = useState([]);
 
-const {currentUser} = useContext(SessionContext);
-const {token} = useContext(SessionContext);
 
-//console.log (currentUser)
+  const {token , currentUser} = useContext(SessionContext)
+
+
 //console.log (token)
-//console.log("user from context: " + currentUser._id);
+console.log("user from context: " + currentUser._id);
     
 const user = useParams().id;
 //console.log("user from params " + user)
@@ -27,9 +27,10 @@ const user = useParams().id;
 
     const fetchPersonalPlants = async () => {
       const grabToken = window.localStorage.getItem("bearer");
+      //console.log(user)
         try {
           //console.log ("token:" + token )    
-          const response = await axios.get(`http://localhost:5005/plants/personalAds/${user}` , {
+          const response = await axios.get(`http://localhost:5005/plants/personalAds/${currentUser._id}` , {
             headers : {
               authorization: `Bearer ${grabToken}`
           },
@@ -43,8 +44,9 @@ const user = useParams().id;
 
       const fetchPersonalBikes = async () => {
         const grabToken = window.localStorage.getItem("bearer");
+        //console.log(user)
         try {    
-          const response = await axios.get(`http://localhost:5005/bicycles/personalAds/${user}` , {
+          const response = await axios.get(`http://localhost:5005/bicycles/personalAds/${currentUser._id}` , {
             headers : {
               authorization: `Bearer ${grabToken}`
           },

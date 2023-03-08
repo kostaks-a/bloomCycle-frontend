@@ -6,7 +6,7 @@ import axios from "axios";
 
 
 function DisplayPlant({plant , plants , setPlants , token , user}) {
-
+  const [isSaved, setIsSaved] = useState(false);
 
 
   const savePlantAd = async () => {
@@ -18,6 +18,7 @@ function DisplayPlant({plant , plants , setPlants , token , user}) {
       },
       })
       console.log(response.data)
+      setIsSaved(true)
       //setPlants(plants.filter(plants => plants._id !== plant._id))  
     } catch (error) {
       console.log(error)
@@ -33,6 +34,7 @@ function DisplayPlant({plant , plants , setPlants , token , user}) {
     },
     })
     console.log(response.data)
+    setIsSaved(false)
     //setPlants(plants.filter(plants => plants._id !== plant._id))  
   } catch (error) {
     console.log(error)
@@ -58,8 +60,7 @@ function DisplayPlant({plant , plants , setPlants , token , user}) {
                       <h4>Owner: {plant.owner.username}</h4>
                     </div>
                     <div>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={savePlantAd} >Save</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={unsavePlantAd} >unSave</Button>
+                    {isSaved ? <Button type='submit' variant='subtle' color='cyan' onClick={unsavePlantAd} >unSave</Button> : <Button type='submit' variant='subtle' color='cyan' onClick={savePlantAd} >Save</Button>}
                     </div>
                   </div>
         </>

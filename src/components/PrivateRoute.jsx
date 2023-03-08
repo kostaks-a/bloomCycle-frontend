@@ -11,7 +11,7 @@ function PrivateRoute({ children }) {
 
     return (
         <>
-            {children}
+            { children }
         </>
     )
 }

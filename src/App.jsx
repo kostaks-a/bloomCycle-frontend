@@ -21,7 +21,7 @@ import { AppShell, Box, Button, Header } from "@mantine/core";
 
 
 function App() {
-  const { isAuthenticated, logOutUser } = useContext(SessionContext);
+  const { isAuthenticated, logOutUser , currentUser} = useContext(SessionContext);
   return (
     <AppShell
       padding="md"
@@ -97,6 +97,7 @@ function App() {
         </Header>
       }
     >
+    
       <Routes>
         <Route path='*' element={<h1>404 Not Found</h1>} />
         <Route path="/" element={<HomePage />} />
@@ -150,7 +151,7 @@ function App() {
         />
         <Route path="/ads/:id/saved" element={
           <PrivateRoute>
-            <SavedAds />
+            <SavedAds  />
           </PrivateRoute>
         }
         />

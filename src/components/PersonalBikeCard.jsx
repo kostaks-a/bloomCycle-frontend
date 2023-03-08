@@ -44,9 +44,6 @@ function PersonalBikeCard({bike , setPersonalBikes , personalBikes , user}) {
                 <h4>{bike.price}</h4>
               </div>
               <div>
-                <Button type="submit" variant="subtle" color="cyan">
-                  Save
-                </Button>
                 <Button
                   component={Link}
                   to={`/bicycle/${bike._id}`}

@@ -14,7 +14,9 @@ import {
 function DashBoard() {
   const theme = useMantineTheme();
   const {currentUser} = useContext(SessionContext)
-  //console.log(currentUser._id)
+  console.log('User id from context: ' + currentUser._id)
+  
+  
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
 

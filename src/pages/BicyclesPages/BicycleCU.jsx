@@ -22,7 +22,6 @@ const Bicycle = () => {
 
     return (
         <>
-        <h1>Bike ad</h1>
         { params === "create" ? 
             <BikeCreateForm
             type={type}

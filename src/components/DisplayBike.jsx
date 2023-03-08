@@ -34,7 +34,7 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
     <>
       <div className="singleCard">
         <div>
-          <img src={bike.image} alt={bike.name} style={{ height: "150px" }} />
+          <img src={bike.image} alt={bike.type} style={{ height: "150px" }} />
         </div>
         <div className="singleCardText">
           <h2>{bike.type}</h2>
