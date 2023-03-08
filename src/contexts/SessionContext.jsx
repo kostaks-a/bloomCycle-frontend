@@ -8,7 +8,7 @@ const SessionContextProvider = ({ children }) => {
     const [token, setToken] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState("");
-    const [user, setUser] = useState({});
+    const [user, setUser] = useState(undefined);
 
     const verifyToken = async (jwt) => {
         //console.log("JWT: ", jwt);
@@ -18,6 +18,7 @@ const SessionContextProvider = ({ children }) => {
                     authorization: `Bearer ${jwt}`
                 },
             })
+            console.log(response.data)
             setToken(jwt);
             setIsAuthenticated(true);
             setUser(response.data)

@@ -14,11 +14,6 @@ function Profile() {
   const [deleting, setDeleting] = useState(false);
   const navigate = useNavigate();
 
-  // useEffect(() => {
-  //   setCurrentUser(user);
-  // }, []);
-
-
   const handleDelete = async () => {
     setDeleting(true);
     try {
@@ -33,14 +28,16 @@ function Profile() {
       setDeleting(false);
     }
   }
-if (!user) {}
+if (!user) {
+  return <p>loading</p>}
+console.log(user);
   return (
     //Miguel: on the line below we need to change the avatar.png to 
     //the user image with cloudinary
     <div>
       <h2>Username</h2>
       <p>{user.username} </p>
-      <h2>Email adress</h2>
+      <h2>Email address</h2>
       <p>{user.email}</p>
       <h2>Phone number</h2>
       <p>{user.phoneNumber}</p>
