@@ -4,6 +4,8 @@ import { Link } from "react-router-dom";
 import axios from "axios";
 
 function DisplayPlant({ plant, plants, setPlants, token, user }) {
+  const [isSaved, setIsSaved] = useState(false);
+
   const savePlantAd = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     try {
@@ -16,6 +18,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
         }
       );
       console.log(response.data);
+      setIsSaved(true);
       //setPlants(plants.filter(plants => plants._id !== plant._id))
     } catch (error) {
       console.log(error);
@@ -34,6 +37,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
         }
       );
       console.log(response.data);
+      setIsSaved(false);
       //setPlants(plants.filter(plants => plants._id !== plant._id))
     } catch (error) {
       console.log(error);
@@ -42,29 +46,43 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
 
   return (
     <>
-      return (
-      <Card shadow="sm" padding="lg" radius="md" withBorder>
-        <Card.Section>
-          <Image src={plant.image} height={160} alt="plant image" />
-        </Card.Section>
-
-        <Group position="apart" mt="md" mb="xs">
-          <Text weight={500}>Norway dasasdaSdasdasddsasds</Text>
-          <Badge color="pink" variant="light">
-            On Sale
-          </Badge>
-        </Group>
-
-        <Text size="sm" color="dimmed">
-          With Fjord Tours you can explore more of the magical fjord landscapes
-          with tours and activities on and around the fjords of Norway
-        </Text>
-
-        <Button variant="light" color="blue" fullWidth mt="md" radius="md">
-          Book classic tour now
-        </Button>
-      </Card>
-      );
+      <div className="singleCard">
+        <div>
+          <img
+            src="/./monstera.jpg"
+            alt={plant.name}
+            style={{ height: "150px" }}
+          />
+        </div>
+        <div className="singleCardText">
+          <h2>variety: {plant.variety}</h2>
+          <h3>age: {plant.age}</h3>
+          <h4>description: {plant.description}</h4>
+          <h4>Price: {plant.price}</h4>
+          <h4>Owner: {plant.owner.username}</h4>
+        </div>
+        <div>
+          {isSaved ? (
+            <Button
+              type="submit"
+              variant="subtle"
+              color="cyan"
+              onClick={unsavePlantAd}
+            >
+              unSave
+            </Button>
+          ) : (
+            <Button
+              type="submit"
+              variant="subtle"
+              color="cyan"
+              onClick={savePlantAd}
+            >
+              Save
+            </Button>
+          )}
+        </div>
+      </div>
     </>
   );
 }

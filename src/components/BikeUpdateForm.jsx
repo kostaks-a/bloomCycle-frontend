@@ -5,6 +5,7 @@ import {
   TextInput,
   NumberInput,
   FileInput,
+  Image
 } from "@mantine/core";
 import { Select } from "@mantine/core";
 import { useEffect } from "react";
@@ -31,10 +32,14 @@ const BikeUpdate = ({
   const navigate = useNavigate();
 
   const fetchBikeData = async () => {
+    const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${params}`
-      );
+        `http://localhost:5005/bicycles/${params}` , {
+          headers : {
+            'Authorization': `Bearer ${grabToken}`
+        },
+        })
       const bike = response.data;
       console.log(bike);
       setType(bike.type);
@@ -82,7 +87,19 @@ const BikeUpdate = ({
 
   return (
     <>
-      <Box
+    <div style = {{ display: "flex" , flexDirection: 'column' , }}>
+<div style = {{ alignSelf: "center"}}>
+      <Image
+        width={250}
+        height={250}
+        fit="contain"
+        radius="md"
+        src={image}
+        alt={type}
+      />
+</div>
+<div>
+  <Box
         sx={{
           margin: "0 auto",
           maxWidth: "400px",
@@ -93,7 +110,7 @@ const BikeUpdate = ({
         }}
       >
         <Text align="center" size="xl" weight="bold">
-          Give us some details of your bicycle
+        Update the details of your ad
         </Text>
         <Box
           component="form"
@@ -105,6 +122,7 @@ const BikeUpdate = ({
           }}
           onSubmit={handleSubmit}
         >
+          
           <Select
             withAsterisk
             label="Select the type of your bicycle"
@@ -161,6 +179,9 @@ const BikeUpdate = ({
           </Button>
         </Box>
       </Box>
+</div>
+</div>
+      
     </>
   );
 };

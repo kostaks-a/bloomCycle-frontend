@@ -23,7 +23,6 @@ const Plant = () => {
 
     return (
         <>
-        <h1>Plant ad</h1>
         { params === "create" ?
         <PlantCreateForm
             variety={variety}

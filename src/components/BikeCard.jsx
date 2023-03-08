@@ -7,7 +7,7 @@ import { useContext , useState} from 'react';
 
 
 function DisplayBike({bike, bicycles , setBicycles , token , currentUser}) {
-  // const [saveButton, setSaveButton] = useState('');
+const [isSaved, setIsSaved] = useState(false);
 
 
 
@@ -20,6 +20,7 @@ const saveBikeAd = async () => {
     },
     })
     console.log(response.data)
+    setIsSaved(true)
     //setBicycles(bicycles.filter(bicycle => bicycle._id === bike._id))
   } catch (error) {
     console.log(error)
@@ -35,6 +36,7 @@ const unsaveBikeAd = async () => {
     },
     })
     console.log(response.data)
+    setIsSaved(false)
     //setBicycles(bicycles.filter(bicycle => bicycle._id !== bike._id))
   } catch (error) {
     console.log(error)
@@ -61,9 +63,8 @@ const unsaveBikeAd = async () => {
                       <h4>Why</h4>
                     </div>
                     <div>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={saveBikeAd} >Save</Button>
-                    <Button type='submit' variant='subtle' color='cyan' onClick={unsaveBikeAd} >unSave</Button>
-                    </div>
+                       {isSaved ? <Button type='submit' variant='subtle' color='cyan' onClick={unsaveBikeAd} >unSave</Button> : <Button type='submit' variant='subtle' color='cyan' onClick={saveBikeAd} >Save</Button>}
+                     </div>
                   </div>
         </>
   )

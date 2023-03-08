@@ -14,10 +14,15 @@ import {
 function DashBoard() {
   const theme = useMantineTheme();
   const {currentUser} = useContext(SessionContext)
-  //console.log(currentUser._id)
+  console.log('User id from context: ' + currentUser._id)
+  
+  
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
-
+    
+ if (!currentUser) {
+    return <p>Loading</p>
+ }
   return (
     <div style={{ display: "flex", justifyContent: "space-evenly" }}>
       <Card style={{ width: 300 }} shadow="sm" padding="lg">

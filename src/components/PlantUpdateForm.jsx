@@ -5,6 +5,7 @@ import {
   TextInput,
   NumberInput,
   FileInput,
+  Image
 } from "@mantine/core";
 import { useEffect } from "react";
 import axios from "axios";
@@ -31,10 +32,14 @@ const PlantUpdateForm = ({
   const navigate = useNavigate();
 
   const fetchPlantData = async () => {
+    const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${params}`
-      );
+        `http://localhost:5005/plants/${params}` , {
+          headers : {
+            'Authorization': `Bearer ${grabToken}`
+        },
+        })
       const plant = response.data;
       console.log(plant);
       setVariety(plant.variety);
@@ -81,6 +86,20 @@ const PlantUpdateForm = ({
   };
 
   return (
+    <>
+     <div style = {{ display: "flex" , flexDirection: 'column' , }}>
+    <div style = {{ alignSelf: "center"}}>
+          <Image
+            width={250}
+            height={250}
+            fit="contain"
+            radius="md"
+            src={image}
+            alt={variety}
+          />
+    </div>
+
+    <div>
     <Box
       sx={{
         margin: "0 auto",
@@ -92,7 +111,7 @@ const PlantUpdateForm = ({
       }}
     >
       <Text align="center" size="xl" weight="bold">
-        Give us some details of your plant
+        Update the details of your ad
       </Text>
       <Box
         component="form"
@@ -151,6 +170,11 @@ const PlantUpdateForm = ({
         </Button>
       </Box>
     </Box>
+    </div>
+    </div>
+  
+  </>
+  
   );
 };
 
