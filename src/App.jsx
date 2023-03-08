@@ -1,4 +1,3 @@
-
 import { Link, Route, Routes } from "react-router-dom";
 import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
@@ -13,16 +12,16 @@ import DashBoard from "./pages/DashBoard";
 import BicyclesDisplay from "./pages/BicyclesPages/BicyclesDisplay";
 import PlantsDisplay from "./pages/PlantsPages/PlantsDisplay";
 import "./App.css";
-import PersonalAds from './pages/PersonalAds'
+import PersonalAds from "./pages/PersonalAds";
 import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import Navbar from "./components/Navbar";
 import { AppShell, Box, Button, Header } from "@mantine/core";
 import TestPage from "./pages/TestPage";
+import "./index.css";
 
 //import OutletComponent from "./components/OutletComponent";
-
 
 function App() {
   const { isAuthenticated, logOutUser } = useContext(SessionContext);
@@ -109,15 +108,15 @@ function App() {
         <Route path="/allbicycles" element={<BicyclesDisplay />} />
         <Route path="/allplants" element={<PlantsDisplay />} />
         <Route path="/test" element={<TestPage />} />
+        <Route path="/update/:userId" element={<UpdateProfilePage />} />
         <Route
-          path="/update/:userId" element={<UpdateProfilePage />} />
-        <Route path='/profile'
+          path="/profile"
           element={
             <PrivateRoute>
               <Profile>
-            <UpdateProfilePage />
-            </Profile>
-          </PrivateRoute>
+                <UpdateProfilePage />
+              </Profile>
+            </PrivateRoute>
           }
         />
         <Route
@@ -152,11 +151,13 @@ function App() {
             </PrivateRoute>
           }
         />
-        <Route path="/ads/:id/saved" element={
-          <PrivateRoute>
-            <SavedAds />
-          </PrivateRoute>
-        }
+        <Route
+          path="/ads/:id/saved"
+          element={
+            <PrivateRoute>
+              <SavedAds />
+            </PrivateRoute>
+          }
         />
       </Routes>
     </AppShell>
