@@ -1,5 +1,6 @@
 import axios from "axios";
 import { createContext, useEffect, useState } from "react";
+
 export const SessionContext = createContext();
 
 const SessionContextProvider = ({ children }) => {
@@ -7,6 +8,7 @@ const SessionContextProvider = ({ children }) => {
     const [token, setToken] = useState("");
     const [isLoading, setIsLoading] = useState(true);
     const [currentUser, setCurrentUser] = useState("");
+    const [user, setUser] = useState(undefined);
 
     const verifyToken = async (jwt) => {
         //console.log("JWT: ", jwt);
@@ -17,8 +19,10 @@ const SessionContextProvider = ({ children }) => {
                     authorization: `Bearer ${jwt}`
                 },
             })
+            console.log(response.data)
             setToken(jwt);
             setIsAuthenticated(true);
+            setUser(response.data)
             setIsLoading(false);
             setCurrentUser({...response.data , passwordHash: ''})
         } catch (error) {
@@ -56,7 +60,7 @@ const SessionContextProvider = ({ children }) => {
     }, [token])
 
     return (
-        <SessionContext.Provider value={{ currentUser , token ,setToken, isAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
+        <SessionContext.Provider value={{ user, setUser, currentUser, token , setToken, isAuthenticated, setIsAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
     )
 }
 
