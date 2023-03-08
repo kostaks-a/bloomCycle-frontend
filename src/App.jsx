@@ -17,6 +17,7 @@ import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import { AppShell, Box, Button, Header } from "@mantine/core";
+import OutletComponent from "./components/OutletComponent";
 
 
 
@@ -98,11 +99,13 @@ function App() {
       }
     >
       <Routes>
+        <Route path="/signup" element={<SignupPage />} />
+        <Route path="/login" element={<LoginPage />} />
+
+        <Route path="/" element={<OutletComponent />}>
         <Route path='*' element={<h1>404 Not Found</h1>} />
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<AboutPage />} />
-        <Route path="/signup" element={<SignupPage />} />
-        <Route path="/login" element={<LoginPage />} />
         <Route path="/allbicycles" element={<BicyclesDisplay />} />
         <Route path="/allplants" element={<PlantsDisplay />} />
         <Route
@@ -111,9 +114,9 @@ function App() {
           element={
             <PrivateRoute>
               <Profile>
-            <UpdateProfilePage />
-            </Profile>
-          </PrivateRoute>
+                <UpdateProfilePage />
+              </Profile>
+            </PrivateRoute>
           }
         />
         <Route
@@ -154,6 +157,7 @@ function App() {
           </PrivateRoute>
         }
         />
+        </Route>
       </Routes>
     </AppShell>
   );
