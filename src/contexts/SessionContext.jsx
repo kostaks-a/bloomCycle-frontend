@@ -10,6 +10,7 @@ const SessionContextProvider = ({ children }) => {
 
     const verifyToken = async (jwt) => {
         //console.log("JWT: ", jwt);
+        if (jwt) {
         try {
            const response = await axios.post("http://localhost:5005/auth/verify", undefined, {
                 headers: {
@@ -24,7 +25,7 @@ const SessionContextProvider = ({ children }) => {
             console.log("Error authenticating Bearer: ", error);
             window.localStorage.removeItem("bearer");
         }
-    }
+    }}
 
     const removeToken = () => {                  
         // Upon logout, remove the token from the localStorage

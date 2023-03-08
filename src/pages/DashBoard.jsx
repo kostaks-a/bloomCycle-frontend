@@ -19,7 +19,10 @@ function DashBoard() {
   
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
-
+    
+ if (!currentUser) {
+    return <p>Loading</p>
+ }
   return (
     <div style={{ display: "flex", justifyContent: "space-evenly" }}>
       <Card style={{ width: 300 }} shadow="sm" padding="lg">
