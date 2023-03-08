@@ -59,6 +59,7 @@ const SessionContextProvider = ({ children }) => {
         }
     }, [token])
 
+    if(!user) {return <p>Loading</p>}
     return (
         <SessionContext.Provider value={{ user, setUser, currentUser, token , setToken, isAuthenticated, setIsAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
     )
