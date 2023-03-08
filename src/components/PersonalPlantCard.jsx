@@ -27,7 +27,9 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
   return (
     <div class="card-container">
       <Link to={`/plant/${plant._id}`} class="hero-image-container">
-        <img class="hero-image" src={plant.image} alt="{plant.variety}" />
+        <div className="imageContainer">
+          <img class="hero-image" src={plant.image} alt="{plant.variety}" />
+        </div>
       </Link>
       <main class="main-content">
         <div style={{ display: "flex", gap: "10px" }}>
