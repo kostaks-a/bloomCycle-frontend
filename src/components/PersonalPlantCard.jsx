@@ -25,69 +25,48 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
   };
 
   return (
-    <Card
-      shadow="sm"
-      padding="lg"
-      radius="md"
-      withBorder
-      style={{
-        width: 250,
-        height: 350,
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        marginTop: "20px",
-      }}
-    >
-      <Card.Section>
-        <Image src={plant.image} height={200} alt="plant picture" />
-      </Card.Section>
-
-      <Group position="apart" mt="md" mb="xs">
-        <Text weight={500}>{plant.variety}</Text>
-        <div>
-          <button
-            style={{ padding: "0", border: "none", background: "none" }}
-            type="submit"
-            onClick={deletePlant}
-          >
-            <Badge color="red" variant="light">
-              Delete
-            </Badge>
-          </button>
-          <button
-            component={Link}
-            to={`/plant/${plant._id}`}
-            style={{
-              padding: "0",
-              border: "none",
-              background: "none",
-              marginBottom: "10px",
-            }}
-          >
-            <Badge color="blue" variant="light">
-              update
-            </Badge>
-          </button>
+    <div class="card-container">
+      <Link to={`/plant/${plant._id}`} class="hero-image-container">
+        <img class="hero-image" src={plant.image} alt="Spinning glass cube" />
+      </Link>
+      <main class="main-content">
+        <h1>
+          <h4>{plant.variety}</h4>
+        </h1>
+        <p>{plant.description}</p>
+        <div class="flex-row">
+          <div class="coin-base">
+            <img
+              src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
+              alt="Ethereum"
+              class="small-image"
+            />
+            <h2>{`${plant.price}€`}</h2>
+          </div>
+          <div class="time-left">
+            <img
+              src="https://www.svgrepo.com/show/500012/clock.svg"
+              alt="clock"
+              class="small-image"
+            />
+            <p>{`Age:${plant.timestamps}`}</p>
+          </div>
         </div>
-      </Group>
-
-      <Text size="md" color="black" style={{ marginBottom: "5px" }}>
-        {`Variety: ${plant.variety}`}
-      </Text>
-      <Text size="md" color="black" style={{ marginBottom: "5px" }}>
-        {`Age: ${plant.age}`}
-      </Text>
-      <Text size="md" color="black" style={{ marginBottom: "5px" }}>
-        {`Description: ${plant.description}`}
-      </Text>
-      <Text size="md" color="black" style={{ marginBottom: "5px" }}>
-        {`Price: ${plant.price}`}
-      </Text>
-      {/* <Text size="sm" color="dimmed">
-        {plant.owner}
-      </Text> */}
-    </Card>
+      </main>
+      <div class="card-attribute">
+        <img
+          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          alt="avatar"
+          class="small-avatar"
+        />
+        <p>
+          User{" "}
+          <span>
+            <p>{plant.owner.username}</p>
+          </span>
+        </p>
+      </div>
+    </div>
   );
 }
 
