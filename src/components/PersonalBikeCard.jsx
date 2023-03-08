@@ -28,132 +28,63 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
   };
 
   return (
-    <Card
-      shadow="sm"
-      padding="lg"
-      radius="md"
-      withBorder
-      style={{
-        width: 250,
-        height: 400,
-        display: "flex",
-        flexDirection: "column",
-        gap: "10px",
-        marginTop: "20px",
-      }}
-    >
-      <Card.Section>
-        <Image src={bike.image} height={200} width={200} alt="plant picture" />
-      </Card.Section>
-
-      <Group position="apart" mt="lg" mb="lg">
-        <Badge
-          variant="gradient"
-          gradient={{ from: "#ed6ea0", to: "#ec8c69", deg: 35 }}
-        >
-          {bike.name}
-        </Badge>
-        <div style={{}}>
-          <button
-            style={{ padding: "0", border: "none", background: "none" }}
-            type="submit"
-            onClick={deleteBike}
-          >
-            <Badge color="red" variant="filled">
-              Delete
-            </Badge>
-          </button>
-          <button
-            component={Link}
-            to={`/bicycle/${bike._id}`}
-            style={{
-              padding: "0",
-              border: "none",
-              background: "none",
-              marginBottom: "10px",
-            }}
-          >
-            <Badge color="red" variant="filled">
+    <div class="card-container">
+      <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
+        <img class="hero-image" src={bike.image} alt="{bike.type}" />
+      </Link>
+      <main class="main-content">
+        <div style={{ display: "flex", gap: "10px" }}>
+          <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
+          <Link to={`/bicycle/${bike._id}`}>
+            <Button variant="contained" style={{ marginTop: "40px" }}>
               update
-            </Badge>
-          </button>
+            </Button>
+          </Link>
+          <Button
+            onClick={deleteBike}
+            variant="contained"
+            style={{ marginTop: "40px" }}
+          >
+            delete
+          </Button>
         </div>
-      </Group>
-      <Group
-        style={{ display: "flex", flexDirection: "column" }}
-        position="apart"
-        mt="md"
-        mb="xs"
-      >
-        <Badge
-          variant="gradient"
-          gradient={{ from: "teal", to: "blue", deg: 60 }}
-        >
-          {`Age: ${bike.type}`}
-        </Badge>
-        <Badge
-          variant="gradient"
-          gradient={{ from: "teal", to: "blue", deg: 60 }}
-        >
-          {`Description: ${bike.description}`}
-        </Badge>
-        <Badge
-          variant="gradient"
-          gradient={{ from: "teal", to: "blue", deg: 60 }}
-        >
-          {`Condition: ${bike.condition}`}
-        </Badge>
-        <Badge
-          variant="gradient"
-          gradient={{ from: "teal", to: "blue", deg: 60 }}
-        >
-          {`Price: ${bike.price}`}
-        </Badge>
-      </Group>
-
-      {/* <Text size="sm" color="dimmed">
-            {plant.owner}
-          </Text> */}
-    </Card>
+        <p>{`Condition: ${bike.condition}`}</p>
+        <p>{`Size: ${bike.size}`}</p>
+        <p>{`Description: ${bike.description}`}</p>
+        <div class="flex-row">
+          <div class="coin-base">
+            <img
+              src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
+              alt="Ethereum"
+              class="small-image"
+            />
+            <h2>{`${bike.price}€`}</h2>
+          </div>
+          <div class="time-left">
+            <img
+              src="https://www.svgrepo.com/show/500012/clock.svg"
+              alt="clock"
+              class="small-image"
+            />
+            <p>{`Age:${bike.timestamps}`}</p>
+          </div>
+        </div>
+      </main>
+      {/* <div class="card-attribute">
+        <img
+          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          alt="avatar"
+          class="small-avatar"
+        />
+        <p>
+          User{" "}
+          <span>
+            <p>{bike.owner.username}</p>
+          </span>
+        </p>
+      </div> */}
+    </div>
   );
-  //   return (
-  // <div className="singleCard">
-  //               <div>
-  //                 <img
-  //                   src={bike.image}
-  //                   alt={bike.name}
-  //                   style={{ height: "150px" }}
-  //                 />
-  //               </div>
-  //               <div className="singleCardText">
-  //                 <h2>{bike.type}</h2>
-  //                 <h3>{bike.description}</h3>
-  //                 <h4>{bike.condition}</h4>
-  //                 <h4>{bike.price}</h4>
-  //               </div>
-  //               <div>
-  //                 <Button type="submit" variant="subtle" color="cyan">
-  //                   Save
-  //                 </Button>
-  //                 <Button
-  //                   component={Link}
-  //                   to={`/bicycle/${bike._id}`}
-  //                   variant="subtle"
-  //                   color="cyan"
-  //                 >
-  //                   Update
-  //                 </Button>
-  //                 <Button
-  //                   type="submit"
-  //                   variant="subtle"
-  //                   color="cyan"
-  //                   onClick={deleteBike}
-  //                 >
-  //                   Delete
-  //                 </Button>
-  //               </div>
-  //             </div>
-  //   )
 }
 
 export default PersonalBikeCard;

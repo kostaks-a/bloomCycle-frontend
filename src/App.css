@@ -198,3 +198,12 @@ div.attribution {
       font-size: 18px;
   }
 }
+
+.imageContainer {
+  max-height: 340px;
+  max-width: 340px;
+  overflow: hidden;
+  border-radius: 20px;
+  object-fit: contain;
+  object-position: center;
+}

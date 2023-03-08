@@ -1,16 +1,19 @@
 import React from "react";
 import { Input, Button, Container, Flex } from "@mantine/core";
 
-function bicycleSearchBar({search , setSearch}) {
+function bicycleSearchBar({ search, setSearch }) {
   const handleChange = (event) => {
     setSearch(event.target.value);
   };
   return (
     <>
-      <label>Search</label>
-
       <Container mt={120}>
-        <Flex direction={{ base: "column", sm: "row" }} gap="sm" align="center">
+        <Flex
+          style={{ display: "flex", justifyContent: "center" }}
+          direction={{ base: "column", sm: "row" }}
+          gap="sm"
+          align="center"
+        >
           <Input
             placeholder="Search"
             value={search}

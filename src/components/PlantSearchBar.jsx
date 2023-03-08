@@ -9,7 +9,12 @@ function PlantSearchBar({ search, setSearch }) {
   return (
     <>
       <Container mt={120}>
-        <Flex direction={{ base: "column", sm: "row" }} gap="sm" align="center">
+        <Flex
+          style={{ display: "flex", justifyContent: "center" }}
+          direction={{ base: "column", sm: "row" }}
+          gap="sm"
+          align="center"
+        >
           <Input
             placeholder="Search"
             value={search}
