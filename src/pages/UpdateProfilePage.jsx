@@ -10,15 +10,16 @@ import { Input } from '@mantine/core';
 import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
 
 function UpdateProfilePage() {
-    const [user, setUser] = React.useState([]);
+    //const [user, setUser] = React.useState([]);
     const [username, setUsername] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [location, setLocation] = useState("");
-    const { token } = useContext(SessionContext);
+    const { token, setUser, user } = useContext(SessionContext);
      // const [currentUser, setCurrentUser] = useState();
     const navigate = useNavigate();
+
 
     const handleUpdate = async (event) => {
         event.preventDefault();
@@ -45,7 +46,6 @@ function UpdateProfilePage() {
         }
     };
 
-
     return (
         //Miguel: on the line below we need to change the avatar.png to 
         //the user image with cloudinary
@@ -59,7 +59,7 @@ function UpdateProfilePage() {
                         <Input
                             placeholder="Update your username"
                             value={username}
-                            onChange={(e) => setUsername({ username: e.target.value })}
+                            onChange={(e) => setUsername( e.target.value )}
                         />
                     </Accordion.Panel>
                 </Accordion.Item>
@@ -72,7 +72,7 @@ function UpdateProfilePage() {
                             placeholder="Update your email"
                             type="email"
                             value={email}
-                            onChange={(e) => setEmail({ email: e.target.value })}
+                            onChange={(e) => setEmail( e.target.value )}
                         />
                     </Accordion.Panel>
                 </Accordion.Item>
@@ -92,7 +92,7 @@ function UpdateProfilePage() {
                             placeholder="New password"
                             type="password"
                             value={password}
-                            onChange={(e) => setPassword({ password: e.target.value })}
+                            onChange={(e) => setPassword( e.target.value )}
                         />
                     </Accordion.Panel>
                     <Accordion.Panel>
@@ -107,7 +107,7 @@ function UpdateProfilePage() {
                             placeholder="Your phone number"
                             type="number"
                             value={phoneNumber}
-                            onChange={(e) => setPhoneNumber({ phoneNumber: e.target.value })}
+                            onChange={(e) => setPhoneNumber( e.target.value )}
                         />
                     </Accordion.Panel>
                 </Accordion.Item>
@@ -126,7 +126,7 @@ function UpdateProfilePage() {
                         placeholder="Pick one"
                         label="Select a city"
                         value={location}
-                        onChange={(e) => setLocation({ location: e.target.value })}
+                        onChange={(e) => setLocation( e.target.value )}
 
                     />
                     </Accordion.Panel>
