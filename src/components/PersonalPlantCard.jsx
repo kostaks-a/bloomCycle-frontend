@@ -27,12 +27,24 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
   return (
     <div class="card-container">
       <Link to={`/plant/${plant._id}`} class="hero-image-container">
-        <img class="hero-image" src={plant.image} alt="Spinning glass cube" />
+        <img class="hero-image" src={plant.image} alt="{plant.variety}" />
       </Link>
       <main class="main-content">
-        <h1>
-          <h4>{plant.variety}</h4>
-        </h1>
+        <div style={{ display: "flex", gap: "10px" }}>
+          <h1 style={{ marginRight: "70px" }}>{plant.variety}</h1>
+          <Link to={`/plant/${plant._id}`}>
+            <Button variant="contained" style={{ marginTop: "40px" }}>
+              update
+            </Button>
+          </Link>
+          <Button
+            onClick={deletePlant}
+            variant="contained"
+            style={{ marginTop: "40px" }}
+          >
+            delete
+          </Button>
+        </div>
         <p>{plant.description}</p>
         <div class="flex-row">
           <div class="coin-base">
@@ -42,6 +54,14 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
               class="small-image"
             />
             <h2>{`${plant.price}€`}</h2>
+          </div>
+          <div class="coin-base">
+            <img
+              src="https://www.svgrepo.com/show/406848/party-popper.svg"
+              alt="Ethereum"
+              class="small-image"
+            />
+            <h2>{`${plant.age} Years`}</h2>
           </div>
           <div class="time-left">
             <img
@@ -53,7 +73,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
           </div>
         </div>
       </main>
-      <div class="card-attribute">
+      {/* <div class="card-attribute">
         <img
           src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
@@ -65,7 +85,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
             <p>{plant.owner.username}</p>
           </span>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
