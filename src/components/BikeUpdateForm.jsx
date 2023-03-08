@@ -61,6 +61,7 @@ const BikeUpdate = ({
   const handleSubmit = async (event) => {
     event.preventDefault()
     const grabToken = window.localStorage.getItem("bearer");
+        
     const image = event.target.image.files[0];
     let formData = new FormData();
     formData.append("type", type);
@@ -69,8 +70,9 @@ const BikeUpdate = ({
     formData.append("price", price);
     formData.append("description", description);
     formData.append("imageUrl", image);
+    
     try {
-      await axios.put(
+      const response = await axios.put(
         `http://localhost:5005/bicycles/update/${params}`,
         formData,
         {
