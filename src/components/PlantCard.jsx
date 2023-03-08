@@ -45,45 +45,72 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
   };
 
   return (
-    <>
-      <div className="singleCard">
-        <div>
-          <img
-            src="/./monstera.jpg"
-            alt={plant.name}
-            style={{ height: "150px" }}
-          />
-        </div>
-        <div className="singleCardText">
-          <h2>variety: {plant.variety}</h2>
-          <h3>age: {plant.age}</h3>
-          <h4>description: {plant.description}</h4>
-          <h4>Price: {plant.price}</h4>
-          <h4>Owner: {plant.owner.username}</h4>
-        </div>
-        <div>
-          {isSaved ? (
+    <div class="card-container">
+      <img class="hero-image" src={plant.image} alt="Spinning glass cube" />
+
+      <main class="main-content">
+        <div style={{ display: "flex", justifyContent: "space-between" }}>
+          <h1>{plant.variety}</h1>
+          {!isSaved ? (
             <Button
-              type="submit"
-              variant="subtle"
-              color="cyan"
-              onClick={unsavePlantAd}
+              onClick={savePlantAd}
+              variant="contained"
+              style={{ marginTop: "40px" }}
             >
-              unSave
+              Save ad
             </Button>
           ) : (
             <Button
-              type="submit"
-              variant="subtle"
-              color="cyan"
-              onClick={savePlantAd}
+              onClick={unsavePlantAd}
+              variant="contained"
+              style={{ marginTop: "40px" }}
             >
-              Save
+              Unsave
             </Button>
           )}
         </div>
+        <p>{plant.description}</p>
+        <div class="flex-row">
+          <div class="coin-base">
+            <img
+              src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
+              alt="Ethereum"
+              class="small-image"
+            />
+            <h2>{`${plant.price}€`}</h2>
+          </div>
+          <div class="coin-base">
+            <img
+              src="https://www.svgrepo.com/show/406848/party-popper.svg"
+              alt="Ethereum"
+              class="small-image"
+            />
+            <h2>{`${plant.age} Years`}</h2>
+          </div>
+          <div class="time-left">
+            <img
+              src="https://www.svgrepo.com/show/500012/clock.svg"
+              alt="clock"
+              class="small-image"
+            />
+            <p>{`Age:${plant.timestamps}`}</p>
+          </div>
+        </div>
+      </main>
+      <div class="card-attribute">
+        <img
+          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          alt="avatar"
+          class="small-avatar"
+        />
+        <p>
+          User{" "}
+          <span>
+            <p>{plant.owner.username}</p>
+          </span>
+        </p>
       </div>
-    </>
+    </div>
   );
 }
 
