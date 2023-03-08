@@ -59,9 +59,15 @@ const SessionContextProvider = ({ children }) => {
         }
     }, [token])
 
+    if (currentUser) {
     return (
         <SessionContext.Provider value={{ user, setUser, currentUser, token , setToken, isAuthenticated, setIsAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
     )
+    } else {
+        return (
+            <h1>Loading</h1>
+        )
+    }
 }
 
 export default SessionContextProvider;
