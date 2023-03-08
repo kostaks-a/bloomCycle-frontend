@@ -1,6 +1,6 @@
 import React from 'react'
 import { useContext } from "react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SessionContext } from "../contexts/SessionContext";
@@ -17,10 +17,25 @@ function UpdateProfilePage() {
     const [newPassword, setNewPassword] = useState("");
     const [phoneNumber, setPhoneNumber] = useState("");
     const [location, setLocation] = useState("");
-    const { token, setUser, user } = useContext(SessionContext);
+    const { token, setToken, setUser, user } = useContext(SessionContext);
      // const [currentUser, setCurrentUser] = useState();
     const navigate = useNavigate();
 
+    useEffect(() => {
+        async function getUser () {
+        const response = await axios.get(`http://localhost:5005/auth/update`, {
+                headers: {
+                    authorization: `Bearer ${token}`
+                }})
+            response.data.username && setUsername(response.data.username)
+            response.data.email && setEmail(response.data.email)
+            response.data.password && setPassword(response.data.password)
+            response.data.phoneNumber  && setPhoneNumber(response.data.phoneNumber)
+            response.data.location && setLocation(response.data.location)
+        console.log(response.data)
+    }
+    getUser()
+    }, []);
 
     const handleUpdate = async (event) => {
         event.preventDefault();
@@ -40,13 +55,14 @@ function UpdateProfilePage() {
                         authorization: `Bearer ${token}`
                     }
                 })
-            setUser(response.data.updatedUser);
+            setUser(response.data.user);
+            setToken(response.data.token);
             navigate('/profile');
         } catch (error) {
             console.log("Error: ", error);
         }
     };
-
+if(!user) {return <p>loading</p>}
     return (
         //Miguel: on the line below we need to change the avatar.png to 
         //the user image with cloudinary

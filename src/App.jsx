@@ -12,17 +12,16 @@ import DashBoard from "./pages/DashBoard";
 import BicyclesDisplay from "./pages/BicyclesPages/BicyclesDisplay";
 import PlantsDisplay from "./pages/PlantsPages/PlantsDisplay";
 import "./App.css";
-import PersonalAds from './pages/PersonalAds'
+import PersonalAds from "./pages/PersonalAds";
 import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import { AppShell, Box, Button, Header } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
 
-
-
 function App() {
-  const { isAuthenticated, logOutUser , currentUser} = useContext(SessionContext);
+  const { isAuthenticated, logOutUser, currentUser } =
+    useContext(SessionContext);
   return (
     <AppShell
       padding="md"
@@ -98,66 +97,67 @@ function App() {
         </Header>
       }
     >
-    
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="*" element={<h1>404 Not Found</h1>} />
 
         <Route path="/" element={<OutletComponent />}>
-        <Route path='*' element={<h1>404 Not Found</h1>} />
-        <Route path="/" element={<HomePage />} />
-        <Route path="/about" element={<AboutPage />} />
-        <Route path="/allbicycles" element={<BicyclesDisplay />} />
-        <Route path="/allplants" element={<PlantsDisplay />} />
-        <Route
-          path="/update/:userId" element={<UpdateProfilePage />} />
-        <Route path='/profile'
-          element={
-            <PrivateRoute>
-              <Profile>
-                <UpdateProfilePage />
-              </Profile>
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/dashboard"
-          element={
-            <PrivateRoute>
-              <DashBoard />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/plant/:plant"
-          element={
-            <PrivateRoute>
-              <PlantCU />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/bicycle/:bike"
-          element={
-            <PrivateRoute>
-              <BikeCU />
-            </PrivateRoute>
-          }
-        />
-        <Route
-          path="/ads/:id"
-          element={
-            <PrivateRoute>
-              <PersonalAds />
-            </PrivateRoute>
-          }
-        />
-        <Route path="/ads/:id/saved" element={
-          <PrivateRoute>
-            <SavedAds  />
-          </PrivateRoute>
-        }
-        />
+          <Route path="/" element={<HomePage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/allbicycles" element={<BicyclesDisplay />} />
+          <Route path="/allplants" element={<PlantsDisplay />} />
+          <Route path="/update/:userId" element={<UpdateProfilePage />} />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile>
+                  <UpdateProfilePage />
+                </Profile>
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/dashboard"
+            element={
+              <PrivateRoute>
+                <DashBoard />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/plant/:plant"
+            element={
+              <PrivateRoute>
+                <PlantCU />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/bicycle/:bike"
+            element={
+              <PrivateRoute>
+                <BikeCU />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/ads/:id"
+            element={
+              <PrivateRoute>
+                <PersonalAds />
+              </PrivateRoute>
+            }
+          />
+          <Route
+            path="/ads/:id/saved"
+            element={
+              <PrivateRoute>
+                <SavedAds />
+              </PrivateRoute>
+            }
+          />
         </Route>
       </Routes>
     </AppShell>
