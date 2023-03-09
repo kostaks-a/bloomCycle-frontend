@@ -1,27 +1,33 @@
 import React from 'react'
 import { NavLink } from "react-router-dom";
 
-
-
-
 function Footer() {
   return (
     <>
       <div className="footer">
-        <div className="footer-container">
-          <p style={{ lineHeight: "2" }}>
+        <div>
+          <p style={{ paddingTop: '20px', fontSize: "13px", lineHeight: "2" , color: 'gray'}}>
             © 2023. All Rights Reserved. Made by Kostas, Miguel and Raquel
           </p>
+          </div>
+        <div style={{
+          paddingTop: '20px', fontSize: "13px", display: 'flex', flexDirection: 'column' }}>
           <div className="footer-about">
-            <div>
               <NavLink
-                style={{ fontSize: "14px" }}
-                className="footer-about"
+            style={{ paddingTop: '40px', fontSize: "13px", textDecoration: 'none'}}
                 to="/about"
               >
                 About
               </NavLink>
-            </div>
+        </div>
+
+        <div className="footer-contacts">
+          <NavLink
+            style={{ paddingTop: '20px', fontSize: "13px", textDecoration: 'none' }}
+            
+          >
+            Contacts
+          </NavLink>
           </div>
         </div>
       </div>

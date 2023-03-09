@@ -48,7 +48,7 @@ button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
 } */
-/* 
+
 @media (prefers-color-scheme: light) {
   :root {
     color: #213547;
@@ -62,7 +62,7 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
-} */
+}
 
 .loader {
   border: 16px solid #f3f3f3; /* Light grey */
@@ -79,17 +79,16 @@ button:focus-visible {
 }
 
 .footer {
-
   height: 100px;
   left: 0;
   bottom: 0;
   width: 100%;
   background-color: #faf0e6;
-  color: white;
+  color: gray;
   margin-top: 110px;
   clear: both;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   flex-direction: row;
 }
 
@@ -105,4 +104,11 @@ background-image: url("../../public/plants-background.jpg");
 .pageswithfooter {
   margin-bottom: 115px;
     clear: both;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: gray;
 }

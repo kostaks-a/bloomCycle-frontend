@@ -174,7 +174,7 @@ const BikeUpdate = ({
           <Button
             type="submit"
             variant="filled"
-            color="cyan"
+            color="green.8"
             sx={{ marginTop: "1rem", alignSelf: "center" }}
           >
             Update the ad
