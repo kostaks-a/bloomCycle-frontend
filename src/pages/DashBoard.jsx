@@ -13,14 +13,16 @@ import {
 
 function DashBoard() {
   const theme = useMantineTheme();
-  const {currentUser} = useContext(SessionContext)
+  const {token , currentUser} = useContext(SessionContext)
+
+  if (currentUser){
   console.log('User id from context: ' + currentUser._id)
-  
+  }
   
   const secondaryColor =
     theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
     
- if (!currentUser) {
+ if (token === 'undefined') {
     return <p>Loading</p>
  }
   return (
