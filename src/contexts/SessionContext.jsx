@@ -14,7 +14,7 @@ const SessionContextProvider = ({ children }) => {
         //console.log("JWT: ", jwt);
         if (jwt) {
         try {
-           const response = await axios.post("http://localhost:5005/auth/verify", undefined, {
+           const response = await axios.post(`${import.meta.env.VITE_HOST}/auth/verify`, undefined, {
                 headers: {
                     authorization: `Bearer ${jwt}`
                 },

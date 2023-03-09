@@ -42,7 +42,7 @@ const PlantCreateForm = ({
     formData.append("description", description);
     formData.append("imageUrl", image);
     try {
-      const response = await axios.post("http://localhost:5005/plants/newplant", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_HOST}/plants/newplant`, formData, {
         headers: {
           Authorization: `Bearer ${grabToken}`,
         },

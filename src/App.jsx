@@ -39,7 +39,7 @@ function App() {
             component={Link}
             to="/allbicycles"
             variant="subtle"
-            color="cyan"
+            color='var(--var-lightest)'
           >
             Search for bicycles
           </Button>

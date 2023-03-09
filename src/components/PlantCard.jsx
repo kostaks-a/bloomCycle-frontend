@@ -10,7 +10,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${plant._id}/save`,
+        `${import.meta.env.VITE_HOST}/plants/${plant._id}/save`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -29,7 +29,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${plant._id}/remove`,
+        `${import.meta.env.VITE_HOST}/plants/${plant._id}/remove`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,

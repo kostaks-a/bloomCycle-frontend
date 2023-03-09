@@ -17,7 +17,7 @@ function PlantsDisplay() {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        "http://localhost:5005/plants/allplants",
+        `${import.meta.env.VITE_HOST}/plants/allplants`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,

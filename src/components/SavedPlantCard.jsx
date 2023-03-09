@@ -7,7 +7,7 @@ function SavedPlantCard({ plant, savedPlants, setSavedPlants }) {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${plant._id}/remove`,
+        `${import.meta.env.VITE_HOST}/plants/${plant._id}/remove`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,

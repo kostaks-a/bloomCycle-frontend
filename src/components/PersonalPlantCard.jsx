@@ -11,7 +11,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
   const deletePlant = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     try {
-      await axios.get(`http://localhost:5005/plants/delete/${plant._id}`, {
+      await axios.get(`${import.meta.env.VITE_HOST}/plants/delete/${plant._id}`, {
         headers: {
           authorization: `Bearer ${grabToken}`,
         },

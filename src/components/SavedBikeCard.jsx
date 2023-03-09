@@ -9,7 +9,7 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
       const grabToken = window.localStorage.getItem("bearer");
       //console.log(bike._id)
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${bike._id}/remove`,
+        `${import.meta.env.VITE_HOST}/bicycles/${bike._id}/remove`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,

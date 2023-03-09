@@ -12,7 +12,7 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
     const grabToken = window.localStorage.getItem("bearer");
 
     try {
-      await axios.get(`http://localhost:5005/bicycles/delete/${bike._id}`, {
+      await axios.get(`${import.meta.env.VITE_HOST}/bicycles/delete/${bike._id}`, {
         headers: {
           authorization: `Bearer ${grabToken}`,
         },

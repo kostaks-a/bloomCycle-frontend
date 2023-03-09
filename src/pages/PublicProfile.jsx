@@ -23,7 +23,7 @@ const getProfile = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     //console.log(bike._id)
     const response = await axios.get(
-      `http://localhost:5005/auth/${username}`,
+      `${import.meta.env.VITE_HOST}/auth/${username}`,
       {
         headers: {
           Authorization: `Bearer ${grabToken}`,
@@ -43,7 +43,7 @@ const fetchUserPlants = async () => {
   if (userId) {  try {
   
     const response = await axios.get(
-      `http://localhost:5005/plants/personalAds/${userId}`,
+      `${import.meta.env.VITE_HOST}/plants/personalAds/${userId}`,
       {
         headers: {
           authorization: `Bearer ${grabToken}`,
@@ -63,7 +63,7 @@ const fetchUserBikes = async () => {
   if (userId) {
   try {
     const response = await axios.get(
-      `http://localhost:5005/bicycles/personalAds/${userId}`,
+      `${import.meta.env.VITE_HOST}/bicycles/personalAds/${userId}`,
       {
         headers: {
           authorization: `Bearer ${grabToken}`,

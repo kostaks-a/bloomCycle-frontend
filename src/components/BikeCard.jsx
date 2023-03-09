@@ -13,7 +13,7 @@ function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${bike._id}/save`,
+        `${import.meta.env.VITE_HOST}/bicycles/${bike._id}/save`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -32,7 +32,7 @@ function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
     try {
       const grabToken = window.localStorage.getItem("bearer");
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${bike._id}/remove`,
+        `${import.meta.env.VITE_HOST}/bicycles/${bike._id}/remove`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,

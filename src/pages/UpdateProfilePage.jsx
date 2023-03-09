@@ -24,7 +24,7 @@ function UpdateProfilePage() {
     useEffect(() => {
         async function getUser () {
         const grabToken = window.localStorage.getItem("bearer");    
-        const response = await axios.get(`http://localhost:5005/auth/update`, {
+        const response = await axios.get(`${import.meta.env.VITE_HOST}/auth/update`, {
                 headers: {
                     authorization: `Bearer ${grabToken}`
                 }})
@@ -43,7 +43,7 @@ function UpdateProfilePage() {
         console.log("updated username:", username)
         const grabToken = window.localStorage.getItem("bearer");
         try {
-            const response = await axios.put(`http://localhost:5005/auth/update/${user._id}`, {
+            const response = await axios.put(`${import.meta.env.VITE_HOST}/auth/update/${user._id}`, {
                 username: username,
                 email: email,
                 password: password,
