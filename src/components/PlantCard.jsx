@@ -93,13 +93,13 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${plant.timestamps}`}</p>
+            <p>{`Published:${plant.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
       </main>
       <div class="card-attribute">
         <img
-          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          src={plant.owner.image}
           alt="avatar"
           class="small-avatar"
         />
@@ -110,3 +110,14 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
 }
 
 export default PlantCard;
+
+{/* <Link to={`/user/${plant.owner.username}`}>{plant.owner.username}</Link> */}
+
+{/* <div class="card-attribute">
+        <img
+          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          alt="avatar"
+          class="small-avatar"
+        />
+        <Link to={`/user/${plant.owner.username}`}>{plant.owner.username}</Link>
+      </div> */}

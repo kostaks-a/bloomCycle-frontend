@@ -30,9 +30,9 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
   return (
     <div class="card-container">
       <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
-        <img className="hero-image" src={bike.image} alt="{bike.type}" />
+        <img class="hero-image" src={bike.image} alt="{bike.type}" />
       </Link>
-      <main className="main-content">
+      <main class="main-content">
         <div style={{ display: "flex", gap: "10px" }}>
           <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
           <Link to={`/bicycle/${bike._id}`}>
@@ -66,7 +66,7 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${bike.timestamps}`}</p>
+            <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
       </main>
@@ -84,6 +84,7 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
         </p>
       </div> */}
     </div>
+  );
   );
 }
 

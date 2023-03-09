@@ -48,68 +48,69 @@ function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
   };
   return (
     <div class="card-container">
-      <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
-        <img className="hero-image" src={bike.image} alt="{bike.type}" />
-      </Link>
-      <main class="main-content">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "10px",
-          }}
-        >
-          <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
-          {!isSaved ? (
-            <Button
-              onClick={saveBikeAd}
-              variant="contained"
-              style={{ marginTop: "40px" }}
-            >
-              Save ad
-            </Button>
-          ) : (
-            <Button
-              onClick={unsaveBikeAd}
-              variant="contained"
-              style={{ marginTop: "40px" }}
-            >
-              Unsave
-            </Button>
-          )}
+    <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
+      <img class="hero-image" src={bike.image} alt="{bike.type}" />
+    </Link>
+    <main class="main-content">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "10px",
+        }}
+      >
+        <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
+        {!isSaved ? (
+          <Button
+            onClick={saveBikeAd}
+            variant="contained"
+            style={{ marginTop: "40px" }}
+          >
+            Save ad
+          </Button>
+        ) : (
+          <Button
+            onClick={unsaveBikeAd}
+            variant="contained"
+            style={{ marginTop: "40px" }}
+          >
+            Unsave
+          </Button>
+        )}
+      </div>
+      <p>{`Condition: ${bike.condition}`}</p>
+      <p>{`Size: ${bike.size}`}</p>
+      <p>{`Description: ${bike.description}`}</p>
+      <div class="flex-row">
+        <div class="coin-base">
+          <img
+            src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
+            alt="Ethereum"
+            class="small-image"
+          />
+          <h2>{`${bike.price}€`}</h2>
         </div>
-        <p>{`Condition: ${bike.condition}`}</p>
-        <p>{`Size: ${bike.size}`}</p>
-        <p>{`Description: ${bike.description}`}</p>
-        <div class="flex-row">
-          <div class="coin-base">
-            <img
-              src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
-              alt="Ethereum"
-              class="small-image"
-            />
-            <h2>{`${bike.price}€`}</h2>
-          </div>
-          <div class="time-left">
-            <img
-              src="https://www.svgrepo.com/show/500012/clock.svg"
-              alt="clock"
-              class="small-image"
-            />
-            <p>{`Age:${bike.timestamps}`}</p>
-          </div>
+        <div class="time-left">
+          <img
+            src="https://www.svgrepo.com/show/500012/clock.svg"
+            alt="clock"
+            class="small-image"
+          />
+          <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
         </div>
-      </main>
-      <div class="card-attribute">
+      </div>
+    </main>
+    <div class="card-attribute">
         <img
-          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          src={bike.owner.image}
           alt="avatar"
           class="small-avatar"
         />
         <Link to={`/user/${bike.owner.username}`}>{bike.owner.username}</Link>
       </div>
-    </div>
-  );
+  </div>
+  
+    )
 }
 
 export default BikeCard;
