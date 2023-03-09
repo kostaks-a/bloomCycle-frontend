@@ -40,7 +40,6 @@ function BicyclesDisplay() {
 
   return (
     <>
-      <h1>Bicycles</h1>
       <BicycleSearchBar search={search} setSearch={setSearch} />
       {bicycles ? (
         bicycles

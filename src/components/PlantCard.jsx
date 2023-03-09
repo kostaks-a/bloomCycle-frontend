@@ -93,11 +93,11 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${plant.timestamps}`}</p>
+            <p>{`Published:${plant.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
       </main>
-      <div class="card-attribute">
+      {/* <div class="card-attribute">
         <img
           src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
@@ -109,7 +109,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
             <p>{plant.owner.username}</p>
           </span>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }

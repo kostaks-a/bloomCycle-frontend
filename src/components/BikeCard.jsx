@@ -94,7 +94,7 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${bike.timestamps}`}</p>
+            <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
       </main>
