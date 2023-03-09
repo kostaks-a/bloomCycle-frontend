@@ -30,9 +30,9 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
   return (
     <div class="card-container">
       <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
-        <img class="hero-image" src={bike.image} alt="{bike.type}" />
+        <img className="hero-image" src={bike.image} alt="{bike.type}" />
       </Link>
-      <main class="main-content">
+      <main className="main-content">
         <div style={{ display: "flex", gap: "10px" }}>
           <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
           <Link to={`/bicycle/${bike._id}`}>

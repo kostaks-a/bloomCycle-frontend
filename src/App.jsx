@@ -18,6 +18,7 @@ import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import { AppShell, Box, Button, Header } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
+import PublicProfile from "./pages/PublicProfile";
 
 function App() {
   const { isAuthenticated, logOutUser, currentUser } =
@@ -159,6 +160,14 @@ function App() {
             }
           />
         </Route>
+        <Route
+            path="/user/:username"
+            element={
+              <PrivateRoute>
+                <PublicProfile />
+              </PrivateRoute>
+            }
+          />     
       </Routes>
     </AppShell>
   );

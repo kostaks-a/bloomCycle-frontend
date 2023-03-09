@@ -4,8 +4,10 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext, useState } from "react";
 
-function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
+function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
   const [isSaved, setIsSaved] = useState(false);
+
+  //console.log(bike)
 
   const saveBikeAd = async () => {
     const grabToken = window.localStorage.getItem("bearer");
@@ -47,7 +49,7 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
   return (
     <div class="card-container">
       <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
-        <img class="hero-image" src={bike.image} alt="{bike.type}" />
+        <img className="hero-image" src={bike.image} alt="{bike.type}" />
       </Link>
       <main class="main-content">
         <div
@@ -98,21 +100,16 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
           </div>
         </div>
       </main>
-      {/* <div class="card-attribute">
+      <div class="card-attribute">
         <img
           src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
           class="small-avatar"
         />
-        <p>
-          User{" "}
-          <span>
-            <p>{bike.owner.username}</p>
-          </span>
-        </p>
-      </div> */}
+        <Link to={`/user/${bike.owner.username}`}>{bike.owner.username}</Link>
+      </div>
     </div>
   );
 }
 
-export default DisplayBike;
+export default BikeCard;

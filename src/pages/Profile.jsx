@@ -18,8 +18,14 @@ function Profile() {
 
   const handleDelete = async () => {
     setDeleting(true);
+    const grabToken = window.localStorage.getItem("bearer")
     try {
-      await axios.delete(`http://localhost:5005/auth/profile/${user._id}`)
+      await axios.delete(`http://localhost:5005/auth/profile/${user._id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${grabToken}`,
+        },
+      })
       localStorage.removeItem("bearer");
       setIsAuthenticated(false);
       setToken(null);

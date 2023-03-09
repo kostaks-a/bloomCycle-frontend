@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function DisplayPlant({ plant, plants, setPlants, token, user }) {
+function PlantCard({ plant, plants, setPlants, token, user }) {
   const [isSaved, setIsSaved] = useState(false);
 
   const savePlantAd = async () => {
@@ -103,15 +103,10 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
           alt="avatar"
           class="small-avatar"
         />
-        <p>
-          User{" "}
-          <span>
-            <p>{plant.owner.username}</p>
-          </span>
-        </p>
+        <Link to={`/user/${plant.owner.username}`}>{plant.owner.username}</Link>
       </div>
     </div>
   );
 }
 
-export default DisplayPlant;
+export default PlantCard;
