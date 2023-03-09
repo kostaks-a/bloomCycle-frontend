@@ -8,6 +8,7 @@ import { Avatar } from "@mantine/core";
 import { Accordion, Select, Button, PasswordInput } from "@mantine/core";
 import { Input } from "@mantine/core";
 import { EnvelopeClosedIcon, LockClosedIcon } from "@modulz/radix-icons";
+import { Box, Flex, Paper, BackgroundImage } from '@mantine/core'
 
 function UpdateProfilePage() {
   //const [user, setUser] = React.useState([]);
@@ -71,7 +72,24 @@ function UpdateProfilePage() {
   }
   return (
     
-      <div className="update-profile">
+  
+      <Box>
+        <BackgroundImage
+          src="/bike-plant-backgroundimg.jpg"
+        >
+
+          <Flex justify="center" align="center">
+
+            <Box mt={230} mb={60}>
+              <Paper shadow="xl" radius="md" p={100} pt={80} sx={{
+
+                display: 'flex',
+                flexDirection: 'column',
+                justifyContent: 'center',
+                alignItems: 'center',
+                alignContent: 'center',
+
+              }}>
       {/* <Avatar src={user.image ? user.image : null} alt="no image here" size="lg" radius="xl" /> */}
 <h1>Update your profile</h1>
       <Accordion defaultValue="changePersonalInfo">
@@ -243,7 +261,29 @@ function UpdateProfilePage() {
           Save changes
         </Button>
       </div>
-    </div>
+              </Paper>
+              <Box
+                sx={{
+                  margin: '0 auto',
+                  maxWidth: '400px',
+                  display: 'flex',
+                  flexDirection: 'column',
+                  justifyContent: 'center',
+                  alignItems: 'center',
+                  alignContent: 'center',
+                  height: 'calc(20vh - 1px)',
+                }}
+              />
+
+
+            </Box>
+
+
+          </Flex>
+
+        </BackgroundImage>
+      </Box>
+
 
   );
 }
