@@ -71,7 +71,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${plant.timestamps}`}</p>
+            <p>{`Published:${plant.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
       </main>

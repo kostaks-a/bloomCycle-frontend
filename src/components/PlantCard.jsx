@@ -93,7 +93,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${plant.createdAt.slice(0, 10)}`}</p>
+            <p>{`Published:${plant.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
       </main>
