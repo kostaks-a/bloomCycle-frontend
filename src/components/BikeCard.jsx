@@ -98,7 +98,7 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
           </div>
         </div>
       </main>
-      <div class="card-attribute">
+      {/* <div class="card-attribute">
         <img
           src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
@@ -110,7 +110,7 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
             <p>{bike.owner.username}</p>
           </span>
         </p>
-      </div>
+      </div> */}
     </div>
   );
 }
