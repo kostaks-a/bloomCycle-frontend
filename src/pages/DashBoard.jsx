@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from 'react';
 import { SessionContext } from "../contexts/SessionContext";
+import { Loader } from '@mantine/core';
 import {
   Card,
   Image,
@@ -24,7 +25,7 @@ function DashBoard() {
   //   theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
     
  if (currentUser === 'undefined') {
-    return <p>Loading</p>
+   return (<Loader />)
  }
   return (
     <div style={{ display: "flex", justifyContent: "space-evenly" }}>
@@ -55,7 +56,7 @@ function DashBoard() {
             fullWidth
             style={{ marginTop: 14 }}
           >
-            Change
+            Go to profile
           </Button>
         </Link>
       </Card>

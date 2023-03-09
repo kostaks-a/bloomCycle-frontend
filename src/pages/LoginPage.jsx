@@ -50,14 +50,14 @@ const LoginPage = () => {
                 <Button
                     type='submit'
                     variant='filled'
-                    color='cyan'
+                    color='green.9'
                     sx={{ marginTop: '1rem', alignSelf: 'center' }}
                 >
                     Connect
                 </Button>
                 <Text color="dimmed" size="sm" align="center" mt={5}>
                     Don't have an account yet? {" "}
-                    <Button component={Link} to='/signup' variant='subtle' color='cyan'>
+                    <Button component={Link} to='/signup' variant='subtle' color='green.9'>
                         Sign Up
                     </Button>
                 </Text>

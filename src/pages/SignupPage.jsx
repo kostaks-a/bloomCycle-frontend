@@ -55,14 +55,14 @@ const SignupPage = () => {
                 <Button
                     type='submit'
                     variant='filled'
-                    color='cyan'
+                    color='green.9'
                     sx={{ marginTop: '1rem', alignSelf: 'center' }}
                 >
                     Register
                 </Button>
                 <Text color="dimmed" size="sm" align="center" mt={5}>
                     Already have an account? {" "}
-                    <Button component={Link} to='/login' variant='subtle' color='cyan'>
+                    <Button component={Link} to='/login' variant='subtle' color='green.9'>
                         Login
                     </Button>
             </Text>

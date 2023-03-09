@@ -16,7 +16,7 @@ import PersonalAds from "./pages/PersonalAds";
 import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
-import { AppShell, Box, Button, Header } from "@mantine/core";
+import { AppShell, Box, Button, Header, Footer } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
 
 function App() {
@@ -31,14 +31,20 @@ function App() {
           p="xs"
           sx={{ display: "flex", justifyContent: "space-between" }}
         >
-          <Button component={Link} to="/" variant="subtle" color="cyan">
-            Home
+          <Button component={Link} to="/" variant="subtle" color="green.9">
+          
+            <img src="/logo.png" alt="logo" style={{
+              height: "auto",
+              width: "auto",
+              maxHeight: "62px",
+    maxWidth: "250px"}}/>
+
           </Button>
           <Button
             component={Link}
             to="/allbicycles"
             variant="subtle"
-            color="cyan"
+            color="green.9"
           >
             Search for bicycles
           </Button>
@@ -46,7 +52,7 @@ function App() {
             component={Link}
             to="/allplants"
             variant="subtle"
-            color="cyan"
+            color="green.9"
           >
             Search for plants
           </Button>
@@ -56,7 +62,7 @@ function App() {
                 component={Link}
                 to="/signup"
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Signup
               </Button>
@@ -66,7 +72,7 @@ function App() {
                 component={Link}
                 to="/login"
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Login
               </Button>
@@ -76,7 +82,7 @@ function App() {
                 component={Link}
                 to="/dashboard"
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Dashboard
               </Button>
@@ -88,7 +94,7 @@ function App() {
                 to="/login"
                 onClick={logOutUser}
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Logout
               </Button>
@@ -96,6 +102,11 @@ function App() {
           </Box>
         </Header>
       }
+      // footer={
+      //   <Footer height={60} p="md">
+
+      //   </Footer>
+      // }
     >
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
