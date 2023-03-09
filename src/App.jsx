@@ -18,6 +18,7 @@ import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import { AppShell, Box, Button, Header } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
+import NotFound404 from "./pages/NotFound404";
 
 
 function App() {
@@ -112,7 +113,7 @@ function App() {
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="*" element={<NotFound404 />} />
 
         <Route path="/" element={<OutletComponent />}>
           <Route path="/" element={<HomePage />} />
