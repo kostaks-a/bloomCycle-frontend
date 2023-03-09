@@ -8,14 +8,18 @@ import { SessionContext } from '../contexts/SessionContext';
 const LoginPage = () => {
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const { setToken } = useContext(SessionContext);
+    const { setToken , setCurrentUser , currentUser, setUser} = useContext(SessionContext);
     const navigate = useNavigate();
 
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
             const response = await axios.post("http://localhost:5005/auth/login", { username: username, password: password })
+            console.log(response.data);
             setToken(response.data.token);
+            setUser(response.data.user);
+            setCurrentUser(response.data.user)
+            console.log(currentUser)
             navigate("/dashboard");
         } catch (error) {
             console.log("Error: ", error);

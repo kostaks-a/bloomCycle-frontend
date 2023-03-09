@@ -65,7 +65,7 @@ const fetchSavedBikes = async () => {
         <h1>Saved Bicycles</h1>
           {savedBikes.map((bike) => {
             return (
-               <SavedBikeCard user={user} currentUser={currentUser} token={token}/* key={bike._id} */ savedBikes={savedBikes} setSavedBikes={setSavedBikes} bike={bike} />  
+               <SavedBikeCard user={user} currentUser={currentUser} token={token} key={bike._id}  savedBikes={savedBikes} setSavedBikes={setSavedBikes} bike={bike} />  
             )  
           })}
     </div>

@@ -3,7 +3,7 @@ import HomePage from "./pages/HomePage";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 import Profile from "./pages/Profile";
-import PrivateRoute from "./components/Privateroute";
+import PrivateRoute from "./components/PrivateRoute";
 import { useContext } from "react";
 import { SessionContext } from "./contexts/SessionContext";
 import PlantCU from "./pages/PlantsPages/PlantCU";

@@ -19,12 +19,13 @@ const SessionContextProvider = ({ children }) => {
                     authorization: `Bearer ${jwt}`
                 },
             })
-            console.log(response.data)
+            console.log('DATA: ' + response.data)
             setToken(jwt);
             setIsAuthenticated(true);
             setUser(response.data)
             setIsLoading(false);
             setCurrentUser({...response.data , passwordHash: ''})
+            console.log( currentUser)
         } catch (error) {
             console.log("Error authenticating Bearer: ", error);
             window.localStorage.removeItem("bearer");
@@ -59,10 +60,15 @@ const SessionContextProvider = ({ children }) => {
         }
     }, [token])
 
-    if(!user) {return <p>Loading</p>}
+   // if (currentUser) {
     return (
-        <SessionContext.Provider value={{ user, setUser, currentUser, token , setToken, isAuthenticated, setIsAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
-    )
+        <SessionContext.Provider value={{ user, setUser, currentUser, setCurrentUser, token , setToken, isAuthenticated, setIsAuthenticated, isLoading, logOutUser }} >{children}</SessionContext.Provider>
+   // )
+    //} else {
+     //   return (
+        //    <div className= "loader"></div>
+        )
+   // }
 }
 
 export default SessionContextProvider;
