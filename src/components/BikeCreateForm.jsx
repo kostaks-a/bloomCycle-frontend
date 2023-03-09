@@ -99,6 +99,7 @@ const BikeCreateForm = ({
           label="Size"
           variant="filled"
           withAsterisk
+          placeholder="cm"
           value={size}
           onChange={(e) => setSize(e.currentTarget.value)}
         />
@@ -119,6 +120,7 @@ const BikeCreateForm = ({
         <NumberInput
           label="Price"
           variant="filled"
+          placeholder="€"
           withAsterisk
           value={price}
           onChange={setPrice}

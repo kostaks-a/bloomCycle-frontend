@@ -70,12 +70,10 @@ function UpdateProfilePage() {
     return <p>loading</p>;
   }
   return (
-    //Miguel: on the line below we need to change the avatar.png to
-    //the user image with cloudinary
-    <>
-      <div className="pageswithfooter">
+    
+      <div className="update-profile">
       {/* <Avatar src={user.image ? user.image : null} alt="no image here" size="lg" radius="xl" /> */}
-
+<h1>Update your profile</h1>
       <Accordion defaultValue="changePersonalInfo">
         <Accordion.Item value="change-username">
           <Accordion.Control>Change username</Accordion.Control>
@@ -241,12 +239,12 @@ function UpdateProfilePage() {
           marginTop: "20px",
         }}
       >
-        <Button type="submit" onClick={handleUpdate} color="cyan" radius="md">
+        <Button type="submit" onClick={handleUpdate} color="green.8" radius="md">
           Save changes
         </Button>
       </div>
     </div>
-    </>
+
   );
 }
 

@@ -6,7 +6,7 @@ function Footer() {
     <>
       <div className="footer">
         <div>
-          <p style={{ paddingTop: '20px', fontSize: "13px", lineHeight: "2" , color: 'gray'}}>
+          <p style={{ paddingTop: '35px', fontSize: "13px", lineHeight: "2" , color: 'gray'}}>
             © 2023. All Rights Reserved. Made by Kostas, Miguel and Raquel
           </p>
           </div>

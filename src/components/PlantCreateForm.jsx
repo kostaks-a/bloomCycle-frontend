@@ -84,6 +84,7 @@ const PlantCreateForm = ({
         <TextInput
           label="Size"
           variant="filled"
+          placeholder="cm"
           withAsterisk
           value={size}
           onChange={(e) => setSize(e.currentTarget.value)}
@@ -105,6 +106,7 @@ const PlantCreateForm = ({
         <NumberInput
           label="Price"
           variant="filled"
+          placeholder="€"
           withAsterisk
           value={price}
           onChange={setPrice}
