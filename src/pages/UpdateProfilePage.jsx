@@ -73,6 +73,7 @@ function UpdateProfilePage() {
     //Miguel: on the line below we need to change the avatar.png to
     //the user image with cloudinary
     <>
+      <div className="pageswithfooter">
       {/* <Avatar src={user.image ? user.image : null} alt="no image here" size="lg" radius="xl" /> */}
 
       <Accordion defaultValue="changePersonalInfo">
@@ -244,6 +245,7 @@ function UpdateProfilePage() {
           Save changes
         </Button>
       </div>
+    </div>
     </>
   );
 }

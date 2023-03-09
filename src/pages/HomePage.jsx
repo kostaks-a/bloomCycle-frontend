@@ -1,7 +1,7 @@
 import { Box, Text } from "@mantine/core";
 const HomePage = () => {
   return (
-    <div>
+    <div className="pageswithfooter">
       <div>
         <h6 style={{ display: "flex", justifyContent: "center" }}>
           Welcome to BloomCycle

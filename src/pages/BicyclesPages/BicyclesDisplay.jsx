@@ -39,7 +39,7 @@ function BicyclesDisplay() {
   }, []);
 
   return (
-    <>
+    <div className="pageswithfooter">
       <BicycleSearchBar search={search} setSearch={setSearch} />
       {bicycles ? (
         bicycles
@@ -63,7 +63,7 @@ function BicyclesDisplay() {
       ) : (
         <h3>Loading...</h3>
       )}
-    </>
+    </div>
   );
 }
 

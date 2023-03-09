@@ -57,7 +57,7 @@ function DashBoard() {
           <Link to="/profile" style={{ textDecoration: "none" }}>
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -88,7 +88,7 @@ function DashBoard() {
           >
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -118,7 +118,7 @@ function DashBoard() {
           >
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -145,7 +145,7 @@ function DashBoard() {
           <Link to="/profile" style={{ textDecoration: "none" }}></Link>
           <Button
             variant="light"
-            color="blue"
+            color="green.9"
             fullWidth
             style={{ marginTop: 14 }}
           >
@@ -184,7 +184,7 @@ function DashBoard() {
           <Link to="/bicycle/create" style={{ textDecoration: "none" }}>
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -212,7 +212,7 @@ function DashBoard() {
           <Link to="/plant/create" style={{ textDecoration: "none" }}>
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >

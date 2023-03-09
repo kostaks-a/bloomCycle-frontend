@@ -16,8 +16,9 @@ import PersonalAds from "./pages/PersonalAds";
 import SavedAds from "./pages/SavedAds";
 import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
-import { AppShell, Box, Button, Header, Footer } from "@mantine/core";
+import { AppShell, Box, Button, Header } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
+
 
 function App() {
   const { isAuthenticated, logOutUser, currentUser } =

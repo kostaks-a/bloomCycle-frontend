@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 
 
+
 const SignupPage = () => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");
@@ -28,6 +29,8 @@ const SignupPage = () => {
     }
 
     return (
+        <div className='background-image'>
+        <div className='signuplogin-container'>
         <Box
             sx={{
                 margin: '0 auto',
@@ -36,20 +39,23 @@ const SignupPage = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 height: 'calc(100vh - 100px)',
+                color: 'white'
+                
             }}
         >
-            <Text align='center' size='xl' weight='bold'>
+                        <Text align='center' size='xl' weight='bold' sx={{ fontSize: '50px' }}>
                 Signup
             </Text>
+                  
             <Box
                 component='form'
-                sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
+                        sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
                 onSubmit={handleSubmit}
             >
-                <TextInput label='Username' variant='filled' placeholder='Your username' withAsterisk value={username} required onChange={(e) => setUsername(e.target.value)} />
-                <TextInput label='Email' variant='filled' placeholder='Your email' icon={<EnvelopeClosedIcon />} withAsterisk value={email} required onChange={(e) => setEmail(e.target.value)} />
-                <PasswordInput label='Password' variant='filled' placeholder='Your password' icon={<LockClosedIcon />} withAsterisk value={password} required onChange={(e) => setPassword(e.target.value)} />
-                <Text color="dimmed" size="sm" display='flex' alignItems="flex-start" marginTop="0px" mt={5}>
+                <TextInput variant='filled' placeholder='Your username' withAsterisk value={username} required onChange={(e) => setUsername(e.target.value)} />
+                <TextInput variant='filled' placeholder='Your email' icon={<EnvelopeClosedIcon />} withAsterisk value={email} required onChange={(e) => setEmail(e.target.value)} />
+                <PasswordInput variant='filled' placeholder='Your password' icon={<LockClosedIcon />} withAsterisk value={password} required onChange={(e) => setPassword(e.target.value)} />
+                        <Text color="white" size="sm" display='flex' alignItems="flex-start" marginTop="0px" mt={5}>
                 {errorMessage && <p className="error-message">{errorMessage}</p>} 
                 </Text>
                 <Button
@@ -60,7 +66,7 @@ const SignupPage = () => {
                 >
                     Register
                 </Button>
-                <Text color="dimmed" size="sm" align="center" mt={5}>
+                <Text color="white" size="sm" align="center" mt={5}>
                     Already have an account? {" "}
                     <Button component={Link} to='/login' variant='subtle' color='green.9'>
                         Login
@@ -68,6 +74,8 @@ const SignupPage = () => {
             </Text>
             </Box>
         </Box>
+            </div>
+        </div>
     )
 }
 
