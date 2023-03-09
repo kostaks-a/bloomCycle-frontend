@@ -33,12 +33,16 @@ function DashBoard() {
           justifyContent: "center",
           gap: "30px",
           marginBottom: "30px",
-          marginTop: "100px",
+          marginTop: "25px",
         }}
       >
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image style={{}} src="/wrench.jpg" height={160} alt="Wrench" />
+            <Image
+              style={{ height: "auto", marginBottom: "50px" }}
+              src="/wrench.jpg"
+              alt="Wrench"
+            />
           </Card.Section>
 
           <Group
@@ -53,12 +57,7 @@ function DashBoard() {
             <Text weight={500}>You personal Information</Text>
           </Group>
           <Link to="/profile" style={{ textDecoration: "none" }}>
-            <Button
-              variant="light"
-              color="blue"
-              fullWidth
-              style={{ marginTop: 14 }}
-            >
+            <Button style={{}} variant="light" color="blue" fullWidth>
               Change
             </Button>
           </Link>
@@ -66,7 +65,7 @@ function DashBoard() {
 
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image src="/ads.jpg" height={160} alt="Norway" />
+            <Image style={{ height: "auto" }} src="/ads.jpg" alt="Norway" />
           </Card.Section>
 
           <Group
@@ -96,7 +95,7 @@ function DashBoard() {
         </Card>
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image src="/saved.jpg" height={160} alt="Wrench" />
+            <Image style={{ height: "auto" }} src="/saved.jpg" alt="Wrench" />
           </Card.Section>
 
           <Group
@@ -124,32 +123,6 @@ function DashBoard() {
             </Button>
           </Link>
         </Card>
-        {/* <Card style={{ width: 300 }} shadow="sm" padding="lg">
-          <Card.Section>
-            <Image src="/messages_img.jpg" height={160} alt="Norway" />
-          </Card.Section>
-
-          <Group
-            position="apart"
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              marginBottom: 5,
-              marginTop: theme.spacing.sm,
-            }}
-          >
-            <Text weight={500}>Messages</Text>
-          </Group>
-          <Link to="/profile" style={{ textDecoration: "none" }}></Link>
-          <Button
-            variant="light"
-            color="blue"
-            fullWidth
-            style={{ marginTop: 14 }}
-          >
-            Read
-          </Button> */}
-        {/* </Card> */}
       </div>
       <div
         style={{
@@ -161,7 +134,11 @@ function DashBoard() {
       >
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image src="/bicycle.jpg" height={160} alt="bicycle" />
+            <Image
+              style={{ height: "auto", marginBottom: "125px" }}
+              src="/bicycle.jpg"
+              alt="bicycle"
+            />
           </Card.Section>
 
           <Group
@@ -169,19 +146,14 @@ function DashBoard() {
             style={{
               display: "flex",
               justifyContent: "center",
-              marginBottom: 5,
+
               marginTop: theme.spacing.sm,
             }}
           >
             <Text weight={500}>Create an ad for your bicycle</Text>
           </Group>
           <Link to="/bicycle/create" style={{ textDecoration: "none" }}>
-            <Button
-              variant="light"
-              color="blue"
-              fullWidth
-              style={{ marginTop: 14 }}
-            >
+            <Button variant="light" color="blue" fullWidth>
               Create
             </Button>
           </Link>
@@ -189,7 +161,7 @@ function DashBoard() {
 
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image src="/plant.jpg" height={160} alt="Wrench" />
+            <Image style={{ height: "auto" }} src="/plant.jpg" alt="Wrench" />
           </Card.Section>
 
           <Group

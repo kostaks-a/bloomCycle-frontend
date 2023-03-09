@@ -8,7 +8,7 @@ const HomePage = () => {
         </h6>
       </div>
       <div style={{ display: "flex", justifyContent: "space-around" }}>
-        <p style={{}}>
+        <p style={{ textAlign: "justify" }}>
           Welcome to website where you can find a diverse range of plants and
           bikes. We are passionate about promoting a sustainable lifestyle and
           creating a positive impact on the environment, and we believe that
