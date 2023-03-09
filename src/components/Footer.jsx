@@ -12,7 +12,6 @@ function Footer() {
           <p style={{ lineHeight: "2" }}>
             © 2023. All Rights Reserved. Made by Kostas, Miguel and Raquel
           </p>
-
           <div className="footer-about">
             <div>
               <NavLink
@@ -22,7 +21,6 @@ function Footer() {
               >
                 About
               </NavLink>
-            
             </div>
           </div>
         </div>

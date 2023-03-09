@@ -35,13 +35,14 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
         <div style={{ display: "flex", gap: "10px" }}>
           <h1 style={{ marginRight: "70px" }}>{plant.variety}</h1>
           <Link to={`/plant/${plant._id}`}>
-            <Button variant="contained" style={{ marginTop: "40px" }}>
+            <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
               update
             </Button>
           </Link>
           <Button
             onClick={deletePlant}
             variant="contained"
+            color='green.8'
             style={{ marginTop: "40px" }}
           >
             delete
