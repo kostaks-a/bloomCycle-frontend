@@ -30,6 +30,7 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
           <Button
             onClick={unsaveBikeAd}
             variant="contained"
+            color='green.8'
             style={{ marginTop: "40px" }}
           >
             Unsave

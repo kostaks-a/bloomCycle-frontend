@@ -34,7 +34,6 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
       </Link>
       <main class="main-content" style={{ display: "flex", flexDirection:'column', gap: "10px" }}>
         <div style={{ display: "flex", flexDirection:'column', gap: "10px" }}>
-          <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
           <Link to={`/bicycle/${bike._id}`}>
             <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
               update
@@ -48,9 +47,10 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
           >
             delete
           </Button>
+          <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
         </div>
         <p>{`Condition: ${bike.condition}`}</p>
-        <p>{`Size: ${bike.size}`}</p>
+        <p>{`Size: ${bike.size} cm`}</p>
         <p>{`Description: ${bike.description}`}</p>
         <div class="flex-row">
           <div class="coin-base">
@@ -86,7 +86,7 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
           </div>
         </div>
       </main>
-      {/* <div class="card-attribute">
+      <div class="card-attribute">
         <img
           src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
@@ -98,7 +98,7 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
             <p>{bike.owner.username}</p>
           </span>
         </p>
-      </div> */}
+      </div>
     </div>
   );
 }

@@ -33,8 +33,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
       </Link>
       <main class="main-content">
         <div style={{ display: "flex", gap: "10px" }}>
-          <h1 style={{ marginRight: "70px" }}>{plant.variety}</h1>
-          <Link to={`/plant/${plant._id}`}>
+            <Link to={`/plant/${plant._id}`}>
             <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
               update
             </Button>
@@ -47,6 +46,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
           >
             delete
           </Button>
+          <h1 style={{ marginRight: "70px" }}>{plant.variety}</h1>
         </div>
         <p>{plant.description}</p>
         <div class="flex-row">
@@ -76,7 +76,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
           </div>
         </div>
       </main>
-      {/* <div class="card-attribute">
+      <div class="card-attribute">
         <img
           src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
@@ -88,7 +88,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
             <p>{plant.owner.username}</p>
           </span>
         </p>
-      </div> */}
+      </div>
     </div>
   );
 }

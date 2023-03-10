@@ -64,6 +64,7 @@ function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
             <Button
               onClick={saveBikeAd}
               variant="contained"
+              color='green.8'
               style={{ marginTop: "40px" }}
             >
               Save ad
@@ -72,6 +73,7 @@ function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
             <Button
               onClick={unsaveBikeAd}
               variant="contained"
+              color='green.8'
               style={{ marginTop: "40px" }}
             >
               Unsave

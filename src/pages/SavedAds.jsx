@@ -61,9 +61,9 @@ const fetchSavedBikes = async () => {
 
   return (
     <div className="pageswithfooter">
-    <div styles = {{ display:'flex'}}>
+    <h1 style = {{ display:'flex' ,justifyContent:'center' , alignItems:'center'}}>Saved Ads</h1>
+    <div style = {{ display:'flex' , justifyContent:'center' , gap: '20px'}}>
     <div>
-        <h1>Saved Bicycles</h1>
           {savedBikes.map((bike) => {
             return (
                <SavedBikeCard user={user} currentUser={currentUser} token={token} key={bike._id}  savedBikes={savedBikes} setSavedBikes={setSavedBikes} bike={bike} />  
@@ -71,7 +71,6 @@ const fetchSavedBikes = async () => {
           })}
     </div>
     <div>
-        <h1>Saved Plants</h1>
           {savedPlants.map((plant) => {
             return (
                <SavedPlantCard user={user} currentUser={currentUser} token={token} key={plant._id} savedPlants={savedPlants} setSavedPlants={setSavedPlants} plant={plant}/>  

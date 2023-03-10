@@ -93,10 +93,9 @@ useEffect(() => {
 
   return (
     <>
-    <div style = {{display: 'flex'}}>
+    <div style = {{display: 'flex' , gap:'100px'}}>
     {profile &&
     <div>
-        <p>Image: {profile.image}</p>
         <p>User: {profile.username}</p>
         <p>location: {profile.location}</p>
         <p>Number {profile.number}</p>
