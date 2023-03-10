@@ -55,6 +55,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
             <Button
               onClick={savePlantAd}
               variant="contained"
+              color='green.9'
               style={{ marginTop: "40px" }}
             >
               Save ad
@@ -63,6 +64,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
             <Button
               onClick={unsavePlantAd}
               variant="contained"
+              color='green.9'
               style={{ marginTop: "40px" }}
             >
               Unsave
