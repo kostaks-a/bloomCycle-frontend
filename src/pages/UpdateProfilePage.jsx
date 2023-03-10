@@ -71,8 +71,6 @@ function UpdateProfilePage() {
     return <p>loading</p>;
   }
   return (
-    
-  
       <Box>
         <BackgroundImage
           src="/bike-plant-backgroundimg.jpg"
@@ -82,7 +80,6 @@ function UpdateProfilePage() {
 
             <Box mt={230} mb={60}>
               <Paper shadow="xl" radius="md" p={100} pt={80} sx={{
-
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -92,7 +89,8 @@ function UpdateProfilePage() {
               }}>
       {/* <Avatar src={user.image ? user.image : null} alt="no image here" size="lg" radius="xl" /> */}
 <h1>Update your profile</h1>
-      <Accordion defaultValue="changePersonalInfo">
+      <Accordion defaultValue="changePersonalInfo" style={{width: '400px'
+      }}>
         <Accordion.Item value="change-username">
           <Accordion.Control>Change username</Accordion.Control>
           <Accordion.Panel>
