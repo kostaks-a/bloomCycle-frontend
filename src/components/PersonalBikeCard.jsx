@@ -69,21 +69,6 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
             />
             <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
           </div>
-          <div style={{ display: "flex", gap: "10px" }}>
-          <Link to={`/bicycle/${bike._id}`}>
-            <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
-              update
-            </Button>
-          </Link>
-          <Button
-            onClick={deleteBike}
-            variant="contained"
-            color='green.8'
-            style={{ marginTop: "40px" }}
-          >
-            delete
-          </Button>
-          </div>
         </div>
       </main>
       <div class="card-attribute">
