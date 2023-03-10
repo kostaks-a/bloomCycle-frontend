@@ -26,7 +26,7 @@ function PersonalAds() {
     try {
       //console.log ("token:" + token )
       const response = await axios.get(
-        `http://localhost:5005/plants/personalAds/${currentUser._id}`,
+        `${import.meta.env.VITE_HOST}/plants/personalAds/${currentUser._id}`,
         {
           headers: {
             authorization: `Bearer ${grabToken}`,
@@ -45,7 +45,7 @@ function PersonalAds() {
     //console.log(user)
     try {
       const response = await axios.get(
-        `http://localhost:5005/bicycles/personalAds/${currentUser._id}`,
+        `${import.meta.env.VITE_HOST}/bicycles/personalAds/${currentUser._id}`,
         {
           headers: {
             authorization: `Bearer ${grabToken}`,
@@ -66,6 +66,7 @@ function PersonalAds() {
   }, []);
 
   return (
+    <div className="pageswithfooter">
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       <div>
         <h1>Plant ads</h1>
@@ -91,6 +92,7 @@ function PersonalAds() {
           />
         ))}
       </div>
+    </div>
     </div>
   );
 }

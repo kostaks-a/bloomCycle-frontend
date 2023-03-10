@@ -35,7 +35,7 @@ const BikeUpdate = ({
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${params}` , {
+        `${import.meta.env.VITE_HOST}/bicycles/${params}` , {
           headers : {
             'Authorization': `Bearer ${grabToken}`
         },
@@ -73,7 +73,7 @@ const BikeUpdate = ({
     
     try {
       const response = await axios.put(
-        `http://localhost:5005/bicycles/update/${params}`,
+        `${import.meta.env.VITE_HOST}/bicycles/update/${params}`,
         formData,
         {
           headers: {
@@ -174,7 +174,7 @@ const BikeUpdate = ({
           <Button
             type="submit"
             variant="filled"
-            color="cyan"
+            color="green.8"
             sx={{ marginTop: "1rem", alignSelf: "center" }}
           >
             Update the ad

@@ -8,6 +8,7 @@ import {
 } from "@mantine/core";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import { useState } from "react";
 
 const PlantCreateForm = ({
   variety,
@@ -25,6 +26,8 @@ const PlantCreateForm = ({
   token,
   currentUser
 }) => {
+
+  const [loading, setIsLoading] = useState(true);
   const navigate = useNavigate();
 
   const handleSubmit = async (event) => {
@@ -39,11 +42,12 @@ const PlantCreateForm = ({
     formData.append("description", description);
     formData.append("imageUrl", image);
     try {
-      await axios.post("http://localhost:5005/plants/newplant", formData, {
+      const response = await axios.post(`${import.meta.env.VITE_HOST}/plants/newplant`, formData, {
         headers: {
           Authorization: `Bearer ${grabToken}`,
         },
       });
+      console.log(response.data) 
       navigate(`/ads/${currentUser._id}`);
     } catch (error) {
       console.log(error);
@@ -84,6 +88,7 @@ const PlantCreateForm = ({
         <TextInput
           label="Size"
           variant="filled"
+          placeholder="cm"
           withAsterisk
           value={size}
           onChange={(e) => setSize(e.currentTarget.value)}
@@ -105,6 +110,7 @@ const PlantCreateForm = ({
         <NumberInput
           label="Price"
           variant="filled"
+          placeholder="€"
           withAsterisk
           value={price}
           onChange={setPrice}
@@ -114,7 +120,7 @@ const PlantCreateForm = ({
         <Button
           type="submit"
           variant="filled"
-          color="cyan"
+          color="green.8"
           sx={{ marginTop: "1rem", alignSelf: "center" }}
         >
           Create an ad

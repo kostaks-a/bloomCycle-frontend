@@ -12,7 +12,7 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
     const grabToken = window.localStorage.getItem("bearer");
 
     try {
-      await axios.get(`http://localhost:5005/bicycles/delete/${bike._id}`, {
+      await axios.get(`${import.meta.env.VITE_HOST}/bicycles/delete/${bike._id}`, {
         headers: {
           authorization: `Bearer ${grabToken}`,
         },
@@ -32,17 +32,18 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
       <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
         <img class="hero-image" src={bike.image} alt="{bike.type}" />
       </Link>
-      <main class="main-content">
-        <div style={{ display: "flex", gap: "10px" }}>
+      <main class="main-content" style={{ display: "flex", flexDirection:'column', gap: "10px" }}>
+        <div style={{ display: "flex", flexDirection:'column', gap: "10px" }}>
           <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
           <Link to={`/bicycle/${bike._id}`}>
-            <Button variant="contained" style={{ marginTop: "40px" }}>
+            <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
               update
             </Button>
           </Link>
           <Button
             onClick={deleteBike}
             variant="contained"
+            color='green.8'
             style={{ marginTop: "40px" }}
           >
             delete
@@ -67,6 +68,21 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
               class="small-image"
             />
             <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
+          </div>
+          <div style={{ display: "flex", gap: "10px" }}>
+          <Link to={`/bicycle/${bike._id}`}>
+            <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
+              update
+            </Button>
+          </Link>
+          <Button
+            onClick={deleteBike}
+            variant="contained"
+            color='green.8'
+            style={{ marginTop: "40px" }}
+          >
+            delete
+          </Button>
           </div>
         </div>
       </main>

@@ -11,7 +11,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
   const deletePlant = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     try {
-      await axios.get(`http://localhost:5005/plants/delete/${plant._id}`, {
+      await axios.get(`${import.meta.env.VITE_HOST}/plants/delete/${plant._id}`, {
         headers: {
           authorization: `Bearer ${grabToken}`,
         },
@@ -35,13 +35,14 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
         <div style={{ display: "flex", gap: "10px" }}>
           <h1 style={{ marginRight: "70px" }}>{plant.variety}</h1>
           <Link to={`/plant/${plant._id}`}>
-            <Button variant="contained" style={{ marginTop: "40px" }}>
+            <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
               update
             </Button>
           </Link>
           <Button
             onClick={deletePlant}
             variant="contained"
+            color='green.8'
             style={{ marginTop: "40px" }}
           >
             delete
@@ -93,36 +94,3 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
 }
 
 export default PersonalPlantCard;
-
-{
-  /* <div className="singleCard">
-    //   <div>
-    //     <img src={plant.image} alt={plant.name} style={{ height: "150px" }} />
-    //   </div>
-    //   <div className="singleCardText">
-    //     <h2>{plant.variety}</h2>
-    //     <h3>{plant.age}</h3>
-    //     <h4>{plant.description}</h4>
-    //     <h4>{plant.price}</h4>
-    //     <h4>{plant.owner}</h4>
-    //   </div>
-    //   <div>
-    //     <Button
-    //       component={Link}
-    //       to={`/plant/${plant._id}`}
-    //       variant="subtle"
-    //       color="cyan"
-    //     >
-    //       Update
-    //     </Button>
-    //     <Button
-    //       type="submit"
-    //       variant="subtle"
-    //       color="cyan"
-    //       onClick={deletePlant}
-    //     >
-    //       Delete
-    //     </Button>
-    //   </div>
-    // </div> */
-}

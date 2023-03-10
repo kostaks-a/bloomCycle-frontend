@@ -3,14 +3,14 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import axios from "axios";
 
-function DisplayPlant({ plant, plants, setPlants, token, user }) {
+function PlantCard({ plant, plants, setPlants, token, user }) {
   const [isSaved, setIsSaved] = useState(false);
 
   const savePlantAd = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${plant._id}/save`,
+        `${import.meta.env.VITE_HOST}/plants/${plant._id}/save`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -29,7 +29,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${plant._id}/remove`,
+        `${import.meta.env.VITE_HOST}/plants/${plant._id}/remove`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -55,6 +55,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
             <Button
               onClick={savePlantAd}
               variant="contained"
+              color='green.9'
               style={{ marginTop: "40px" }}
             >
               Save ad
@@ -63,6 +64,7 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
             <Button
               onClick={unsavePlantAd}
               variant="contained"
+              color='green.9'
               style={{ marginTop: "40px" }}
             >
               Unsave
@@ -97,21 +99,18 @@ function DisplayPlant({ plant, plants, setPlants, token, user }) {
           </div>
         </div>
       </main>
-      {/* <div class="card-attribute">
+       {/* <div class="card-attribute">
         <img
-          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          src={plant.owner.image}
           alt="avatar"
           class="small-avatar"
         />
-        <p>
-          User{" "}
-          <span>
-            <p>{plant.owner.username}</p>
-          </span>
-        </p>
+        <Link to={`/user/${plant.owner.username}`}>{plant.owner.username}</Link>
+        
       </div> */}
+      
     </div>
   );
 }
 
-export default DisplayPlant;
+export default PlantCard;

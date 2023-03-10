@@ -18,6 +18,9 @@ import UpdateProfilePage from "./pages/UpdateProfilePage";
 import AboutPage from "./pages/AboutPage";
 import { AppShell, Box, Button, Header } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
+import NotFound404 from "./pages/NotFound404";
+import PublicProfile from "./pages/PublicProfile";
+
 
 function App() {
   const { isAuthenticated, logOutUser, currentUser } =
@@ -31,14 +34,20 @@ function App() {
           p="xs"
           sx={{ display: "flex", justifyContent: "space-between" }}
         >
-          <Button component={Link} to="/" variant="subtle" color="cyan">
-            Home
+          <Button component={Link} to="/" variant="subtle" color="green.9">
+          
+            <img src="/logo.png" alt="logo" style={{
+              height: "auto",
+              width: "auto",
+              maxHeight: "62px",
+    maxWidth: "250px"}}/>
+
           </Button>
           <Button
             component={Link}
             to="/allbicycles"
             variant="subtle"
-            color="cyan"
+            color="green.9"
           >
             Search for bicycles
           </Button>
@@ -46,7 +55,7 @@ function App() {
             component={Link}
             to="/allplants"
             variant="subtle"
-            color="cyan"
+            color="green.9"
           >
             Search for plants
           </Button>
@@ -56,7 +65,7 @@ function App() {
                 component={Link}
                 to="/signup"
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Signup
               </Button>
@@ -66,7 +75,7 @@ function App() {
                 component={Link}
                 to="/login"
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Login
               </Button>
@@ -76,7 +85,7 @@ function App() {
                 component={Link}
                 to="/dashboard"
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Dashboard
               </Button>
@@ -88,7 +97,7 @@ function App() {
                 to="/login"
                 onClick={logOutUser}
                 variant="subtle"
-                color="cyan"
+                color="green.9"
               >
                 Logout
               </Button>
@@ -100,7 +109,7 @@ function App() {
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
-        <Route path="*" element={<h1>404 Not Found</h1>} />
+        <Route path="*" element={<NotFound404 />} />
 
         <Route path="/" element={<OutletComponent />}>
           <Route path="/" element={<HomePage />} />
@@ -165,3 +174,13 @@ function App() {
 }
 
 export default App;
+
+{/* <Route
+            path="/user/:username"
+            element={
+              <PrivateRoute>
+                <PublicProfile />
+              </PrivateRoute>
+            }
+          />     
+    */}

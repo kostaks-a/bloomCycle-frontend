@@ -18,8 +18,14 @@ function Profile() {
 
   const handleDelete = async () => {
     setDeleting(true);
+    const grabToken = window.localStorage.getItem("bearer")
     try {
-      await axios.delete(`http://localhost:5005/auth/profile/${user._id}`);
+      await axios.delete(`${import.meta.env.VITE_HOST}/auth/profile/${user._id}`,
+      {
+        headers: {
+          Authorization: `Bearer ${grabToken}`,
+        },
+      })
       localStorage.removeItem("bearer");
       setIsAuthenticated(false);
       setToken(null);
@@ -32,9 +38,9 @@ function Profile() {
   };
 
   return (
-    //Miguel: on the line below we need to change the avatar.png to
-    //the user image with cloudinary
-    <div>
+
+    <div className="profile-page">
+      <div className="profile-info-container">
       <h2>Username</h2>
       <p>{user.username} </p>
       <h2>Email address</h2>
@@ -43,20 +49,23 @@ function Profile() {
       <p>{user.phoneNumber}</p>
       <h2>Location</h2>
       <p>{user.location}</p>
-
-      <Link type="button" component={Link} to={`/update/${user._id}`}>
+<div className="profile-buttons">
+      <Button color="green.8"
+        radius="md" component={Link} to={`/update/${user._id}`}>
         Update
-      </Link>
+      </Button>
 
       <Button
         onClick={handleDelete}
         component={Link}
         to="/"
-        color="cyan"
+        color="green.8"
         radius="md"
       >
         Delete account
       </Button>
+        </div>
+      </div>
     </div>
   );
 }

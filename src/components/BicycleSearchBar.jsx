@@ -21,7 +21,7 @@ function bicycleSearchBar({ search, setSearch }) {
             onChange={handleChange}
             radius="xl"
           />
-          <Button size="xs" radius="xl">
+          <Button size="xs" radius="xl" color='green.8'>
             Search
           </Button>
         </Flex>

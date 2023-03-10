@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { SessionContext } from "../contexts/SessionContext";
+import { Loader } from "@mantine/core";
 import {
   Card,
   Image,
@@ -14,17 +15,10 @@ import {
 function DashBoard() {
   const theme = useMantineTheme();
   const { token, currentUser } = useContext(SessionContext);
-
-  //console.log(token)
-  //console.log(currentUser)
-  console.log(currentUser);
-
-  // const secondaryColor =
-  //   theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
-
   if (currentUser === "undefined") {
-    return <p>Loading</p>;
+    return <Loader />;
   }
+
   return (
     <div>
       <div
@@ -59,7 +53,12 @@ function DashBoard() {
             </Text>
           </Group>
           <Link to="/profile" style={{ textDecoration: "none" }}>
-            <Button variant="light" color="blue" fullWidth>
+            <Button
+              variant="light"
+              color="green.9"
+              fullWidth
+              style={{ marginTop: 14 }}
+            >
               Change
             </Button>
           </Link>
@@ -91,7 +90,7 @@ function DashBoard() {
           >
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -121,7 +120,7 @@ function DashBoard() {
           >
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -129,6 +128,36 @@ function DashBoard() {
             </Button>
           </Link>
         </Card>
+        {/* <Card style={{ width: 300 }} shadow="sm" padding="lg">
+          <Card.Section>
+            <Image src="/messages_img.jpg" height={160} alt="Norway" />
+          </Card.Section>
+
+          <Group
+            position="apart"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: 5,
+              marginTop: theme.spacing.sm,
+            }}
+          >
+            <Text weight={500}>Messages</Text>
+          </Group>
+          <Link to="/profile" style={{ textDecoration: "none" }}></Link>
+          <Button
+            variant="light"
+            color="green.9"
+            fullWidth
+            style={{ marginTop: 14 }}
+          >
+            Go to profile
+          </Button>
+        </Link>
+      </Card>
+            Read
+          </Button> */}
+        {/* </Card> */}
       </div>
       <div
         style={{
@@ -161,7 +190,12 @@ function DashBoard() {
             </Text>
           </Group>
           <Link to="/bicycle/create" style={{ textDecoration: "none" }}>
-            <Button variant="light" color="blue" fullWidth>
+            <Button
+              variant="light"
+              color="green.9"
+              fullWidth
+              style={{ marginTop: 14 }}
+            >
               Create
             </Button>
           </Link>
@@ -190,7 +224,12 @@ function DashBoard() {
             </Text>
           </Group>
           <Link to="/plant/create" style={{ textDecoration: "none" }}>
-            <Button variant="light" color="blue" fullWidth>
+            <Button
+              variant="light"
+              color="green.9"
+              fullWidth
+              style={{ marginTop: 14 }}
+            >
               Create
             </Button>
           </Link>

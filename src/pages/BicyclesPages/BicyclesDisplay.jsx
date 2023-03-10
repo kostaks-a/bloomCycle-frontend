@@ -19,7 +19,7 @@ function BicyclesDisplay() {
       const grabToken = window.localStorage.getItem("bearer");
       //console.log(grabToken, "hello token")
       const response = await axios.get(
-        "http://localhost:5005/bicycles/allbicycles",
+        `${import.meta.env.VITE_HOST}/bicycles/allbicycles`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -27,7 +27,7 @@ function BicyclesDisplay() {
         }
       );
       setBicycles(response.data);
-      console.log(response.data);
+      //console.log(response.data);
     } catch (error) {
       console.log(error);
     }
@@ -39,7 +39,7 @@ function BicyclesDisplay() {
   }, []);
 
   return (
-    <>
+    <div className="pageswithfooter">
       <BicycleSearchBar search={search} setSearch={setSearch} />
       {bicycles ? (
         bicycles
@@ -63,7 +63,7 @@ function BicyclesDisplay() {
       ) : (
         <h3>Loading...</h3>
       )}
-    </>
+    </div>
   );
 }
 

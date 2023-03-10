@@ -43,7 +43,7 @@ const BikeCreateForm = ({
     formData.append("description", description);
     formData.append("imageUrl", image);
     try {
-     const response = await axios.post("http://localhost:5005/bicycles/newbicycle", formData, {
+     const response = await axios.post(`${import.meta.env.VITE_HOST}/bicycles/newbicycle`, formData, {
         headers: {
           Authorization: `Bearer ${grabToken}`,
         },
@@ -99,6 +99,7 @@ const BikeCreateForm = ({
           label="Size"
           variant="filled"
           withAsterisk
+          placeholder="cm"
           value={size}
           onChange={(e) => setSize(e.currentTarget.value)}
         />
@@ -119,6 +120,7 @@ const BikeCreateForm = ({
         <NumberInput
           label="Price"
           variant="filled"
+          placeholder="€"
           withAsterisk
           value={price}
           onChange={setPrice}
@@ -128,7 +130,7 @@ const BikeCreateForm = ({
         <Button
           type="submit"
           variant="filled"
-          color="cyan"
+          color="green.8"
           sx={{ marginTop: "1rem", alignSelf: "center" }}
         >
           Create an ad

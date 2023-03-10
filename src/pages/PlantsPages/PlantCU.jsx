@@ -22,7 +22,7 @@ const Plant = () => {
 
 
     return (
-        <>
+        <div className="pageswithfooter">
         { params === "create" ?
         <PlantCreateForm
             variety={variety}
@@ -60,7 +60,7 @@ const Plant = () => {
             currentUser={currentUser}
         />
         }
-    </>
+    </div>
     )
 }
 

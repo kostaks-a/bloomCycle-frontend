@@ -21,7 +21,7 @@ const Bicycle = () => {
 
 
     return (
-        <>
+        <div className="pageswithfooter">
         { params === "create" ? 
             <BikeCreateForm
             type={type}
@@ -60,7 +60,7 @@ const Bicycle = () => {
 
 
         }
-    </>
+    </div>
 
     )
 }
