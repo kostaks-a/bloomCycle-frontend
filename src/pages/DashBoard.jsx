@@ -39,7 +39,7 @@ function DashBoard() {
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
             <Image
-              style={{ height: "auto", marginBottom: "50px" }}
+              style={{ height: "auto", margin: "auto", marginBottom: "50px" }}
               src="/wrench.jpg"
               alt="Wrench"
             />
@@ -54,10 +54,12 @@ function DashBoard() {
               marginTop: theme.spacing.sm,
             }}
           >
-            <Text weight={500}>You personal Information</Text>
+            <Text style={{ marginBottom: "5px " }} weight={500}>
+              You personal Information
+            </Text>
           </Group>
           <Link to="/profile" style={{ textDecoration: "none" }}>
-            <Button style={{}} variant="light" color="blue" fullWidth>
+            <Button variant="light" color="blue" fullWidth>
               Change
             </Button>
           </Link>
@@ -65,7 +67,11 @@ function DashBoard() {
 
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image style={{ height: "auto" }} src="/ads.jpg" alt="Norway" />
+            <Image
+              style={{ height: "auto", margin: "auto" }}
+              src="/ads.jpg"
+              alt="Norway"
+            />
           </Card.Section>
 
           <Group
@@ -150,7 +156,9 @@ function DashBoard() {
               marginTop: theme.spacing.sm,
             }}
           >
-            <Text weight={500}>Create an ad for your bicycle</Text>
+            <Text style={{ marginBottom: "10px" }} weight={500}>
+              Create an ad for your bicycle
+            </Text>
           </Group>
           <Link to="/bicycle/create" style={{ textDecoration: "none" }}>
             <Button variant="light" color="blue" fullWidth>
@@ -161,7 +169,11 @@ function DashBoard() {
 
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image style={{ height: "auto" }} src="/plant.jpg" alt="Wrench" />
+            <Image
+              style={{ height: "auto", marginBottom: "25px" }}
+              src="/plant.jpg"
+              alt="Bicycle img"
+            />
           </Card.Section>
 
           <Group
@@ -173,15 +185,12 @@ function DashBoard() {
               marginTop: theme.spacing.sm,
             }}
           >
-            <Text weight={500}>Create an ad for your plant</Text>
+            <Text style={{ marginBottom: "5px" }} weight={500}>
+              Create an ad for your plant
+            </Text>
           </Group>
           <Link to="/plant/create" style={{ textDecoration: "none" }}>
-            <Button
-              variant="light"
-              color="blue"
-              fullWidth
-              style={{ marginTop: 14 }}
-            >
+            <Button variant="light" color="blue" fullWidth>
               Create
             </Button>
           </Link>
