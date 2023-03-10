@@ -35,6 +35,19 @@ function PersonalBikeCard({ bike, setPersonalBikes, personalBikes, user }) {
       <main class="main-content" style={{ display: "flex", flexDirection:'column', gap: "10px" }}>
         <div style={{ display: "flex", flexDirection:'column', gap: "10px" }}>
           <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
+          <Link to={`/bicycle/${bike._id}`}>
+            <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
+              update
+            </Button>
+          </Link>
+          <Button
+            onClick={deleteBike}
+            variant="contained"
+            color='green.8'
+            style={{ marginTop: "40px" }}
+          >
+            delete
+          </Button>
         </div>
         <p>{`Condition: ${bike.condition}`}</p>
         <p>{`Size: ${bike.size}`}</p>

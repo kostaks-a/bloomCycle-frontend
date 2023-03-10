@@ -90,13 +90,26 @@ function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
           />
           <h2>{`${bike.price}€`}</h2>
         </div>
-        <div class="time-left">
-          <img
-            src="https://www.svgrepo.com/show/500012/clock.svg"
-            alt="clock"
-            class="small-image"
-          />
-          <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
+        <p>{`Condition: ${bike.condition}`}</p>
+        <p>{`Size: ${bike.size}`}</p>
+        <p>{`Description: ${bike.description}`}</p>
+        <div class="flex-row">
+          <div class="coin-base">
+            <img
+              src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
+              alt="Ethereum"
+              class="small-image"
+            />
+            <h2>{`${bike.price}€`}</h2>
+          </div>
+          <div class="time-left">
+            <img
+              src="https://www.svgrepo.com/show/500012/clock.svg"
+              alt="clock"
+              class="small-image"
+            />
+            <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
+          </div>
         </div>
       </div>
     </main>

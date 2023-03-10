@@ -1,27 +1,26 @@
-import React from 'react'
+import React from "react";
 import { useContext } from "react";
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { SessionContext } from "../contexts/SessionContext";
-import { Avatar } from '@mantine/core';
+import { Avatar } from "@mantine/core";
 import { Accordion, Select, Button, PasswordInput } from "@mantine/core";
 import { Input } from "@mantine/core";
 import { EnvelopeClosedIcon, LockClosedIcon } from "@modulz/radix-icons";
 import { Box, Flex, Paper, BackgroundImage } from '@mantine/core'
 
-
 function UpdateProfilePage() {
-    //const [user, setUser] = React.useState([]);
-    const [username, setUsername] = useState("");
-    const [email, setEmail] = useState("");
-    const [password, setPassword] = useState("");
-    const [newPassword, setNewPassword] = useState("");
-    const [phoneNumber, setPhoneNumber] = useState("");
-    const [location, setLocation] = useState("");
-    const { token, setToken, setUser, user } = useContext(SessionContext);
-     // const [currentUser, setCurrentUser] = useState();
-    const navigate = useNavigate();
+  //const [user, setUser] = React.useState([]);
+  const [username, setUsername] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [newPassword, setNewPassword] = useState("");
+  const [phoneNumber, setPhoneNumber] = useState("");
+  const [location, setLocation] = useState("");
+  const { token, setToken, setUser, user } = useContext(SessionContext);
+  // const [currentUser, setCurrentUser] = useState();
+  const navigate = useNavigate();
 
     useEffect(() => {
         async function getUser () {
@@ -37,8 +36,8 @@ function UpdateProfilePage() {
             response.data.location && setLocation(response.data.location)
         console.log(response.data)
     }
-    getUser()
-    }, []);
+    getUser();
+  }, []);
 
     const handleUpdate = async (event) => {
         event.preventDefault();
@@ -76,7 +75,6 @@ if(!user) {return <p>loading</p>}
 
             <Box mt={230} mb={60}>
               <Paper shadow="xl" radius="md" p={100} pt={80} sx={{
-
                 display: 'flex',
                 flexDirection: 'column',
                 justifyContent: 'center',
@@ -86,7 +84,8 @@ if(!user) {return <p>loading</p>}
               }}>
       {/* <Avatar src={user.image ? user.image : null} alt="no image here" size="lg" radius="xl" /> */}
 <h1>Update your profile</h1>
-      <Accordion defaultValue="changePersonalInfo">
+      <Accordion defaultValue="changePersonalInfo" style={{width: '400px'
+      }}>
         <Accordion.Item value="change-username">
           <Accordion.Control>Change username</Accordion.Control>
           <Accordion.Panel>
@@ -268,16 +267,11 @@ if(!user) {return <p>loading</p>}
                   height: 'calc(20vh - 1px)',
                 }}
               />
-
-
             </Box>
-
-
           </Flex>
-
         </BackgroundImage>
       </Box>
-    )
+  );
 }
 
-export default UpdateProfilePage
+export default UpdateProfilePage;

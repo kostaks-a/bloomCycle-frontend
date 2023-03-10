@@ -105,11 +105,6 @@ function App() {
           </Box>
         </Header>
       }
-      // footer={
-      //   <Footer height={60} p="md">
-
-      //   </Footer>
-      // }
     >
       <Routes>
         <Route path="/signup" element={<SignupPage />} />

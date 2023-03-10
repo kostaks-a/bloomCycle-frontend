@@ -5,6 +5,7 @@ import { useState } from 'react'
 import { Link, useNavigate } from "react-router-dom";
 
 
+
 const SignupPage = () => {
     const [email, setEmail] = useState("");
     const [username, setUsername] = useState("");

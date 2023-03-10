@@ -99,12 +99,14 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
       </main>
       <div class="card-attribute">
         <img
-          src={plant.owner.image}
+          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
           class="small-avatar"
         />
         <Link to={`/user/${plant.owner.username}`}>{plant.owner.username}</Link>
+        
       </div>
+      
     </div>
   );
 }
