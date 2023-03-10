@@ -173,19 +173,17 @@ function App() {
             }
           />
         </Route>
-      </Routes>
-    </AppShell>
-  );
-}
-
-export default App;
-
-{/* <Route
+        <Route
             path="/user/:username"
             element={
               <PrivateRoute>
                 <PublicProfile />
               </PrivateRoute>
             }
-          />     
-    */}
+          />  
+      </Routes>
+    </AppShell>
+  );
+}
+
+export default App;

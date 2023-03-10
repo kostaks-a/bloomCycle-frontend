@@ -3,14 +3,14 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { SessionContext } from "../contexts/SessionContext";
 import { Link, useNavigate } from "react-router-dom";
-import { Avatar } from '@mantine/core';
-import { Accordion, Select, Button, PasswordInput } from '@mantine/core';
-import { Input } from '@mantine/core';
-import { EnvelopeClosedIcon, LockClosedIcon } from '@modulz/radix-icons';
-
+import { Avatar } from "@mantine/core";
+import { Accordion, Select, Button, PasswordInput } from "@mantine/core";
+import { Input } from "@mantine/core";
+import { EnvelopeClosedIcon, LockClosedIcon } from "@modulz/radix-icons";
 
 function Profile() {
-  const { user, setUser, setIsAuthenticated, setToken } = useContext(SessionContext);
+  const { user, setUser, setIsAuthenticated, setToken } =
+    useContext(SessionContext);
   const [deleting, setDeleting] = useState(false);
   const navigate = useNavigate();
 
@@ -18,30 +18,23 @@ function Profile() {
 
   const handleDelete = async () => {
     setDeleting(true);
-    const grabToken = window.localStorage.getItem("bearer")
     try {
-      await axios.delete(`${import.meta.env.VITE_HOST}/auth/profile/${user._id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${grabToken}`,
-        },
-      })
+      await axios.delete(`http://localhost:5005/auth/profile/${user._id}`);
       localStorage.removeItem("bearer");
       setIsAuthenticated(false);
       setToken(null);
       setUser(null);
-      navigate('/');
+      navigate("/");
     } catch (error) {
       console.log("Error: ", error);
       setDeleting(false);
     }
-  }
-
+  };
 
   return (
 
-    <div className="pageswithfooter">
-      <div className="profile-info">
+    <div className="profile-page">
+      <div className="profile-info-container">
       <h2>Username</h2>
       <p>{user.username} </p>
       <h2>Email address</h2>
