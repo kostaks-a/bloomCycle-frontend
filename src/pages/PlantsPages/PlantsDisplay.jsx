@@ -38,8 +38,7 @@ function PlantsDisplay() {
   return (
     <div className="pageswithfooter">
       <PlantSearchBar search={search} setSearch={setSearch} />
-
-      {plants
+       {plants
         .filter((plant) => {
           if (plant.variety.toLowerCase().match(search.toLowerCase())) {
             return plant;

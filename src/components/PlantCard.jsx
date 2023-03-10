@@ -55,7 +55,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
             <Button
               onClick={savePlantAd}
               variant="contained"
-              color='green.9'
+              color='green.8'
               style={{ marginTop: "40px" }}
             >
               Save ad
@@ -64,7 +64,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
             <Button
               onClick={unsavePlantAd}
               variant="contained"
-              color='green.9'
+              color='green.8'
               style={{ marginTop: "40px" }}
             >
               Unsave
@@ -101,7 +101,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
       </main>
        <div class="card-attribute">
         <img
-          src={plant.owner.image}
+          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
           alt="avatar"
           class="small-avatar"
         />

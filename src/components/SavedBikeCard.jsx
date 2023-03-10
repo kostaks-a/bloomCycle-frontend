@@ -7,7 +7,6 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
   const unsaveBikeAd = async () => {
     try {
       const grabToken = window.localStorage.getItem("bearer");
-      //console.log(bike._id)
       const response = await axios.get(
         `${import.meta.env.VITE_HOST}/bicycles/${bike._id}/remove`,
         {
@@ -16,8 +15,6 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
           },
         }
       );
-      console.log(response.data);
-      //console.log('Saved Bikes after: ', savedBikes);
       setSavedBikes(savedBikes.filter((bicycle) => bicycle._id !== bike._id));
     } catch (error) {
       console.log(error);
@@ -33,6 +30,7 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
           <Button
             onClick={unsaveBikeAd}
             variant="contained"
+            color='green.8'
             style={{ marginTop: "40px" }}
           >
             Unsave
@@ -56,7 +54,7 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${bike.timestamps}`}</p>
+            <p>{`Published:${bike.timestamps}`}</p>
           </div>
         </div>
       </main>

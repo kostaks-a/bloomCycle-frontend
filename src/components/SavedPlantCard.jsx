@@ -32,6 +32,7 @@ function SavedPlantCard({ plant, savedPlants, setSavedPlants }) {
           <Button
             onClick={unsavePlantAd}
             variant="contained"
+            color='green.8'
             style={{ marginTop: "40px" }}
           >
             Unsave

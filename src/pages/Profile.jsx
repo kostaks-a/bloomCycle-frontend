@@ -18,14 +18,8 @@ function Profile() {
 
   const handleDelete = async () => {
     setDeleting(true);
-    const grabToken = window.localStorage.getItem("bearer")
     try {
-      await axios.delete(`${import.meta.env.VITE_HOST}/auth/profile/${user._id}`,
-      {
-        headers: {
-          Authorization: `Bearer ${grabToken}`,
-        },
-      })
+      await axios.delete(`http://localhost:5005/auth/profile/${user._id}`);
       localStorage.removeItem("bearer");
       setIsAuthenticated(false);
       setToken(null);
