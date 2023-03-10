@@ -19,11 +19,10 @@ const SignupPage = () => {
         try {
             console.log(email)
             let response = await axios.post(`${import.meta.env.VITE_HOST}/auth/signup`, { username: username, email: email, password: password });
-            console.log(response.data)
-
+            //console.log(response.data)
             navigate("/login")
         } catch (error) {
-            setErrorMessage(error.response.data.errorMessage)
+            setErrorMessage(error.response.data?.errorMessage)
             console.log(error);
         }
     }
