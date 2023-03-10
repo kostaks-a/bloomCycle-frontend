@@ -32,8 +32,7 @@ function Profile() {
   };
 
   return (
-    //Miguel: on the line below we need to change the avatar.png to
-    //the user image with cloudinary
+
     <div className="pageswithfooter">
       <div className="profile-info">
       <h2>Username</h2>
