@@ -99,7 +99,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
           </div>
         </div>
       </main>
-       {/* <div class="card-attribute">
+       <div class="card-attribute">
         <img
           src={plant.owner.image}
           alt="avatar"
@@ -107,7 +107,7 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
         />
         <Link to={`/user/${plant.owner.username}`}>{plant.owner.username}</Link>
         
-      </div> */}
+      </div>
       
     </div>
   );
