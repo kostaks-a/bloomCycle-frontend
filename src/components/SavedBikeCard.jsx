@@ -14,8 +14,6 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
           },
         }
       );
-      console.log(response.data);
-      //console.log('Saved Bikes after: ', savedBikes);
       setSavedBikes(savedBikes.filter((bicycle) => bicycle._id !== bike._id));
     } catch (error) {
       console.log(error);
@@ -54,7 +52,7 @@ function SavedBikeCard({ bike, savedBikes, setSavedBikes }) {
               alt="clock"
               class="small-image"
             />
-            <p>{`Age:${bike.timestamps}`}</p>
+            <p>{`Published:${bike.timestamps}`}</p>
           </div>
         </div>
       </main>
