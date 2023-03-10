@@ -4,14 +4,16 @@ import { Link, NavLink, useNavigate } from "react-router-dom";
 import axios from "axios";
 import { useContext, useState } from "react";
 
-function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
+function BikeCard({ bike, bicycles, setBicycles, token, currentUser }) {
   const [isSaved, setIsSaved] = useState(false);
+
+  //console.log(bike)
 
   const saveBikeAd = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${bike._id}/save`,
+        `${import.meta.env.VITE_HOST}/bicycles/${bike._id}/save`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -30,7 +32,7 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
     try {
       const grabToken = window.localStorage.getItem("bearer");
       const response = await axios.get(
-        `http://localhost:5005/bicycles/${bike._id}/remove`,
+        `${import.meta.env.VITE_HOST}/bicycles/${bike._id}/remove`,
         {
           headers: {
             Authorization: `Bearer ${grabToken}`,
@@ -46,35 +48,47 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
   };
   return (
     <div class="card-container">
-      <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
-        <img class="hero-image" src={bike.image} alt="{bike.type}" />
-      </Link>
-      <main class="main-content">
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            gap: "10px",
-          }}
-        >
-          <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
-          {!isSaved ? (
-            <Button
-              onClick={saveBikeAd}
-              variant="contained"
-              style={{ marginTop: "40px" }}
-            >
-              Save ad
-            </Button>
-          ) : (
-            <Button
-              onClick={unsaveBikeAd}
-              variant="contained"
-              style={{ marginTop: "40px" }}
-            >
-              Unsave
-            </Button>
-          )}
+    <Link to={`/bicycle/${bike._id}`} class="hero-image-container">
+      <img class="hero-image" src={bike.image} alt="{bike.type}" />
+    </Link>
+    <main class="main-content">
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "space-between",
+          gap: "10px",
+        }}
+      >
+        <h1 style={{ marginRight: "70px" }}>{bike.type}</h1>
+        {!isSaved ? (
+          <Button
+            onClick={saveBikeAd}
+            variant="contained"
+            style={{ marginTop: "40px" }}
+          >
+            Save ad
+          </Button>
+        ) : (
+          <Button
+            onClick={unsaveBikeAd}
+            variant="contained"
+            style={{ marginTop: "40px" }}
+          >
+            Unsave
+          </Button>
+        )}
+      </div>
+      <p>{`Condition: ${bike.condition}`}</p>
+      <p>{`Size: ${bike.size}`}</p>
+      <p>{`Description: ${bike.description}`}</p>
+      <div class="flex-row">
+        <div class="coin-base">
+          <img
+            src="https://www.svgrepo.com/show/405291/euro-banknote.svg"
+            alt="Ethereum"
+            class="small-image"
+          />
+          <h2>{`${bike.price}€`}</h2>
         </div>
         <p>{`Condition: ${bike.condition}`}</p>
         <p>{`Size: ${bike.size}`}</p>
@@ -97,22 +111,19 @@ function DisplayBike({ bike, bicycles, setBicycles, token, currentUser }) {
             <p>{`Published:${bike.createdAt.slice(0, 10)}`}</p>
           </div>
         </div>
-      </main>
-      {/* <div class="card-attribute">
+      </div>
+    </main>
+    <div class="card-attribute">
         <img
-          src="https://i.postimg.cc/SQBzNQf1/image-avatar.png"
+          src={bike.owner.image}
           alt="avatar"
           class="small-avatar"
         />
-        <p>
-          User{" "}
-          <span>
-            <p>{bike.owner.username}</p>
-          </span>
-        </p>
-      </div> */}
-    </div>
-  );
+        <Link to={`/user/${bike.owner.username}`}>{bike.owner.username}</Link>
+      </div>
+  </div>
+  
+    )
 }
 
-export default DisplayBike;
+export default BikeCard;

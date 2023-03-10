@@ -14,7 +14,7 @@ const LoginPage = () => {
     const handleSubmit = async (event) => {
         event.preventDefault()
         try {
-            const response = await axios.post("http://localhost:5005/auth/login", { username: username, password: password })
+            const response = await axios.post(`${import.meta.env.VITE_HOST}/auth/login`, { username: username, password: password })
             console.log(response.data);
             setToken(response.data.token);
             setUser(response.data.user);

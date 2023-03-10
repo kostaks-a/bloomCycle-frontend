@@ -19,6 +19,7 @@ import AboutPage from "./pages/AboutPage";
 import { AppShell, Box, Button, Header } from "@mantine/core";
 import OutletComponent from "./components/OutletComponent";
 import NotFound404 from "./pages/NotFound404";
+import PublicProfile from "./pages/PublicProfile";
 
 
 function App() {
@@ -104,11 +105,6 @@ function App() {
           </Box>
         </Header>
       }
-      // footer={
-      //   <Footer height={60} p="md">
-
-      //   </Footer>
-      // }
     >
       <Routes>
         <Route path="/signup" element={<SignupPage />} />
@@ -178,3 +174,13 @@ function App() {
 }
 
 export default App;
+
+{/* <Route
+            path="/user/:username"
+            element={
+              <PrivateRoute>
+                <PublicProfile />
+              </PrivateRoute>
+            }
+          />     
+    */}

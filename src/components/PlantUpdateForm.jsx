@@ -35,7 +35,7 @@ const PlantUpdateForm = ({
     const grabToken = window.localStorage.getItem("bearer");
     try {
       const response = await axios.get(
-        `http://localhost:5005/plants/${params}` , {
+        `${import.meta.env.VITE_HOST}/plants/${params}` , {
           headers : {
             'Authorization': `Bearer ${grabToken}`
         },
@@ -71,7 +71,7 @@ const PlantUpdateForm = ({
     formData.append("imageUrl", image);
     try {
       await axios.put(
-        `http://localhost:5005/plants/update/${params}`,
+        `${import.meta.env.VITE_HOST}/plants/update/${params}`,
         formData,
         {
           headers: {
@@ -179,3 +179,4 @@ const PlantUpdateForm = ({
 };
 
 export default PlantUpdateForm;
+

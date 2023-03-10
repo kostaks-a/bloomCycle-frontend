@@ -43,7 +43,7 @@ const BikeCreateForm = ({
     formData.append("description", description);
     formData.append("imageUrl", image);
     try {
-     const response = await axios.post("http://localhost:5005/bicycles/newbicycle", formData, {
+     const response = await axios.post(`${import.meta.env.VITE_HOST}/bicycles/newbicycle`, formData, {
         headers: {
           Authorization: `Bearer ${grabToken}`,
         },

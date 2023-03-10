@@ -25,7 +25,7 @@ console.log("user from params: " + user)
 const fetchSavedBikes = async () => {
   const grabToken = window.localStorage.getItem("bearer");
     try {    
-      const response = await axios.get(`http://localhost:5005/bicycles/savedAds/${currentUser._id}` , {
+      const response = await axios.get(`${import.meta.env.VITE_HOST}/bicycles/savedAds/${currentUser._id}` , {
         headers : {
           authorization: `Bearer ${grabToken}`
       },
@@ -42,7 +42,7 @@ const fetchSavedBikes = async () => {
   const fetchSavedPlants = async () => {
     const grabToken = window.localStorage.getItem("bearer");
     try {    
-      const response = await axios.get(`http://localhost:5005/plants/savedAds/${currentUser._id}`  , {
+      const response = await axios.get(`${import.meta.env.VITE_HOST}/plants/savedAds/${currentUser._id}`  , {
         headers : {
           authorization: `Bearer ${grabToken}`
       },

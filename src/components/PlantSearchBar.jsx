@@ -32,3 +32,4 @@ function PlantSearchBar({ search, setSearch }) {
 }
 
 export default PlantSearchBar;
+

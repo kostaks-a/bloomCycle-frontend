@@ -18,7 +18,7 @@ const SignupPage = () => {
         event.preventDefault()
         try {
             console.log(email)
-            let response = await axios.post("http://localhost:5005/auth/signup", { username: username, email: email, password: password });
+            let response = await axios.post(`${import.meta.env.VITE_HOST}/auth/signup`, { username: username, email: email, password: password });
             console.log(response.data)
 
             navigate("/login")

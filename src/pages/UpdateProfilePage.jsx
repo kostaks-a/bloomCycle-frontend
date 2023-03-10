@@ -22,56 +22,51 @@ function UpdateProfilePage() {
   // const [currentUser, setCurrentUser] = useState();
   const navigate = useNavigate();
 
-  useEffect(() => {
-    async function getUser() {
-      const response = await axios.get(`http://localhost:5005/auth/update`, {
-        headers: {
-          authorization: `Bearer ${token}`,
-        },
-      });
-      response.data.username && setUsername(response.data.username);
-      response.data.email && setEmail(response.data.email);
-      response.data.password && setPassword(response.data.password);
-      response.data.phoneNumber && setPhoneNumber(response.data.phoneNumber);
-      response.data.location && setLocation(response.data.location);
-      console.log(response.data);
+    useEffect(() => {
+        async function getUser () {
+        const grabToken = window.localStorage.getItem("bearer");    
+        const response = await axios.get(`${import.meta.env.VITE_HOST}/auth/update`, {
+                headers: {
+                    authorization: `Bearer ${grabToken}`
+                }})
+            response.data.username && setUsername(response.data.username)
+            response.data.email && setEmail(response.data.email)
+            response.data.password && setPassword(response.data.password)
+            response.data.phoneNumber  && setPhoneNumber(response.data.phoneNumber)
+            response.data.location && setLocation(response.data.location)
+        console.log(response.data)
     }
     getUser();
   }, []);
 
-  const handleUpdate = async (event) => {
-    event.preventDefault();
-    console.log("updated username:", username);
-
-    try {
-      const response = await axios.put(
-        `http://localhost:5005/auth/update/${user._id}`,
-        {
-          username: username,
-          email: email,
-          password: password,
-          phoneNumber: phoneNumber,
-          location: location,
-          //  image: image
-        },
-        {
-          headers: {
-            authorization: `Bearer ${token}`,
-          },
+    const handleUpdate = async (event) => {
+        event.preventDefault();
+        console.log("updated username:", username)
+        const grabToken = window.localStorage.getItem("bearer");
+        try {
+            const response = await axios.put(`${import.meta.env.VITE_HOST}/auth/update/${user._id}`, {
+                username: username,
+                email: email,
+                password: password,
+                phoneNumber: phoneNumber,
+                location: location,
+              //  image: image
+            },
+                {
+                    headers: {
+                        authorization: `Bearer ${grabToken}`
+                    }
+                })
+            setUser(response.data.user);
+            setToken(response.data.token);
+            navigate('/profile');
+        } catch (error) {
+            console.log("Error: ", error);
         }
-      );
-      setUser(response.data.user);
-      setToken(response.data.token);
-      navigate("/profile");
-    } catch (error) {
-      console.log("Error: ", error);
-    }
-  };
-  if (!user) {
-    return <p>loading</p>;
-  }
-  return (
-      <Box>
+    };
+if(!user) {return <p>loading</p>}
+    return (
+        <Box>
         <BackgroundImage
           src="/bike-plant-backgroundimg.jpg"
         >
@@ -272,17 +267,10 @@ function UpdateProfilePage() {
                   height: 'calc(20vh - 1px)',
                 }}
               />
-
-
             </Box>
-
-
           </Flex>
-
         </BackgroundImage>
       </Box>
-
-
   );
 }
 
