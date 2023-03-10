@@ -50,9 +50,9 @@ function Profile() {
       <h2>Location</h2>
       <p>{user.location}</p>
 <div className="profile-buttons">
-      <Button color="green.8"
+          <Button sx={{ padding: '10px', margin: '10px' }} color="green.8"
         radius="md" component={Link} to={`/update/${user._id}`}>
-        Update
+        Update account
       </Button>
 
       <Button
@@ -61,6 +61,7 @@ function Profile() {
         to="/"
         color="green.8"
         radius="md"
+            sx={{padding:'10px', margin: '10px'}} 
       >
         Delete account
       </Button>

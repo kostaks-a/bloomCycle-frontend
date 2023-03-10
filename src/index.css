@@ -89,7 +89,7 @@ button:focus-visible {
   width: 100%;
   background-color: #faf0e6;
   color: gray;
-  margin-top: 110px;
+  margin-top: 10px;
   clear: both;
   display: flex;
   justify-content: space-around;
@@ -105,8 +105,9 @@ button:focus-visible {
 }
 
 .pageswithfooter {
-  margin-bottom: 200px;
+  margin-bottom: 5px;
   clear: both;
+  min-height: 60vh;
 }
 
 .profile-info {
@@ -114,10 +115,11 @@ button:focus-visible {
   flex-direction: column;
   align-items: center;
   color: gray;
+  min-height: 60vh;
 }
 
 .update-profile {
-  margin-bottom: 200px;
+ min-height: 60vh;
   clear: both;
 }
 
@@ -136,8 +138,20 @@ button:focus-visible {
 }
 
 .profile-info-container {
+  background-color: white;
+  padding: 50px;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  gap: 15px;
+  border-radius: 10px;
+}
+
+.profile-buttons {
+  display: flex;
+  margin: 20px;
+  flex-direction: row;
+  justify-content: space-between;
+
 }
