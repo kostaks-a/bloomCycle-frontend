@@ -19,7 +19,6 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
       );
       console.log(response.data);
       setIsSaved(true);
-      //setPlants(plants.filter(plants => plants._id !== plant._id))
     } catch (error) {
       console.log(error);
     }
@@ -38,7 +37,6 @@ function PlantCard({ plant, plants, setPlants, token, user }) {
       );
       console.log(response.data);
       setIsSaved(false);
-      //setPlants(plants.filter(plants => plants._id !== plant._id))
     } catch (error) {
       console.log(error);
     }
