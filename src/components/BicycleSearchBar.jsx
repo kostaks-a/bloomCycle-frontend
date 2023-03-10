@@ -7,26 +7,26 @@ function bicycleSearchBar({ search, setSearch }) {
   };
   return (
     <>
-      <Container mt={120}>
-        <Flex
-          style={{ display: "flex", justifyContent: "center" }}
-          direction={{ base: "column", sm: "row" }}
-          gap="sm"
-          align="center"
-        >
-          <Input
-            placeholder="Search"
-            value={search}
-            type="text"
-            onChange={handleChange}
-            radius="xl"
-          />
-          <Button size="xs" radius="xl">
-            Search
-          </Button>
-        </Flex>
-      </Container>
-    </>
+    <Container mt={120}>
+      <Flex
+        style={{ display: "flex", justifyContent: "center" }}
+        direction={{ base: "column", sm: "row" }}
+        gap="sm"
+        align="center"
+      >
+        <Input
+          placeholder="Search"
+          value={search}
+          type="text"
+          onChange={handleChange}
+          radius="xl"
+        />
+        <Button size="xs" radius="xl" color='green.8'>
+          Search
+        </Button>
+      </Flex>
+    </Container>
+  </>
   );
 }
 

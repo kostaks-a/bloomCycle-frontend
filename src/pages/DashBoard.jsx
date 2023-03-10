@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { useContext } from "react";
 import { SessionContext } from "../contexts/SessionContext";
+import { Loader } from '@mantine/core';
 import {
   Card,
   Image,
@@ -21,10 +22,11 @@ function DashBoard() {
 
   // const secondaryColor =
   //   theme.colorScheme === "dark" ? theme.colors.dark[1] : theme.colors.gray[7];
+    
+ if (currentUser === 'undefined') {
+   return (<Loader />)
+ }
 
-  if (currentUser === "undefined") {
-    return <p>Loading</p>;
-  }
   return (
     <div>
       <div
@@ -33,16 +35,12 @@ function DashBoard() {
           justifyContent: "center",
           gap: "30px",
           marginBottom: "30px",
-          marginTop: "25px",
+          marginTop: "100px",
         }}
       >
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image
-              style={{ height: "auto", marginBottom: "50px" }}
-              src="/wrench.jpg"
-              alt="Wrench"
-            />
+            <Image style={{}} src="/wrench.jpg" height={160} alt="Wrench" />
           </Card.Section>
 
           <Group
@@ -57,7 +55,12 @@ function DashBoard() {
             <Text weight={500}>You personal Information</Text>
           </Group>
           <Link to="/profile" style={{ textDecoration: "none" }}>
-            <Button style={{}} variant="light" color="blue" fullWidth>
+            <Button
+              variant="light"
+              color="green.9"
+              fullWidth
+              style={{ marginTop: 14 }}
+            >
               Change
             </Button>
           </Link>
@@ -65,7 +68,7 @@ function DashBoard() {
 
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image style={{ height: "auto" }} src="/ads.jpg" alt="Norway" />
+            <Image src="/ads.jpg" height={160} alt="Norway" />
           </Card.Section>
 
           <Group
@@ -85,7 +88,7 @@ function DashBoard() {
           >
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -95,7 +98,7 @@ function DashBoard() {
         </Card>
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image style={{ height: "auto" }} src="/saved.jpg" alt="Wrench" />
+            <Image src="/saved.jpg" height={160} alt="Wrench" />
           </Card.Section>
 
           <Group
@@ -115,7 +118,7 @@ function DashBoard() {
           >
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >
@@ -123,6 +126,36 @@ function DashBoard() {
             </Button>
           </Link>
         </Card>
+        {/* <Card style={{ width: 300 }} shadow="sm" padding="lg">
+          <Card.Section>
+            <Image src="/messages_img.jpg" height={160} alt="Norway" />
+          </Card.Section>
+
+          <Group
+            position="apart"
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              marginBottom: 5,
+              marginTop: theme.spacing.sm,
+            }}
+          >
+            <Text weight={500}>Messages</Text>
+          </Group>
+          <Link to="/profile" style={{ textDecoration: "none" }}></Link>
+          <Button
+            variant="light"
+            color="green.9"
+            fullWidth
+            style={{ marginTop: 14 }}
+          >
+            Go to profile
+          </Button>
+        </Link>
+      </Card>
+            Read
+          </Button> */}
+        {/* </Card> */}
       </div>
       <div
         style={{
@@ -134,11 +167,7 @@ function DashBoard() {
       >
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image
-              style={{ height: "auto", marginBottom: "125px" }}
-              src="/bicycle.jpg"
-              alt="bicycle"
-            />
+            <Image src="/bicycle.jpg" height={160} alt="bicycle" />
           </Card.Section>
 
           <Group
@@ -146,14 +175,19 @@ function DashBoard() {
             style={{
               display: "flex",
               justifyContent: "center",
-
+              marginBottom: 5,
               marginTop: theme.spacing.sm,
             }}
           >
             <Text weight={500}>Create an ad for your bicycle</Text>
           </Group>
           <Link to="/bicycle/create" style={{ textDecoration: "none" }}>
-            <Button variant="light" color="blue" fullWidth>
+            <Button
+              variant="light"
+              color="green.9"
+              fullWidth
+              style={{ marginTop: 14 }}
+            >
               Create
             </Button>
           </Link>
@@ -161,7 +195,7 @@ function DashBoard() {
 
         <Card style={{ width: 300 }} shadow="sm" padding="lg">
           <Card.Section>
-            <Image style={{ height: "auto" }} src="/plant.jpg" alt="Wrench" />
+            <Image src="/plant.jpg" height={160} alt="Wrench" />
           </Card.Section>
 
           <Group
@@ -178,7 +212,7 @@ function DashBoard() {
           <Link to="/plant/create" style={{ textDecoration: "none" }}>
             <Button
               variant="light"
-              color="blue"
+              color="green.9"
               fullWidth
               style={{ marginTop: 14 }}
             >

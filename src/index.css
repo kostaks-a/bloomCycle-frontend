@@ -15,13 +15,13 @@
   -webkit-text-size-adjust: 100%;
 }
 
-body {
+/* body {
   margin: 0;
   display: flex;
   place-items: center;
   min-width: 320px;
   min-height: 100vh;
-}
+} */
 
 h1 {
   font-size: 3.2em;
@@ -40,14 +40,14 @@ button {
   transition: border-color 0.25s;
 }
 
-button:hover {
+/* button:hover {
   border-color: #646cff;
 }
 
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
-}
+} */
 
 @media (prefers-color-scheme: light) {
   :root {
@@ -74,6 +74,49 @@ button:focus-visible {
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.footer {
+  height: 100px;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background-color: #faf0e6;
+  color: gray;
+  margin-top: 110px;
+  clear: both;
+  display: flex;
+  justify-content: space-around;
+  flex-direction: row;
+}
+
+.background-image {
+  background-image: url("../../public/plants-background.jpg");
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.pageswithfooter {
+  margin-bottom: 200px;
+  clear: both;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: gray;
+}
+
+.update-profile {
+    margin-bottom: 200px;
+      clear: both;
 }

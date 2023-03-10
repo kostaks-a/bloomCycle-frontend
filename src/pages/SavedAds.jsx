@@ -60,6 +60,7 @@ const fetchSavedBikes = async () => {
     }, []);
 
   return (
+    <div className="pageswithfooter">
     <div styles = {{ display:'flex'}}>
     <div>
         <h1>Saved Bicycles</h1>
@@ -77,6 +78,7 @@ const fetchSavedBikes = async () => {
             )  
           })}
     </div>
+  </div>
   </div>
   )
 }

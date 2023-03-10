@@ -27,6 +27,7 @@ const LoginPage = () => {
     }
 
     return (
+        <div className='background-image'>
         <Box
             sx={{
                 margin: '0 auto',
@@ -35,34 +36,40 @@ const LoginPage = () => {
                 flexDirection: 'column',
                 justifyContent: 'center',
                 height: 'calc(100vh - 100px)',
+                color: 'white'
             }}
         >
-            <Text align='center' size='xl' weight='bold'>
+                <Text align='center' size='xl' weight='bold' sx={{fontSize: '50px'}}>
                 Login
             </Text>
             <Box
                 component='form'
-                sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
+                    sx={{ display: 'flex', flexDirection: 'column', gap: '20px', marginTop: '2rem' }}
                 onSubmit={handleSubmit}
             >
-                <TextInput label='Username' variant='filled' placeholder='Your username' withAsterisk value={username} onChange={(e) => setUsername(e.target.value)} />
-                <PasswordInput label='Password' variant='filled' placeholder='Your password' icon={<LockClosedIcon />} withAsterisk value={password} onChange={(e) => setPassword(e.target.value)} />
+                    
+                <TextInput variant='filled' placeholder='Your username' withAsterisk value={username} onChange={(e) => setUsername(e.target.value)} />
+                    
+                <PasswordInput  variant='filled' placeholder='Your password' icon={<LockClosedIcon />} withAsterisk value={password} onChange={(e) => setPassword(e.target.value)} />
                 <Button
                     type='submit'
                     variant='filled'
-                    color='cyan'
-                    sx={{ marginTop: '1rem', alignSelf: 'center' }}
+                    color='green.8'
+                      
+                    sx={{ marginTop: '2rem', alignSelf: 'center' }}
                 >
                     Connect
                 </Button>
-                <Text color="dimmed" size="sm" align="center" mt={5}>
+                  
+                <Text color="white" size="" align="center" mt={10}>
                     Don't have an account yet? {" "}
-                    <Button component={Link} to='/signup' variant='subtle' color='cyan'>
+                    <Button component={Link} to='/signup' variant='subtle' color='green.8'>
                         Sign Up
                     </Button>
                 </Text>
             </Box>
         </Box>
+        </div>
     )
 }
 

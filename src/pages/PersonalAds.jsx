@@ -66,6 +66,7 @@ function PersonalAds() {
   }, []);
 
   return (
+    <div className="pageswithfooter">
     <div style={{ display: "flex", justifyContent: "space-around" }}>
       <div>
         <h1>Plant ads</h1>
@@ -91,6 +92,7 @@ function PersonalAds() {
           />
         ))}
       </div>
+    </div>
     </div>
   );
 }

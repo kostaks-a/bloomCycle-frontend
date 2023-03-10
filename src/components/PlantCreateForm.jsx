@@ -88,6 +88,7 @@ const PlantCreateForm = ({
         <TextInput
           label="Size"
           variant="filled"
+          placeholder="cm"
           withAsterisk
           value={size}
           onChange={(e) => setSize(e.currentTarget.value)}
@@ -109,6 +110,7 @@ const PlantCreateForm = ({
         <NumberInput
           label="Price"
           variant="filled"
+          placeholder="€"
           withAsterisk
           value={price}
           onChange={setPrice}
@@ -118,7 +120,7 @@ const PlantCreateForm = ({
         <Button
           type="submit"
           variant="filled"
-          color="cyan"
+          color="green.8"
           sx={{ marginTop: "1rem", alignSelf: "center" }}
         >
           Create an ad

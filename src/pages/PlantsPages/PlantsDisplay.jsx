@@ -36,7 +36,7 @@ function PlantsDisplay() {
   }, []);
 
   return (
-    <>
+    <div className="pageswithfooter">
       <PlantSearchBar search={search} setSearch={setSearch} />
 
       {plants
@@ -56,7 +56,7 @@ function PlantsDisplay() {
             />
           );
         })}
-    </>
+    </div>
   );
 }
 

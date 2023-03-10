@@ -39,9 +39,9 @@ function Profile() {
 
 
   return (
-    //Miguel: on the line below we need to change the avatar.png to 
-    //the user image with cloudinary
-    <div>
+
+    <div className="pageswithfooter">
+      <div className="profile-info">
       <h2>Username</h2>
       <p>{user.username} </p>
       <h2>Email address</h2>
@@ -50,14 +50,23 @@ function Profile() {
       <p>{user.phoneNumber}</p>
       <h2>Location</h2>
       <p>{user.location}</p>
-
-      <Link type="button" component={Link} to={`/update/${user._id}`}>
+<div className="profile-buttons">
+      <Button color="green.8"
+        radius="md" component={Link} to={`/update/${user._id}`}>
         Update
-      </Link>
+      </Button>
 
-      <Button onClick={handleDelete} component={Link} to='/' color="cyan" radius="md">
+      <Button
+        onClick={handleDelete}
+        component={Link}
+        to="/"
+        color="green.8"
+        radius="md"
+      >
         Delete account
       </Button>
+        </div>
+      </div>
     </div>
   );
 }
