@@ -33,8 +33,8 @@ function Profile() {
 
   return (
 
-    <div className="pageswithfooter">
-      <div className="profile-info">
+    <div className="profile-page">
+      <div className="profile-info-container">
       <h2>Username</h2>
       <p>{user.username} </p>
       <h2>Email address</h2>
