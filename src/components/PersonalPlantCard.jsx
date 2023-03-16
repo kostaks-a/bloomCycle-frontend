@@ -32,7 +32,7 @@ function PersonalPlantCard({ plant, setPersonalPlants, personalPlants }) {
         </div>
       </Link>
       <main class="main-content">
-        <div style={{ display: "flex", gap: "10px" }}>
+        <div>
             <Link to={`/plant/${plant._id}`}>
             <Button variant="contained" color='green.8' style={{ marginTop: "40px" }}>
               update
