@@ -18,12 +18,12 @@ const SignupPage = () => {
         event.preventDefault()
         const body = { username: username, email: email, password: password }
         try {
-            console.log(email)
+            console.log(body)
             let response = await axios.post(`${import.meta.env.VITE_HOST}/auth/signup`, body);
-            //console.log(response.data)
+            console.log(response.data)
             navigate("/login")
         } catch (error) {
-            setErrorMessage(error.response.data.errorMessage)
+            //setErrorMessage(error.response.data.errorMessage)
             console.log(error);
         }
     }
